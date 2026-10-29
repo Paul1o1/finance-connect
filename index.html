@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Finance Connect — Connect with the right financial opportunity</title>
+  <meta name="description" content="Finance Connect is a two-sided discovery marketplace for financial opportunities. Search grants, loans, investments, insurance, and programs — all in one place." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo" aria-label="Finance Connect home">
+        <svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2.5"/>
+          <path d="M10 16h12M16 10v12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        Finance Connect
+      </a>
+      <div class="nav-links">
+        <a href="#how-it-works" class="nav-link">How it works</a>
+        <a href="#features" class="nav-link">Categories</a>
+        <a href="dashboard.html" class="nav-link">Provider Dashboard</a>
+        <a href="#pricing-teaser" class="nav-link">Pricing</a>
+      </div>
+      <div class="nav-ctas">
+        <a href="dashboard.html" class="nav-cta-text">List an opportunity</a>
+        <a href="#" class="btn btn-filled">Start searching</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-blush"></div>
+
+    <!-- Floating card: Category breakdown (left) -->
+    <div class="artifact artifact-region" id="artifact-region">
+      <div class="artifact-stat-row">
+        <div class="artifact-mini-chart">
+          <div class="bar-chart">
+            <div class="bar" style="height:60%"></div>
+            <div class="bar" style="height:80%"></div>
+            <div class="bar" style="height:45%"></div>
+            <div class="bar" style="height:70%"></div>
+            <div class="bar active" style="height:95%"></div>
+          </div>
+          <div class="artifact-big-num">4 820</div>
+          <div class="artifact-delta">listings &amp; growing</div>
+        </div>
+        <div class="artifact-table-section">
+          <div class="artifact-label">Category</div>
+          <table class="region-table">
+            <tr><td>Grants</td><td>1 204</td></tr>
+            <tr><td>Loans</td><td>987</td></tr>
+            <tr><td>Investments</td><td>843</td></tr>
+            <tr><td>Programs</td><td>612</td></tr>
+            <tr><td>Insurance</td><td>420</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating card: Match stat (top-right) -->
+    <div class="artifact artifact-registrations" id="artifact-registrations">
+      <div class="artifact-label">Match rate</div>
+      <div class="artifact-reg-body">
+        <div class="radial-wrap">
+          <svg class="radial-chart" viewBox="0 0 80 80" width="80" height="80">
+            <circle cx="40" cy="40" r="32" fill="none" stroke="#f2f2f3" stroke-width="6"/>
+            <circle cx="40" cy="40" r="32" fill="none" stroke="#5d2a1a" stroke-width="6"
+              stroke-dasharray="150.796" stroke-dashoffset="30"
+              stroke-linecap="round" transform="rotate(-90 40 40)"/>
+            <text x="40" y="44" text-anchor="middle" font-size="13" font-weight="500" fill="#17191c">82%</text>
+          </svg>
+        </div>
+        <div>
+          <div class="artifact-big-num">3.1k</div>
+          <div class="artifact-delta">seekers matched</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero text -->
+    <div class="hero-content">
+      <h1 class="hero-headline">
+        Connect with the right<br /><em>financial opportunity</em>
+      </h1>
+      <p class="hero-sub">Finance Connect is an AI-powered match optimization platform where capital seekers and providers connect through intelligent neural thesis alignment — moving beyond blunt filters.</p>
+      <div class="hero-ctas">
+        <a href="dashboard.html" class="btn btn-filled" id="hero-search">Explore AI Matches</a>
+        <a href="dashboard.html#focus" class="btn btn-ghost" id="hero-list">Tune AI Mandate</a>
+      </div>
+    </div>
+
+    <!-- Floating card: Popular search (bottom-left) -->
+    <div class="artifact artifact-activation" id="artifact-activation">
+      <div class="activation-top">
+        <div class="artifact-label">Trending searches</div>
+        <div class="avatar-bubble green">SF</div>
+      </div>
+      <div class="trending-pills-wrap">
+        <div class="trending-pill active-pill-tag">Startup grants</div>
+        <div class="trending-pill">Early-stage investors</div>
+        <div class="trending-pill">SMB loans</div>
+        <div class="trending-pill">R&amp;D programs</div>
+      </div>
+      <div class="activation-footer">
+        <div>
+          <div class="artifact-big-num">620+</div>
+          <div class="artifact-delta">searches today</div>
+        </div>
+        <div class="month-pills">
+          <span>Grants</span><span>Loans</span><span class="active-pill">Invest</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating card: Compare widget (bottom-right) -->
+    <div class="artifact artifact-composer" id="artifact-composer">
+      <div class="avatar-bubble blue composer-avatar">MB</div>
+      <div class="compare-widget">
+        <div class="artifact-label" style="margin-bottom:8px">Compare opportunities</div>
+        <div class="compare-rows">
+          <div class="compare-row">
+            <span class="compare-badge grant">Grant</span>
+            <span class="compare-name">SEDA Growth Fund</span>
+            <span class="compare-amt">R500k</span>
+          </div>
+          <div class="compare-row">
+            <span class="compare-badge loan">Loan</span>
+            <span class="compare-name">Nedbank BizLoan</span>
+            <span class="compare-amt">R2M</span>
+          </div>
+          <div class="compare-row compare-row-active">
+            <span class="compare-badge invest">Invest</span>
+            <span class="compare-name">Knife Capital</span>
+            <span class="compare-amt">$1M+</span>
+          </div>
+        </div>
+        <div class="compare-footer">
+          <span class="compare-hint">Comparing 3 of 3</span>
+          <button class="btn btn-filled" style="padding:6px 14px;font-size:13px">Compare →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORY BROWSING SECTION -->
+  <section class="features" id="features">
+    <div class="container">
+      <p class="section-category">Browse by category</p>
+      <h2 class="section-heading">Every type of opportunity, <em>one place to find it</em></h2>
+      <div class="features-grid">
+
+        <div class="feature-card neutral" id="cat-grants">
+          <p class="tag">Seekers</p>
+          <h3 class="feature-title">Grants &amp; Programmes</h3>
+          <p class="feature-body">Discover non-repayable funding from government bodies, development agencies, and foundations. AI-matched by sector, stage, and eligibility criteria.</p>
+          <a href="#" class="text-link">Explore grants →</a>
+        </div>
+
+        <div class="feature-card neutral" id="cat-loans">
+          <p class="tag">Seekers</p>
+          <h3 class="feature-title">Loans &amp; Financing</h3>
+          <p class="feature-body">Compare business loans, microfinance, and structured credit facilities from banks, DFIs, and alternative lenders — side by side.</p>
+          <a href="#" class="text-link">Explore loans →</a>
+        </div>
+
+        <div class="feature-card peach" id="feature-peach">
+          <p class="tag peach-tag">Providers</p>
+          <blockquote class="feature-title peach-title">"Finance Connect made it easy for our fund to reach the founders who need us most."</blockquote>
+          <p class="feature-body peach-body">We set our investment thesis parameters once and our AI matching back end continuously surfaces pre-screened, high-conviction opportunities.</p>
+          <p class="attribution">— Thabo M., Managing Partner</p>
+        </div>
+
+        <div class="feature-card neutral" id="cat-investments">
+          <p class="tag">Seekers &amp; Providers</p>
+          <h3 class="feature-title">Investments &amp; Equity</h3>
+          <p class="feature-body">Connect with angel investors, VCs, and impact funds matched via neural thesis scoring. Our AI evaluates stage readiness, traction velocity, and ticket fit.</p>
+          <a href="#" class="text-link">Explore investors →</a>
+        </div>
+
+        <div class="feature-card neutral" id="cat-insurance">
+          <p class="tag">Seekers</p>
+          <h3 class="feature-title">Insurance &amp; Risk Cover</h3>
+          <p class="feature-body">Discover business insurance, professional indemnity, and sector-specific cover from providers who understand your industry.</p>
+          <a href="#" class="text-link">Explore insurance →</a>
+        </div>
+
+        <div class="feature-card neutral" id="cat-services">
+          <p class="tag">Seekers</p>
+          <h3 class="feature-title">Financial Services &amp; Advisors</h3>
+          <p class="feature-body">Connect with accountants, financial planners, tax advisors, and business support organisations to grow with confidence.</p>
+          <a href="#" class="text-link">Explore services →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <section class="stats-bar" id="stats-bar">
+    <div class="container stats-inner">
+      <div class="stat-item">
+        <div class="stat-num">4 820</div>
+        <div class="stat-label">Active listings</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-num">320+</div>
+        <div class="stat-label">Verified providers</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-num">3.1k</div>
+        <div class="stat-label">Seekers matched</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-num">6</div>
+        <div class="stat-label">Opportunity categories</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="container">
+      <p class="section-category">How it works</p>
+      <h2 class="section-heading">From discovery to contact in <em>three steps</em></h2>
+      <div class="steps-grid">
+        <div class="step-card" id="step-1">
+          <div class="step-num">01 — AI Optimization</div>
+          <h3 class="step-title">AI Match Optimization &amp; Alignment</h3>
+          <p class="step-body">Input your venture profile or fund thesis. Our AI neural matching engine evaluates traction, stage readiness, and strategic alignment to curate high-conviction matches — moving beyond manual keyword filters.</p>
+        </div>
+        <div class="step-card" id="step-2">
+          <div class="step-num">02 — Compare</div>
+          <h3 class="step-title">Compare up to 3 listings side by side</h3>
+          <p class="step-body">Add any listings to your compare tray. See funding amounts, eligibility, terms, and provider details in a clear, structured view. Save the ones that fit.</p>
+        </div>
+        <div class="step-card" id="step-3">
+          <div class="step-num">03 — Connect</div>
+          <h3 class="step-title">Contact providers directly</h3>
+          <p class="step-body">Reach out to the provider directly through their listing. Finance Connect stays out of the decision — no middleman, no fees, no applications processed on your behalf.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR PROVIDERS SECTION -->
+  <section class="composer-section" id="for-providers">
+    <div class="container">
+      <div class="composer-section-inner">
+        <div class="composer-text">
+          <p class="section-category">For Providers</p>
+          <h2 class="section-heading-sm">Reach seekers who are <em>already looking</em></h2>
+          <p class="composer-desc">Investors, lenders, foundations, insurers, and advisors — create an organisation profile, list your opportunities, and let motivated seekers find you. No cold outreach needed.</p>
+          <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+            <a href="dashboard.html" class="btn btn-filled" id="list-opportunity">List an opportunity →</a>
+            <a href="dashboard.html" class="btn btn-ghost" id="view-dashboard">Provider dashboard →</a>
+          </div>
+        </div>
+        <div class="composer-demo">
+          <div class="composer-card" id="provider-card">
+            <div class="provider-profile">
+              <div class="provider-avatar">KC</div>
+              <div>
+                <div class="provider-name">Knife Capital</div>
+                <div class="provider-type">Early-stage VC · Cape Town</div>
+              </div>
+              <span class="provider-badge">Investment</span>
+            </div>
+            <div class="provider-details">
+              <div class="provider-detail-row">
+                <span class="provider-detail-label">Ticket size</span>
+                <span class="provider-detail-val">$500k – $2M</span>
+              </div>
+              <div class="provider-detail-row">
+                <span class="provider-detail-label">Stage</span>
+                <span class="provider-detail-val">Series A &amp; B</span>
+              </div>
+              <div class="provider-detail-row">
+                <span class="provider-detail-label">Sectors</span>
+                <span class="provider-detail-val">Fintech, SaaS, Climate</span>
+              </div>
+              <div class="provider-detail-row">
+                <span class="provider-detail-label">Portfolio</span>
+                <span class="provider-detail-val">40+ companies</span>
+              </div>
+            </div>
+            <div class="provider-actions">
+              <button class="btn btn-filled" style="flex:1" id="contact-provider">Contact provider</button>
+              <button class="btn btn-ghost" id="save-listing">Save listing</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING TEASER -->
+  <section class="pricing-teaser" id="pricing-teaser">
+    <div class="container pricing-inner">
+      <h2 class="section-heading">Free to search, <em>simple to list</em></h2>
+      <p class="pricing-sub">Seekers always search for free — no account required. Providers list their opportunities with simple, transparent plans. No commission, no hidden fees.</p>
+      <div class="pricing-ctas">
+        <a href="#" class="btn btn-filled" id="pricing-search">Start searching free</a>
+        <a href="#" class="btn btn-ghost" id="pricing-list">List an opportunity</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">Finance Connect</span>
+        <span class="footer-tagline">connect with the right financial opportunity</span>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <p class="footer-col-title">Discover</p>
+          <a href="#">Grants</a>
+          <a href="#">Loans</a>
+          <a href="#">Investments</a>
+          <a href="#">Insurance</a>
+          <a href="#">Programs</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">Providers</p>
+          <a href="#">List an opportunity</a>
+          <a href="#">Organisation profile</a>
+          <a href="#">Pricing</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">Company</p>
+          <a href="#">About</a>
+          <a href="#">Blog</a>
+          <a href="#">Contact</a>
+          <a href="#">Privacy</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Finance Connect. All rights reserved.</span>
+      <span>Finance Connect is a discovery platform only. Listings are not approvals, guarantees, or financial advice.</span>
+    </div>
+  </footer>
+
+</body>
+</html>

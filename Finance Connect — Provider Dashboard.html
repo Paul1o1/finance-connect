@@ -1,0 +1,2020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Finance Connect — Provider Dashboard</title>
+  <meta name="description" content="Your Finance Connect investor dashboard — matched opportunities, deal pipeline, conversations, and investment focus." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body class="dash-body">
+
+  <!-- ── TOP NAVIGATION BAR ── -->
+  <header class="dash-top-navbar" id="dash-top-navbar">
+    <div class="dash-nav-left">
+      <!-- Mobile sidebar hamburger toggle -->
+      <button class="dash-nav-toggle" id="dash-sidebar-toggle" aria-label="Toggle navigation menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+
+      <!-- Brand Logo -->
+      <a href="index.html" class="dash-nav-logo" aria-label="Finance Connect home">
+        <div class="dash-logo-icon">
+          <svg width="18" height="18" viewBox="0 0 32 32" fill="none">
+            <circle cx="16" cy="16" r="14" stroke="#fff" stroke-width="2.5"/>
+            <path d="M10 16h12M16 10v12" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="dash-logo-text-group">
+          <span class="dash-logo-title">Finance Connect</span>
+          <span class="dash-logo-subtitle">Provider Portal</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Right Controls: Search, Basket/Saved Deals, Notifications, User Profile Capsule -->
+    <div class="dash-nav-right">
+      <!-- AI Match Optimization Engine Indicator -->
+      <div class="dash-ai-engine-pill" title="AI Match Optimization Engine Active">
+        <span class="ai-pulse-dot"></span>
+        <span>AI Match Engine · v2.4 Active</span>
+      </div>
+
+      <!-- Search Input Box -->
+      <div class="dash-nav-search" id="dash-nav-search">
+        <svg class="dash-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input type="text" placeholder="Search opportunities, deals, founders" class="dash-search-input" id="dash-search-input" aria-label="Search opportunities, listings, conversations" />
+        <span class="dash-search-shortcut">⌘K</span>
+      </div>
+
+      <!-- Action: Saved Basket (with Badge 4) -->
+      <div class="dash-nav-action-wrap">
+        <button class="dash-nav-icon-btn" id="dash-basket-btn" aria-label="Saved pipeline deals" title="Saved pipeline opportunities">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m5 10 4-6"/>
+            <path d="m19 10-4-6"/>
+            <path d="M2 10h20"/>
+            <path d="m3.5 10 1.6 8.2a2 2 0 0 0 2 1.8h9.8a2 2 0 0 0 2-1.8l1.6-8.2"/>
+            <line x1="9" y1="14" x2="9" y2="17"/>
+            <line x1="12" y1="14" x2="12" y2="17"/>
+            <line x1="15" y1="14" x2="15" y2="17"/>
+          </svg>
+          <span class="dash-basket-badge" id="basket-badge-count">4</span>
+        </button>
+
+        <!-- Saved deals popover -->
+        <div class="dash-popover dash-basket-popover" id="dash-basket-popover">
+          <div class="dash-popover-title-row">
+            <span class="dash-popover-title">Saved Pipeline Deals</span>
+            <span class="dash-badge" id="popover-saved-count">4 items</span>
+          </div>
+          <div class="dash-popover-list">
+            <a href="javascript:void(0)" class="dash-mini-card" data-tab="saved">
+              <div class="dash-mini-card-text">
+                <span class="dash-mini-card-title">Addis Cold Chain</span>
+                <span class="dash-mini-card-sub">Logistics · Seed · USD 150k</span>
+              </div>
+            </a>
+            <a href="javascript:void(0)" class="dash-mini-card" data-tab="saved">
+              <div class="dash-mini-card-text">
+                <span class="dash-mini-card-title">Kebede Organic Foods</span>
+                <span class="dash-mini-card-sub">Agri-processing · Seed · USD 150k</span>
+              </div>
+            </a>
+            <a href="javascript:void(0)" class="dash-mini-card" data-tab="saved">
+              <div class="dash-mini-card-text">
+                <span class="dash-mini-card-title">SolarLink Clean Energy</span>
+                <span class="dash-mini-card-sub">Solar &amp; Storage · USD 220k</span>
+              </div>
+            </a>
+            <a href="javascript:void(0)" class="dash-mini-card" data-tab="saved">
+              <div class="dash-mini-card-text">
+                <span class="dash-mini-card-title">Meskel Learning</span>
+                <span class="dash-mini-card-sub">Edtech · Pre-seed · USD 80k</span>
+              </div>
+            </a>
+          </div>
+          <div style="padding-top: 8px; border-top: 1px solid var(--color-border); margin-top: 6px; text-align: center;">
+            <button class="btn btn-filled" style="width: 100%; font-size: 12px; padding: 6px 12px;" data-tab="saved">Open Deal Pipeline</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Notification Bell Button -->
+      <div class="dash-nav-action-wrap">
+        <button class="dash-nav-icon-btn dash-bell-btn" id="dash-bell-btn" aria-label="Notifications (3 unread)" title="Notifications">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+          </svg>
+          <span class="dash-bell-dot"></span>
+        </button>
+
+        <!-- Notifications popover -->
+        <div class="dash-popover dash-notif-popover" id="dash-notif-popover">
+          <div class="dash-popover-title-row">
+            <span class="dash-popover-title">Notifications</span>
+            <span class="dash-badge">3 unread</span>
+          </div>
+          <div class="dash-popover-list">
+            <a href="javascript:void(0)" class="dash-mini-card" data-tab="conversations">
+              <div class="dash-mini-card-text">
+                <span class="dash-mini-card-title">Kebede Foods replied</span>
+                <span class="dash-mini-card-sub">Updated pitch deck &amp; model shared · 12m ago</span>
+              </div>
+            </a>
+            <a href="javascript:void(0)" class="dash-mini-card" data-tab="for-you">
+              <div class="dash-mini-card-text">
+                <span class="dash-mini-card-title">New 96% Match: Addis Cold Chain</span>
+                <span class="dash-mini-card-sub">Perfect fit for seed agritech/logistics</span>
+              </div>
+            </a>
+            <a href="javascript:void(0)" class="dash-mini-card" data-tab="conversations">
+              <div class="dash-mini-card-text">
+                <span class="dash-mini-card-title">Selam Health call booked</span>
+                <span class="dash-mini-card-sub">Scheduled for Friday 2:00 PM EAT</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- User Profile Capsule -->
+      <div class="dash-user-capsule-wrap">
+        <button class="dash-user-capsule" id="dash-user-capsule-btn" aria-haspopup="true" aria-expanded="false" aria-label="User account menu">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&h=120&q=80" alt="Amara Okonkwo" class="dash-capsule-avatar-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="dash-capsule-avatar-fallback">A</div>
+          <div class="dash-capsule-text">
+            <span class="dash-capsule-name">Amara Okonkwo</span>
+            <span class="dash-capsule-role">Provider</span>
+          </div>
+          <svg class="dash-capsule-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+
+        <!-- Dropdown Menu -->
+        <div class="dash-popover dash-user-menu" id="dash-user-menu">
+          <div class="dash-popover-header">
+            <div class="dash-popover-user-name">Amara Okonkwo</div>
+            <div class="dash-popover-user-email">amara.okonkwo@nilehorizon.capital</div>
+          </div>
+          <div class="dash-popover-divider"></div>
+          <a href="javascript:void(0)" class="dash-popover-link" data-tab="profile">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Provider Profile &amp; Credentials
+          </a>
+          <a href="javascript:void(0)" class="dash-popover-link" data-tab="focus">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="6" r="2"/></svg>
+            Investment Mandate
+          </a>
+          <a href="javascript:void(0)" class="dash-popover-link" data-tab="saved">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg>
+            Saved Deals Pipeline
+          </a>
+          <a href="index.html" class="dash-popover-link">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+            Public Marketplace
+          </a>
+          <div class="dash-popover-divider"></div>
+          <a href="index.html" class="dash-popover-link logout-link">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            Sign out
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── APP LAYOUT WRAPPER ── -->
+  <div class="dash-layout">
+
+    <!-- SIDEBAR NAVIGATION -->
+    <aside class="dash-sidebar" id="dash-sidebar">
+      <div class="dash-sidebar-top">
+        <!-- Navigation Links -->
+        <nav class="dash-nav-group" aria-label="Main menu">
+          <div class="dash-nav-section-title">Discovery</div>
+          
+          <a href="#for-you" class="dash-nav-item dash-nav-item-active" data-tab="for-you" id="nav-for-you">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3z"/>
+            </svg>
+            <span>For you</span>
+          </a>
+
+          <a href="#saved" class="dash-nav-item" data-tab="saved" id="nav-saved">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/>
+            </svg>
+            <span>Saved</span>
+          </a>
+
+          <a href="#conversations" class="dash-nav-item" data-tab="conversations" id="nav-conversations">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+            <span>Conversations</span>
+            <span class="dash-badge" aria-label="3 unread">3</span>
+          </a>
+
+          <a href="#focus" class="dash-nav-item" data-tab="focus" id="nav-focus">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+            </svg>
+            <span>AI Mandate &amp; Thesis</span>
+          </a>
+
+          <a href="#profile" class="dash-nav-item" data-tab="profile" id="nav-profile">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+            <span>Profile</span>
+          </a>
+
+          <div class="dash-nav-section-title" style="margin-top: 20px;">Explore</div>
+          <a href="index.html" class="dash-nav-item" id="nav-marketplace">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+            </svg>
+            <span>Marketplace</span>
+          </a>
+          <a href="index.html#how-it-works" class="dash-nav-item" id="nav-how">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+            <span>How it works</span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Sidebar Bottom / Account -->
+      <div class="dash-sidebar-bottom">
+        <div class="dash-user-card" id="user-card">
+          <div class="dash-avatar" aria-label="Amara's account">A</div>
+          <div class="dash-user-info">
+            <span class="dash-user-name">Amara Okonkwo</span>
+            <span class="dash-user-role">East &amp; West Africa · Partner</span>
+          </div>
+          <a href="index.html" class="dash-user-logout" title="Back to homepage" aria-label="Back to homepage">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+              <polyline points="16 17 21 12 16 7"/>
+              <line x1="21" y1="12" x2="9" y2="12"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Mobile Backdrop -->
+    <div class="dash-sidebar-backdrop" id="sidebar-backdrop"></div>
+
+    <!-- MAIN CONTENT VIEW CONTAINER -->
+    <div class="dash-main-wrapper">
+      <main class="dash-main" id="dash-main">
+
+        <!-- ========================================================
+             INTERFACE 1: "FOR YOU" (DEAL FLOW & MATCHES HUB)
+             ======================================================== -->
+        <div class="dash-view dash-view-active" id="view-for-you">
+
+          <!-- ── HERO BANNER ── -->
+          <section class="dash-hero" id="dash-hero" aria-labelledby="hero-heading">
+            <div class="dash-hero-left">
+              <p class="dash-hero-meta" style="display:flex; align-items:center; gap:8px;">
+                <span class="ai-tag-pill"><span class="ai-pulse-dot"></span> AI Match Optimization Engine Active</span>
+                <span style="font-size:12px; color:var(--color-slate-gray);">142 Pitches Evaluated Today</span>
+              </p>
+              <h1 class="dash-hero-heading" id="hero-heading">
+                Good morning, Amara.<br />5 high-conviction matches optimized for your thesis.
+              </h1>
+              <p class="dash-hero-sub">
+                Our AI neural matching model continuously scores incoming venture decks against your multi-dimensional mandate vectors, traction velocity, and portfolio synergy — optimizing matches rather than relying on manual filters.
+              </p>
+              <div class="dash-hero-ctas">
+                <button class="btn dash-btn-hero-filled" onclick="openOppModal('addis')">Review 96% Top Match</button>
+                <button class="btn btn-ai-optimize" id="hero-reoptimize-btn" onclick="runAiOptimization()">
+                  <span id="opt-btn-icon">✦</span> <span id="opt-btn-text">Re-Optimize Matches</span>
+                </button>
+                <button class="btn dash-btn-hero-outline" data-tab="conversations">Reply to Kebede Foods</button>
+              </div>
+            </div>
+            <div class="dash-hero-right">
+              <p class="dash-focus-label">AI Neural Thesis Embeddings</p>
+              <div class="dash-focus-rows">
+                <div class="dash-focus-row">
+                  <span class="dash-focus-key">Target Vectors</span>
+                  <span class="dash-focus-val">Agri-tech, Fintech, Health</span>
+                </div>
+                <div class="dash-focus-row">
+                  <span class="dash-focus-key">Model Weights</span>
+                  <span class="dash-focus-val">Seed · High MRR Velocity</span>
+                </div>
+                <div class="dash-focus-row">
+                  <span class="dash-focus-key">Check Sweet Spot</span>
+                  <span class="dash-focus-val">USD 50k–250k</span>
+                </div>
+                <div class="dash-focus-row">
+                  <span class="dash-focus-key">Target Moat</span>
+                  <span class="dash-focus-val">East &amp; West Africa</span>
+                </div>
+              </div>
+              <button class="btn dash-btn-focus-edit" data-tab="focus">Edit AI Thesis Vectors</button>
+            </div>
+          </section>
+
+          <!-- Quick Metrics Bar -->
+          <div class="view-metrics-strip">
+            <div class="metric-box">
+              <span class="metric-label">AI-Optimized Matches</span>
+              <span class="metric-value">5</span>
+              <span class="metric-trend" style="color:#15803d;">↑ 2 newly synthesized</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-label">Avg Neural Alignment</span>
+              <span class="metric-value">94.2%</span>
+              <span class="metric-trend">High conviction decile</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-label">Active Saved Pipeline</span>
+              <span class="metric-value" id="metrics-saved-count">4 deals</span>
+              <span class="metric-trend">$690k total ask</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-label">AI Model Status</span>
+              <span class="metric-value">v2.4 Active</span>
+              <span class="metric-trend">Continuous deck ingestion</span>
+            </div>
+          </div>
+
+          <!-- ── CONTENT SECTION ── -->
+          <div class="dash-content">
+
+            <!-- ── TOP MATCH ── -->
+            <section class="dash-section" id="top-match" aria-labelledby="top-match-heading">
+              <div class="dash-section-header">
+                <div>
+                  <h2 class="dash-section-title" id="top-match-heading">Top AI-Optimized Match</h2>
+                  <p class="dash-section-sub">Synthesized with 96% multi-vector compatibility with your fund thesis.</p>
+                </div>
+                <span class="ai-match-badge highlight" style="padding: 6px 14px; font-size: 12px;">
+                  <span class="ai-sparkle-icon">✦</span> 96% Neural Mandate Fit
+                </span>
+              </div>
+
+              <div class="opp-card opp-card-featured" id="opp-addis">
+                <div class="opp-card-main">
+                  <div class="opp-card-info">
+                    <div style="display:flex; align-items:center; gap: 10px;">
+                      <h3 class="opp-name">Addis Cold Chain</h3>
+                      <span class="ai-tag-pill"><span class="ai-pulse-dot"></span> Top Decile Match</span>
+                    </div>
+                    <p class="opp-meta">Logistics &amp; Agri-supply · Seed · Addis Ababa, Ethiopia · Seeking USD 150k</p>
+                    <p class="opp-desc">
+                      Solar-powered decentralized cold storage network preventing post-harvest loss for horticulture farmers and high-value exporters. $18.4k MRR (+14% MoM) with 42 cooperatives onboarded.
+                    </p>
+
+                    <div class="ai-rationale-callout">
+                      <strong>✦ AI Optimization Insight:</strong> Addis Cold Chain ranks in the 99th percentile for your Agri-tech mandate. Solves post-harvest storage bottleneck with verified <strong>$18.4k MRR (+14% MoM)</strong> and 42 co-ops onboarded. Round size ($150k) is calibrated precisely to your ticket sweet spot with zero portfolio conflict.
+                    </div>
+
+                    <div class="ai-vector-strip">
+                      <div class="ai-vector-item">
+                        <div class="ai-vector-label">Thesis Vector</div>
+                        <div class="ai-vector-value">98%</div>
+                      </div>
+                      <div class="ai-vector-item">
+                        <div class="ai-vector-label">Ticket Fit</div>
+                        <div class="ai-vector-value">100%</div>
+                      </div>
+                      <div class="ai-vector-item">
+                        <div class="ai-vector-label">Traction Score</div>
+                        <div class="ai-vector-value">94%</div>
+                      </div>
+                      <div class="ai-vector-item">
+                        <div class="ai-vector-label">Synergy Moat</div>
+                        <div class="ai-vector-value">92%</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="opp-card-actions">
+                    <button class="btn dash-btn-view" onclick="openOppModal('addis')">View AI Memo</button>
+                    <button class="btn dash-btn-outline-sm save-toggle-btn" data-deal="Addis Cold Chain" data-ask="$150k" data-stage="Seed" data-sector="Logistics">Save</button>
+                    <button class="btn dash-btn-outline-sm not-for-me-btn" title="Provides negative reinforcement to tune model weights">Train AI (Pass)</button>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- ── MORE MATCHES ── -->
+            <section class="dash-section" id="more-matches" aria-labelledby="more-matches-heading">
+              <div class="dash-section-header">
+                <div>
+                  <h2 class="dash-section-title" id="more-matches-heading">AI Opportunity Stream</h2>
+                  <p class="dash-section-sub">Continuously optimized and ranked by neural alignment with your mandate.</p>
+                </div>
+                <div class="trending-pills-wrap" style="margin: 0;">
+                  <span class="trending-pill active-pill-tag" onclick="filterDeals(this, 'all')">All AI Matches (5)</span>
+                  <span class="trending-pill" onclick="filterDeals(this, 'Fintech')">Fintech Cluster (94%)</span>
+                  <span class="trending-pill" onclick="filterDeals(this, 'Edtech')">Edtech Cluster (88%)</span>
+                  <span class="trending-pill" onclick="filterDeals(this, 'Agri-tech')">Agri-tech Cluster (91%)</span>
+                  <span class="trending-pill" onclick="filterDeals(this, 'Clean')">CleanTech Cluster (95%)</span>
+                </div>
+              </div>
+
+              <div class="opp-grid">
+
+                <div class="opp-card" id="opp-meskel" data-sector="Edtech">
+                  <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+                    <h3 class="opp-name">Meskel Learning</h3>
+                    <span class="ai-match-badge"><span class="ai-sparkle-icon">✦</span> 88% Fit</span>
+                  </div>
+                  <p class="opp-meta">Edtech · Pre-seed · Nairobi · USD 80k</p>
+                  <p style="font-size: 13px; color: var(--color-slate-gray); line-height: 1.4; margin: 4px 0;">
+                    B2B STEM curriculum software and teacher training platform adopted by 120 private schools across Kenya.
+                  </p>
+                  <div class="ai-rationale-callout" style="margin: 4px 0 8px 0; font-size:11px;">
+                    <strong>✦ AI Rationale:</strong> Strong school renewal rate (96%); matches early-stage East Africa digital learning thesis.
+                  </div>
+                  <div class="opp-tags">
+                    <span class="opp-tag">Education</span>
+                    <span class="opp-tag">Pre-seed</span>
+                    <span class="opp-tag">Kenya</span>
+                  </div>
+                  <div class="opp-card-actions opp-card-actions-sm">
+                    <button class="btn dash-btn-view" onclick="openOppModal('meskel')">View</button>
+                    <button class="btn dash-btn-outline-sm save-toggle-btn" data-deal="Meskel Learning" data-ask="$80k" data-stage="Pre-seed" data-sector="Edtech">Save</button>
+                    <button class="btn dash-btn-outline-sm not-for-me-btn" title="Provides negative feedback to refine future AI optimization">Train AI (Pass)</button>
+                  </div>
+                </div>
+
+                <div class="opp-card" id="opp-tana" data-sector="Fintech">
+                  <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+                    <h3 class="opp-name">Tana Payments</h3>
+                    <span class="ai-match-badge" style="background:#dcfce7; color:#15803d;"><span class="ai-sparkle-icon">✦</span> 94% Fit</span>
+                  </div>
+                  <p class="opp-meta">Fintech · Seed · Lagos, Nigeria · USD 200k</p>
+                  <p style="font-size: 13px; color: var(--color-slate-gray); line-height: 1.4; margin: 4px 0;">
+                    Embedded working capital and treasury API for African FMCG distributors. $3.2M processed in Q3.
+                  </p>
+                  <div class="ai-rationale-callout" style="margin: 4px 0 8px 0; font-size:11px;">
+                    <strong>✦ AI Rationale:</strong> Rapid Q3 GMV acceleration; fits high-conviction West Africa trade infrastructure vector.
+                  </div>
+                  <div class="opp-tags">
+                    <span class="opp-tag">B2B Fintech</span>
+                    <span class="opp-tag">Seed</span>
+                    <span class="opp-tag">Nigeria</span>
+                  </div>
+                  <div class="opp-card-actions opp-card-actions-sm">
+                    <button class="btn dash-btn-view" onclick="openOppModal('tana')">View</button>
+                    <button class="btn dash-btn-outline-sm save-toggle-btn" data-deal="Tana Payments" data-ask="$200k" data-stage="Seed" data-sector="Fintech">Save</button>
+                    <button class="btn dash-btn-outline-sm not-for-me-btn" title="Provides negative feedback to refine future AI optimization">Train AI (Pass)</button>
+                  </div>
+                </div>
+
+                <div class="opp-card" id="opp-harar" data-sector="Agri-tech">
+                  <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+                    <h3 class="opp-name">Harar Coffee Co-op</h3>
+                    <span class="ai-match-badge"><span class="ai-sparkle-icon">✦</span> 91% Fit</span>
+                  </div>
+                  <p class="opp-meta">Agri-tech &amp; Export · Seed · Dire Dawa · USD 120k</p>
+                  <p style="font-size: 13px; color: var(--color-slate-gray); line-height: 1.4; margin: 4px 0;">
+                    Direct-to-roaster micro-lot traceability platform delivering 30% higher margins to 850 smallholders.
+                  </p>
+                  <div class="ai-rationale-callout" style="margin: 4px 0 8px 0; font-size:11px;">
+                    <strong>✦ AI Rationale:</strong> $140k export revenue backed by locked EU buyer purchase orders; high ESG impact score.
+                  </div>
+                  <div class="opp-tags">
+                    <span class="opp-tag">Agri-processing</span>
+                    <span class="opp-tag">Seed</span>
+                    <span class="opp-tag">Ethiopia</span>
+                  </div>
+                  <div class="opp-card-actions opp-card-actions-sm">
+                    <button class="btn dash-btn-view" onclick="openOppModal('harar')">View</button>
+                    <button class="btn dash-btn-outline-sm save-toggle-btn" data-deal="Harar Coffee Co-op" data-ask="$120k" data-stage="Seed" data-sector="Agri-tech">Save</button>
+                    <button class="btn dash-btn-outline-sm not-for-me-btn" title="Provides negative feedback to refine future AI optimization">Train AI (Pass)</button>
+                  </div>
+                </div>
+
+                <div class="opp-card" id="opp-solar" data-sector="Clean">
+                  <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+                    <h3 class="opp-name">SolarLink Clean Energy</h3>
+                    <span class="ai-match-badge" style="background:#e0e7ff; color:#3730a3;"><span class="ai-sparkle-icon">✦</span> 95% Fit</span>
+                  </div>
+                  <p class="opp-meta">CleanTech &amp; Mini-grids · Seed+ · Kigali, Rwanda · USD 220k</p>
+                  <p style="font-size: 13px; color: var(--color-slate-gray); line-height: 1.4; margin: 4px 0;">
+                    Containerized solar micro-grids with IoT remote metering powering 14 agro-processing hubs in Rwanda.
+                  </p>
+                  <div class="ai-rationale-callout" style="margin: 4px 0 8px 0; font-size:11px;">
+                    <strong>✦ AI Rationale:</strong> Recurring telemetry cash flows from commercial agri-hubs; matches renewable asset focus.
+                  </div>
+                  <div class="opp-tags">
+                    <span class="opp-tag">Renewable</span>
+                    <span class="opp-tag">Seed</span>
+                    <span class="opp-tag">Rwanda</span>
+                  </div>
+                  <div class="opp-card-actions opp-card-actions-sm">
+                    <button class="btn dash-btn-view" onclick="openOppModal('solar')">View</button>
+                    <button class="btn dash-btn-outline-sm save-toggle-btn" data-deal="SolarLink Clean Energy" data-ask="$220k" data-stage="Seed+" data-sector="Clean Energy">Save</button>
+                    <button class="btn dash-btn-outline-sm not-for-me-btn" title="Provides negative feedback to refine future AI optimization">Train AI (Pass)</button>
+                  </div>
+                </div>
+
+              </div>
+            </section>
+
+            <!-- ── PROFILE COMPLETION BANNER ── -->
+            <section class="dash-section dash-profile-banner" id="profile-banner">
+              <div class="profile-banner-text">
+                <p class="profile-banner-title">Complete your Institutional Provider Credentials</p>
+                <p class="profile-banner-sub">
+                  Founders review verified investor credentials before sharing confidential data rooms and audited cap tables.
+                </p>
+              </div>
+              <button class="btn btn-filled" data-tab="profile">View &amp; Verify Profile (85%)</button>
+            </section>
+
+          </div><!-- end dash-content -->
+        </div><!-- end view-for-you -->
+
+
+        <!-- ========================================================
+             INTERFACE 2: "SAVED" (DEAL PIPELINE & DUE DILIGENCE)
+             ======================================================== -->
+        <div class="dash-view" id="view-saved">
+          <div class="view-header">
+            <div class="view-header-left">
+              <div class="view-pretitle">Deal Flow Pipeline</div>
+              <h1 class="view-title">Saved Opportunities &amp; Due Diligence</h1>
+              <p class="view-subtitle">Track active evaluations, record diligence notes, and manage term sheet progressions.</p>
+            </div>
+            <div class="view-header-actions">
+              <button class="btn dash-btn-outline-sm" onclick="exportPipeline()">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Export Pipeline
+              </button>
+              <button class="btn btn-filled" data-tab="for-you" style="font-size:13px; padding:8px 18px;">+ Find More Deals</button>
+            </div>
+          </div>
+
+          <!-- Pipeline Metrics Strip -->
+          <div class="view-metrics-strip">
+            <div class="metric-box">
+              <span class="metric-label">Pipeline Volume</span>
+              <span class="metric-value">$690,000</span>
+              <span class="metric-trend">4 active opportunities</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-label">In Due Diligence</span>
+              <span class="metric-value">1 deal</span>
+              <span class="metric-trend">Audit &amp; Data Room</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-label">Term Sheet Stage</span>
+              <span class="metric-value">1 deal</span>
+              <span class="metric-trend" style="color:#15803d;">Co-syndicate lead</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-label">Avg Ticket Requested</span>
+              <span class="metric-value">$172.5k</span>
+              <span class="metric-trend">Within $50k–$250k range</span>
+            </div>
+          </div>
+
+          <!-- Pipeline Toolbar -->
+          <div class="pipeline-toolbar">
+            <div class="pipeline-filter-tabs">
+              <button class="pipeline-filter-btn active" onclick="filterPipelineStage('all', this)">All Deals (4)</button>
+              <button class="pipeline-filter-btn" onclick="filterPipelineStage('eval', this)">Evaluation (2)</button>
+              <button class="pipeline-filter-btn" onclick="filterPipelineStage('diligence', this)">Due Diligence (1)</button>
+              <button class="pipeline-filter-btn" onclick="filterPipelineStage('termsheet', this)">Term Sheet (1)</button>
+            </div>
+            <div style="font-size: 13px; color: var(--color-slate-gray);">
+              💡 Drag or change dropdown to advance deal stages
+            </div>
+          </div>
+
+          <!-- Pipeline Kanban Board -->
+          <div class="pipeline-board">
+
+            <!-- Column 1: Initial Evaluation -->
+            <div class="pipeline-col" id="col-eval">
+              <div class="pipeline-col-header">
+                <div class="pipeline-col-title-group">
+                  <span class="pipeline-col-title">1. Initial Evaluation</span>
+                  <span class="pipeline-col-count" id="count-col-eval">2</span>
+                </div>
+              </div>
+
+              <div class="pipeline-cards-list">
+                
+                <div class="pipeline-card" id="pcard-addis">
+                  <div class="pipeline-card-top">
+                    <div>
+                      <h4 class="pipeline-card-name">Addis Cold Chain</h4>
+                      <div class="pipeline-card-meta">Logistics · Seed · USD 150k</div>
+                    </div>
+                    <span class="pipeline-card-badge">96% Match</span>
+                  </div>
+                  <div class="pipeline-card-note">
+                    "Reviewed unit economics on cold-storage lockers. Scheduled intro call with CEO Hanan for Thursday."
+                  </div>
+                  <div class="pipeline-card-footer">
+                    <select class="pipeline-stage-select" onchange="moveDealStage(this, 'pcard-addis')">
+                      <option value="eval" selected>Evaluation</option>
+                      <option value="diligence">Due Diligence</option>
+                      <option value="termsheet">Term Sheet</option>
+                    </select>
+                    <div class="pipeline-card-actions">
+                      <button class="btn dash-btn-outline-sm" onclick="openOppModal('addis')" style="font-size:11px; padding:3px 8px;">View</button>
+                      <button class="btn btn-filled" data-tab="conversations" style="font-size:11px; padding:3px 8px;">Chat</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="pipeline-card" id="pcard-meskel">
+                  <div class="pipeline-card-top">
+                    <div>
+                      <h4 class="pipeline-card-name">Meskel Learning</h4>
+                      <div class="pipeline-card-meta">Edtech · Pre-seed · USD 80k</div>
+                    </div>
+                    <span class="pipeline-card-badge" style="background:#e0f2fe; color:#0369a1;">88% Match</span>
+                  </div>
+                  <div class="pipeline-card-note">
+                    "B2B school subscription ARR is growing +22% MoM. Awaiting updated retention cohort analysis."
+                  </div>
+                  <div class="pipeline-card-footer">
+                    <select class="pipeline-stage-select" onchange="moveDealStage(this, 'pcard-meskel')">
+                      <option value="eval" selected>Evaluation</option>
+                      <option value="diligence">Due Diligence</option>
+                      <option value="termsheet">Term Sheet</option>
+                    </select>
+                    <div class="pipeline-card-actions">
+                      <button class="btn dash-btn-outline-sm" onclick="openOppModal('meskel')" style="font-size:11px; padding:3px 8px;">View</button>
+                      <button class="btn btn-filled" data-tab="conversations" style="font-size:11px; padding:3px 8px;">Chat</button>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Column 2: Due Diligence -->
+            <div class="pipeline-col" id="col-diligence">
+              <div class="pipeline-col-header">
+                <div class="pipeline-col-title-group">
+                  <span class="pipeline-col-title">2. Due Diligence &amp; Audit</span>
+                  <span class="pipeline-col-count" id="count-col-diligence">1</span>
+                </div>
+              </div>
+
+              <div class="pipeline-cards-list">
+
+                <div class="pipeline-card" id="pcard-kebede">
+                  <div class="pipeline-card-top">
+                    <div>
+                      <h4 class="pipeline-card-name">Kebede Organic Foods</h4>
+                      <div class="pipeline-card-meta">Agri-processing · Seed · USD 150k</div>
+                    </div>
+                    <span class="pipeline-card-badge" style="background:#ecfdf5; color:#065f46;">92% Match</span>
+                  </div>
+                  <div class="pipeline-card-note">
+                    "Audited 2025 financial statements received. Legal review of export agreements and farmer cooperative contracts ongoing."
+                  </div>
+                  <div class="pipeline-card-footer">
+                    <select class="pipeline-stage-select" onchange="moveDealStage(this, 'pcard-kebede')">
+                      <option value="eval">Evaluation</option>
+                      <option value="diligence" selected>Due Diligence</option>
+                      <option value="termsheet">Term Sheet</option>
+                    </select>
+                    <div class="pipeline-card-actions">
+                      <button class="btn dash-btn-outline-sm" onclick="openOppModal('kebede')" style="font-size:11px; padding:3px 8px;">View</button>
+                      <button class="btn btn-filled" data-tab="conversations" style="font-size:11px; padding:3px 8px;">Chat</button>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Column 3: Term Sheet & Negotiation -->
+            <div class="pipeline-col" id="col-termsheet">
+              <div class="pipeline-col-header">
+                <div class="pipeline-col-title-group">
+                  <span class="pipeline-col-title">3. Term Sheet &amp; Closing</span>
+                  <span class="pipeline-col-count" id="count-col-termsheet">1</span>
+                </div>
+              </div>
+
+              <div class="pipeline-cards-list">
+
+                <div class="pipeline-card" id="pcard-solar">
+                  <div class="pipeline-card-top">
+                    <div>
+                      <h4 class="pipeline-card-name">SolarLink Clean Energy</h4>
+                      <div class="pipeline-card-meta">Solar Mini-grids · Seed+ · USD 220k</div>
+                    </div>
+                    <span class="pipeline-card-badge" style="background:#eff6ff; color:#1d4ed8;">95% Match</span>
+                  </div>
+                  <div class="pipeline-card-note">
+                    "Term sheet issued. Participating in syndicated round with Kigali Impact Fund. Closing expected by end of month."
+                  </div>
+                  <div class="pipeline-card-footer">
+                    <select class="pipeline-stage-select" onchange="moveDealStage(this, 'pcard-solar')">
+                      <option value="eval">Evaluation</option>
+                      <option value="diligence">Due Diligence</option>
+                      <option value="termsheet" selected>Term Sheet</option>
+                    </select>
+                    <div class="pipeline-card-actions">
+                      <button class="btn dash-btn-outline-sm" onclick="openOppModal('solar')" style="font-size:11px; padding:3px 8px;">View</button>
+                      <button class="btn btn-filled" data-tab="conversations" style="font-size:11px; padding:3px 8px;">Chat</button>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div><!-- end pipeline-board -->
+        </div><!-- end view-saved -->
+
+
+        <!-- ========================================================
+             INTERFACE 3: "CONVERSATIONS" (DEAL ROOM & MESSAGING)
+             ======================================================== -->
+        <div class="dash-view" id="view-conversations">
+          <div class="view-header">
+            <div class="view-header-left">
+              <div class="view-pretitle">Confidential Communications</div>
+              <h1 class="view-title">Founder Deal Rooms &amp; Messages</h1>
+              <p class="view-subtitle">Review shared pitch decks, discuss financial models, and schedule introduction calls with founders.</p>
+            </div>
+            <div class="view-header-actions">
+              <button class="btn dash-btn-outline-sm" onclick="scheduleCallModal()">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                Schedule Call
+              </button>
+            </div>
+          </div>
+
+          <!-- Split-pane Deal Room Container -->
+          <div class="dealroom-container">
+
+            <!-- Left Sidebar: Threads List -->
+            <div class="dealroom-sidebar">
+              <div class="dealroom-search-bar">
+                <input type="text" placeholder="Filter conversations..." class="dealroom-search-input" id="thread-search" oninput="filterThreads(this.value)" />
+              </div>
+
+              <div class="dealroom-threads-list" id="threads-container">
+
+                <!-- Thread 1: Kebede Organic Foods (Active) -->
+                <div class="dealroom-thread-item active" onclick="selectThread('kebede', this)">
+                  <div class="thread-avatar">KF</div>
+                  <div class="thread-content">
+                    <div class="thread-header-row">
+                      <span class="thread-name">Kebede Foods</span>
+                      <span class="thread-time">12m ago</span>
+                    </div>
+                    <p class="thread-snippet" id="snippet-kebede">Just uploaded the revised financial model with 2026 projections.</p>
+                    <div class="thread-tag-row">
+                      <span class="convo-badge badge-new" style="font-size:10px;">New Reply</span>
+                      <span class="dash-mini-card-sub">Seed · $150k</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Thread 2: Selam Health -->
+                <div class="dealroom-thread-item" onclick="selectThread('selam', this)">
+                  <div class="thread-avatar" style="background:#dbeafe; color:#1e40af;">SH</div>
+                  <div class="thread-content">
+                    <div class="thread-header-row">
+                      <span class="thread-name">Selam Health</span>
+                      <span class="thread-time">3h ago</span>
+                    </div>
+                    <p class="thread-snippet">Call confirmed for Friday at 2:00 PM EAT.</p>
+                    <div class="thread-tag-row">
+                      <span class="convo-badge badge-active" style="font-size:10px;">In discussion</span>
+                      <span class="dash-mini-card-sub">Health · $180k</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Thread 3: Abay Pay -->
+                <div class="dealroom-thread-item" onclick="selectThread('abay', this)">
+                  <div class="thread-avatar" style="background:#fef3c7; color:#92400e;">AP</div>
+                  <div class="thread-content">
+                    <div class="thread-header-row">
+                      <span class="thread-name">Abay Pay</span>
+                      <span class="thread-time">2d ago</span>
+                    </div>
+                    <p class="thread-snippet">We sent over questions regarding merchant processing licenses.</p>
+                    <div class="thread-tag-row">
+                      <span class="convo-badge badge-waiting" style="font-size:10px;">Waiting on founder</span>
+                      <span class="dash-mini-card-sub">Fintech · $200k</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Thread 4: Addis Cold Chain -->
+                <div class="dealroom-thread-item" onclick="selectThread('addis', this)">
+                  <div class="thread-avatar" style="background:#e0e7ff; color:#3730a3;">AC</div>
+                  <div class="thread-content">
+                    <div class="thread-header-row">
+                      <span class="thread-name">Addis Cold Chain</span>
+                      <span class="thread-time">Yesterday</span>
+                    </div>
+                    <p class="thread-snippet">Thank you for reviewing Addis Cold Chain. When would be a good time for an intro call?</p>
+                    <div class="thread-tag-row">
+                      <span class="dash-badge" style="font-size:10px;">96% Match</span>
+                      <span class="dash-mini-card-sub">Logistics · $150k</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Right Workspace: Active Chat Stream -->
+            <div class="dealroom-chat-main">
+              
+              <!-- Chat Header -->
+              <div class="dealroom-chat-header">
+                <div class="chat-header-info">
+                  <div class="thread-avatar" id="active-chat-avatar">KF</div>
+                  <div>
+                    <h3 class="chat-header-title" id="active-chat-title">Dawit Kebede · Kebede Organic Foods</h3>
+                    <div class="chat-header-meta" id="active-chat-meta">CEO &amp; Founder · Seed Stage · Seeking USD 150k · Online now</div>
+                  </div>
+                </div>
+                <div style="display:flex; gap:8px;">
+                  <button class="btn dash-btn-outline-sm" onclick="openOppModal('kebede')">Opportunity Brief</button>
+                  <button class="btn btn-filled" onclick="showToast('Cap table access requested')" style="font-size:12px; padding:6px 14px;">Data Room</button>
+                </div>
+              </div>
+
+              <!-- Chat Message Stream -->
+              <div class="dealroom-chat-body" id="chat-messages-container">
+                <div style="text-align:center; margin: 10px 0;">
+                  <span style="font-size: 11px; background: #e5e7eb; color: #4b5563; padding: 4px 12px; border-radius: 9999px;">Confidential Deal Room · NDA in effect</span>
+                </div>
+
+                <div class="chat-msg received">
+                  <div class="chat-msg-bubble">
+                    Hello Amara, thank you for reaching out through Finance Connect. We're very excited by Nile Horizon's thesis in East African food processing.
+                  </div>
+                  <span class="chat-msg-time">Yesterday 11:20 AM</span>
+                </div>
+
+                <div class="chat-msg sent">
+                  <div class="chat-msg-bubble">
+                    Hi Dawit, pleasure connecting. We've reviewed your overview and love the export margins. Could you share the latest breakdown of your Q3 audited revenue and customer concentration?
+                  </div>
+                  <span class="chat-msg-time">Yesterday 2:45 PM · Delivered</span>
+                </div>
+
+                <div class="chat-msg received">
+                  <div class="chat-msg-bubble">
+                    Absolutely! Here are the updated financial model and investor deck including our new supermarket distribution partnership in Addis and regional export contracts.
+                    
+                    <div class="chat-attachment">
+                      <div class="chat-att-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                      </div>
+                      <div class="chat-att-info">
+                        <div class="chat-att-name">Kebede_Foods_PitchDeck_v3.pdf</div>
+                        <div class="chat-att-size">12.4 MB · Updated today</div>
+                      </div>
+                      <button class="btn dash-btn-outline-sm" style="font-size:11px; padding:4px 10px;" onclick="showToast('Downloading pitch deck...')">Download</button>
+                    </div>
+
+                    <div class="chat-attachment">
+                      <div class="chat-att-icon" style="color:#059669;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>
+                      </div>
+                      <div class="chat-att-info">
+                        <div class="chat-att-name">Financial_Model_2026_Projections.xlsx</div>
+                        <div class="chat-att-size">4.8 MB · Audited figures</div>
+                      </div>
+                      <button class="btn dash-btn-outline-sm" style="font-size:11px; padding:4px 10px;" onclick="showToast('Opening financial spreadsheet...')">Preview</button>
+                    </div>
+                  </div>
+                  <span class="chat-msg-time">12m ago</span>
+                </div>
+              </div>
+
+              <!-- Chat Footer & Input Composer -->
+              <div class="dealroom-chat-footer">
+                <div class="chat-quick-replies">
+                  <span class="chat-quick-chip" onclick="quickReply('Let\'s schedule a 30-min diligence call this Thursday.')">📅 Schedule 30-min diligence call</span>
+                  <span class="chat-quick-chip" onclick="quickReply('Thank you for the files. Could you also grant Data Room access to our analysts?')">📂 Request Data Room access</span>
+                  <span class="chat-quick-chip" onclick="quickReply('We are drafting preliminary terms and will share by Friday.')">📝 Send term sheet draft</span>
+                </div>
+
+                <div class="chat-input-row">
+                  <button class="dash-nav-icon-btn" title="Attach file" onclick="showToast('Attach document: NDA, Term Sheet, or Memo')">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+                  </button>
+                  <input type="text" class="chat-input" id="chat-composer-input" placeholder="Write a message to founder..." onkeydown="handleChatKey(event)" />
+                  <button class="btn btn-filled" onclick="sendMessage()" style="padding:10px 20px; font-size:13px;">Send</button>
+                </div>
+              </div>
+
+            </div><!-- end dealroom-chat-main -->
+
+          </div><!-- end dealroom-container -->
+        </div><!-- end view-conversations -->
+
+
+        <!-- ========================================================
+             INTERFACE 4: "MY FOCUS" (AI THESIS & MATCH OPTIMIZATION ENGINE)
+             ======================================================== -->
+        <div class="dash-view" id="view-focus">
+          <div class="view-header">
+            <div class="view-header-left">
+              <div class="view-pretitle" style="display:flex; align-items:center; gap:6px;">
+                <span class="ai-tag-pill"><span class="ai-pulse-dot"></span> Neural Match Tuning</span>
+              </div>
+              <h1 class="view-title">AI Mandate &amp; Match Optimization Engine</h1>
+              <p class="view-subtitle">Configure the multi-dimensional vectors and qualitative thesis parameters that guide our AI back end. Rather than static database filters, our neural engine uses semantic embeddings, financial velocity indicators, and co-investor synergy to optimize matches.</p>
+            </div>
+            <div class="view-header-actions">
+              <button class="btn btn-ai-optimize" onclick="saveMandate()" style="font-size:13px; padding:8px 20px;">
+                <span id="save-mandate-top-icon">✦</span> Save &amp; Run AI Optimization
+              </button>
+            </div>
+          </div>
+
+          <div class="focus-config-grid">
+
+            <!-- Left Form Controls -->
+            <div style="display:flex; flex-direction:column; gap:20px;">
+
+              <!-- Natural Language Thesis Prompt -->
+              <div class="focus-card">
+                <div>
+                  <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <h3 class="focus-section-title">Natural Language Thesis Prompt</h3>
+                    <span class="ai-tag-pill"><span class="ai-pulse-dot"></span> 1,536-dim Embedding Active</span>
+                  </div>
+                  <p class="focus-section-desc">Our AI parses your qualitative thesis in plain English to understand strategic nuances, founder pedigree preferences, and moats beyond simple checkboxes.</p>
+                </div>
+                <textarea class="ai-thesis-textarea" id="ai-thesis-prompt" placeholder="Describe your fund's core thesis in plain English...">We back high-growth, capital-efficient tech platforms across East and West Africa solving critical infrastructure bottlenecks in agriculture, logistics, and B2B financial services. We prioritize positive unit economics, high MoM revenue retention, and capital efficiency.</textarea>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px; font-size:11px; color:var(--color-slate-gray);">
+                  <span>AI Vector Model: <strong style="color:var(--color-ink-black);">FinanceConnect-Neural-v2.4</strong></span>
+                  <span style="color:#059669; font-weight:500;">✓ Synced with AI Back End</span>
+                </div>
+              </div>
+
+              <!-- AI Optimization Weights -->
+              <div class="focus-card">
+                <div>
+                  <h3 class="focus-section-title">AI Optimization Weights &amp; Sensitivity</h3>
+                  <p class="focus-section-desc">Calibrate how aggressively our AI model weights each dimension when optimizing matches.</p>
+                </div>
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                  <div>
+                    <div class="ai-slider-row">
+                      <span>Sector &amp; Strategic Thesis Fit</span>
+                      <strong id="weight-val-thesis">95% (High)</strong>
+                    </div>
+                    <input type="range" min="50" max="100" value="95" class="ai-weight-slider" oninput="document.getElementById('weight-val-thesis').textContent = this.value + '%'"/>
+                  </div>
+                  <div>
+                    <div class="ai-slider-row">
+                      <span>Traction &amp; Revenue Velocity</span>
+                      <strong id="weight-val-traction">88% (High)</strong>
+                    </div>
+                    <input type="range" min="50" max="100" value="88" class="ai-weight-slider" oninput="document.getElementById('weight-val-traction').textContent = this.value + '%'"/>
+                  </div>
+                  <div>
+                    <div class="ai-slider-row">
+                      <span>Check Size &amp; Capital Efficiency</span>
+                      <strong id="weight-val-check">90% (Strict)</strong>
+                    </div>
+                    <input type="range" min="50" max="100" value="90" class="ai-weight-slider" oninput="document.getElementById('weight-val-check').textContent = this.value + '%'"/>
+                  </div>
+                  <div>
+                    <div class="ai-slider-row">
+                      <span>Geographic Coverage &amp; Regulatory Moat</span>
+                      <strong id="weight-val-geo">80% (Moderate)</strong>
+                    </div>
+                    <input type="range" min="50" max="100" value="80" class="ai-weight-slider" oninput="document.getElementById('weight-val-geo').textContent = this.value + '%'"/>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Sectors -->
+              <div class="focus-card">
+                <div>
+                  <h3 class="focus-section-title">Target Sectors (Vector Clusters)</h3>
+                  <p class="focus-section-desc">Primary industry verticals weighted positively in the AI neural matching model.</p>
+                </div>
+                <div class="focus-tag-group" id="focus-sectors-group">
+                  <span class="focus-toggle-pill selected" onclick="toggleMandatePill(this)">Agri-tech &amp; Food</span>
+                  <span class="focus-toggle-pill selected" onclick="toggleMandatePill(this)">Fintech &amp; Payments</span>
+                  <span class="focus-toggle-pill selected" onclick="toggleMandatePill(this)">Healthcare &amp; Biotech</span>
+                  <span class="focus-toggle-pill selected" onclick="toggleMandatePill(this)">Clean Energy &amp; Climate</span>
+                  <span class="focus-toggle-pill" onclick="toggleMandatePill(this)">Edtech</span>
+                  <span class="focus-toggle-pill" onclick="toggleMandatePill(this)">Logistics &amp; Mobility</span>
+                  <span class="focus-toggle-pill" onclick="toggleMandatePill(this)">B2B SaaS</span>
+                  <span class="focus-toggle-pill" onclick="toggleMandatePill(this)">E-commerce &amp; Retail</span>
+                </div>
+              </div>
+
+              <!-- Investment Stages -->
+              <div class="focus-card">
+                <div>
+                  <h3 class="focus-section-title">Company Maturity &amp; Stage Vectors</h3>
+                  <p class="focus-section-desc">Calibrate risk curve and product maturity thresholds for AI deck scoring.</p>
+                </div>
+                <div class="focus-tag-group" id="focus-stages-group">
+                  <span class="focus-toggle-pill selected" onclick="toggleMandatePill(this)">Pre-seed (MVP + early traction)</span>
+                  <span class="focus-toggle-pill selected" onclick="toggleMandatePill(this)">Seed (Proven product-market fit)</span>
+                  <span class="focus-toggle-pill" onclick="toggleMandatePill(this)">Pre-Series A</span>
+                  <span class="focus-toggle-pill" onclick="toggleMandatePill(this)">Series A ($1M+ ARR)</span>
+                  <span class="focus-toggle-pill" onclick="toggleMandatePill(this)">Mezzanine / Debt Facility</span>
+                  <span class="focus-toggle-pill" onclick="toggleMandatePill(this)">Matching Grants</span>
+                </div>
+              </div>
+
+              <!-- Check Size Range -->
+              <div class="focus-card">
+                <div>
+                  <h3 class="focus-section-title">Check Size Range (Ticket Sweet Spot)</h3>
+                  <p class="focus-section-desc">Target deployment envelope in USD used by the optimization algorithm.</p>
+                </div>
+                <div class="focus-range-container">
+                  <div class="focus-range-labels">
+                    <span id="range-val-min">Minimum: USD $50,000</span>
+                    <span id="range-val-max">Maximum: USD $250,000</span>
+                  </div>
+                  <input type="range" min="10000" max="500000" step="10000" value="250000" style="width:100%; accent-color: var(--color-ink-black);" oninput="updateRangePreview(this.value)" />
+                  <div style="display:flex; gap:8px; margin-top:8px;">
+                    <span class="trending-pill" onclick="setRangePreset(25000, 100000)">$25k – $100k</span>
+                    <span class="trending-pill active-pill-tag" onclick="setRangePreset(50000, 250000)">$50k – $250k (Active)</span>
+                    <span class="trending-pill" onclick="setRangePreset(250000, 1000000)">$250k – $1M</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Target Geography -->
+              <div class="focus-card">
+                <div>
+                  <h3 class="focus-section-title">Geographic Footprint &amp; Jurisdiction</h3>
+                  <p class="focus-section-desc">Active target jurisdictions where legal deployment and syndicate coverage apply.</p>
+                </div>
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
+                  <label style="display:flex; align-items:center; gap:8px; font-size:13px; cursor:pointer;">
+                    <input type="checkbox" checked style="accent-color:var(--color-ink-black);" />
+                    <span>Ethiopia (Addis Ababa, regional)</span>
+                  </label>
+                  <label style="display:flex; align-items:center; gap:8px; font-size:13px; cursor:pointer;">
+                    <input type="checkbox" checked style="accent-color:var(--color-ink-black);" />
+                    <span>Kenya (Nairobi, Mombasa)</span>
+                  </label>
+                  <label style="display:flex; align-items:center; gap:8px; font-size:13px; cursor:pointer;">
+                    <input type="checkbox" checked style="accent-color:var(--color-ink-black);" />
+                    <span>Rwanda (Kigali hub)</span>
+                  </label>
+                  <label style="display:flex; align-items:center; gap:8px; font-size:13px; cursor:pointer;">
+                    <input type="checkbox" checked style="accent-color:var(--color-ink-black);" />
+                    <span>Nigeria (Lagos, Abuja)</span>
+                  </label>
+                  <label style="display:flex; align-items:center; gap:8px; font-size:13px; cursor:pointer;">
+                    <input type="checkbox" checked style="accent-color:var(--color-ink-black);" />
+                    <span>Ghana (Accra)</span>
+                  </label>
+                  <label style="display:flex; align-items:center; gap:8px; font-size:13px; cursor:pointer;">
+                    <input type="checkbox" style="accent-color:var(--color-ink-black);" />
+                    <span>Uganda (Kampala)</span>
+                  </label>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Right Engine Summary Sidebar -->
+            <div class="focus-sidebar-card">
+              <h3 style="font-family:var(--font-display); font-size:18px; margin:0; color:var(--color-ink-black);">AI Engine Live Telemetry</h3>
+              
+              <div style="display:flex; flex-direction:column; gap:10px; margin-top:8px;">
+                <div class="engine-stat-item">
+                  <span style="color:var(--color-slate-gray);">AI Model Status</span>
+                  <span style="color:#15803d; font-weight:600; display:flex; align-items:center; gap:6px;">
+                    <span class="ai-pulse-dot"></span> v2.4 Online
+                  </span>
+                </div>
+                <div class="engine-stat-item">
+                  <span style="color:var(--color-slate-gray);">Vector Embeddings</span>
+                  <span style="font-weight:600; color:var(--color-ink-black);">3,480 Synced</span>
+                </div>
+                <div class="engine-stat-item">
+                  <span style="color:var(--color-slate-gray);">High-Conviction Matches</span>
+                  <span style="font-weight:600; color:var(--color-ink-black);" id="engine-match-count">18 deals</span>
+                </div>
+                <div class="engine-stat-item">
+                  <span style="color:var(--color-slate-gray);">Minimum Fit Threshold</span>
+                  <span style="font-weight:600; color:var(--color-ink-black);">85% Alignment</span>
+                </div>
+                <div class="engine-stat-item">
+                  <span style="color:var(--color-slate-gray);">Weekly Ingestion Stream</span>
+                  <span style="font-weight:600; color:var(--color-ink-black);">~12 decks/wk</span>
+                </div>
+              </div>
+
+              <div style="background:#f0fdf4; border-radius:12px; padding:16px; border:1px solid #bbf7d0; font-size:12px; color:#166534; line-height:1.5;">
+                <strong style="color:#0f5132;">✦ AI Optimization Tip:</strong> Expanding check sizes to $300k unlocks 4 additional high-conviction agritech opportunities currently raising in East Africa.
+              </div>
+
+              <button class="btn btn-ai-optimize" id="save-mandate-btn" onclick="saveMandate()" style="width:100%; font-size:13px; padding:12px;">
+                <span id="save-mandate-icon">✦</span> Save &amp; Run AI Optimization
+              </button>
+            </div>
+
+          </div><!-- end focus-config-grid -->
+        </div><!-- end view-focus -->
+
+
+        <!-- ========================================================
+             INTERFACE 5: "PROFILE" (VERIFICATION & CREDENTIALS)
+             ======================================================== -->
+        <div class="dash-view" id="view-profile">
+          <div class="view-header">
+            <div class="view-header-left">
+              <div class="view-pretitle">Institutional Credentials</div>
+              <h1 class="view-title">Provider Profile &amp; Accreditation</h1>
+              <p class="view-subtitle">Your verified credentials establish authority with high-growth founders and unlock exclusive proprietary deal rooms.</p>
+            </div>
+            <div class="view-header-actions">
+              <button class="btn btn-filled" onclick="showToast('Profile updated successfully')" style="font-size:13px; padding:8px 18px;">
+                Edit Profile
+              </button>
+            </div>
+          </div>
+
+          <div class="profile-layout">
+
+            <!-- Left Column: Identity & Badges -->
+            <div class="profile-identity-card">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=240&h=240&q=80" alt="Amara Okonkwo" class="profile-large-avatar" />
+              <div>
+                <h3 style="font-family:var(--font-display); font-size:22px; margin:0; color:var(--color-ink-black);">Amara Okonkwo</h3>
+                <p style="font-size:13px; color:var(--color-slate-gray); margin:4px 0 0 0;">Principal · Nile Horizon Capital</p>
+                <p style="font-size:12px; color:var(--color-ash-gray); margin:2px 0 0 0;">Nairobi, Kenya &amp; Addis Ababa, Ethiopia</p>
+              </div>
+
+              <div class="profile-badge-row">
+                <span class="verified-pill">✓ Verified Investor</span>
+                <span class="verified-pill">✓ KYC / AML Cleared</span>
+                <span class="verified-pill">✓ $12M Fund Allocation</span>
+              </div>
+
+              <!-- Profile Completion Progress -->
+              <div style="width:100%; text-align:left; background:var(--color-fog-white); border:1px solid var(--color-border); border-radius:12px; padding:14px;">
+                <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:6px;">
+                  <span style="font-weight:600; color:var(--color-ink-black);">Profile Completeness</span>
+                  <span style="font-weight:700; color:#15803d;">85%</span>
+                </div>
+                <div style="width:100%; height:6px; background:#e5e7eb; border-radius:9999px; overflow:hidden;">
+                  <div style="width:85%; height:100%; background:var(--color-ink-black); border-radius:9999px;"></div>
+                </div>
+                <div style="font-size:11px; color:var(--color-slate-gray); margin-top:8px;">
+                  Remaining: Add 1 past portfolio exit to reach 100%.
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: Bio, Track Record, Compliance Vault -->
+            <div class="profile-sections-flow">
+
+              <!-- Investment Thesis & Bio -->
+              <div class="profile-box">
+                <h3 style="font-family:var(--font-display); font-size:18px; margin:0; color:var(--color-ink-black);">Investment Strategy &amp; Bio</h3>
+                <p style="font-size:14px; color:var(--color-ink-black); line-height:1.6; margin:0;">
+                  Backing high-conviction early-stage teams across East &amp; West Africa building foundational infrastructure in agri-logistics, embedded finance, and renewable power. We typically lead or co-lead rounds with checks between $50k and $250k, offering deep regulatory navigation, commercial expansion, and follow-on syndicate access.
+                </p>
+              </div>
+
+              <!-- Portfolio & Track Record -->
+              <div class="profile-box">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <h3 style="font-family:var(--font-display); font-size:18px; margin:0; color:var(--color-ink-black);">Selected Portfolio &amp; Past Deals</h3>
+                  <span style="font-size:12px; color:var(--color-slate-gray);">8 Active Co-investments</span>
+                </div>
+
+                <div class="portfolio-grid">
+                  <div class="portfolio-company-card">
+                    <div class="portfolio-comp-logo">KP</div>
+                    <div>
+                      <div style="font-weight:600; font-size:13px; color:var(--color-ink-black);">Kifiya Financial</div>
+                      <div style="font-size:11px; color:var(--color-slate-gray);">Fintech · Seed 2023</div>
+                    </div>
+                  </div>
+
+                  <div class="portfolio-company-card">
+                    <div class="portfolio-comp-logo" style="background:#5d2a1a;">WS</div>
+                    <div>
+                      <div style="font-weight:600; font-size:13px; color:var(--color-ink-black);">Wasoko Supply</div>
+                      <div style="font-size:11px; color:var(--color-slate-gray);">B2B Commerce · Seed+</div>
+                    </div>
+                  </div>
+
+                  <div class="portfolio-company-card">
+                    <div class="portfolio-comp-logo" style="background:#065f46;">SC</div>
+                    <div>
+                      <div style="font-weight:600; font-size:13px; color:var(--color-ink-black);">SunCulture Africa</div>
+                      <div style="font-size:11px; color:var(--color-slate-gray);">Solar IoT · Series A</div>
+                    </div>
+                  </div>
+
+                  <div class="portfolio-company-card">
+                    <div class="portfolio-comp-logo" style="background:#1e40af;">TL</div>
+                    <div>
+                      <div style="font-weight:600; font-size:13px; color:var(--color-ink-black);">Twiga Logistics</div>
+                      <div style="font-size:11px; color:var(--color-slate-gray);">Agri Supply · Seed</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Compliance & Verification Vault -->
+              <div class="profile-box">
+                <h3 style="font-family:var(--font-display); font-size:18px; margin:0; color:var(--color-ink-black);">Compliance &amp; Verification Vault</h3>
+                <p style="font-size:13px; color:var(--color-slate-gray); margin:0;">
+                  Legal agreements and accreditation letters on file with Finance Connect compliance.
+                </p>
+
+                <div style="display:flex; flex-direction:column; gap:10px; margin-top:6px;">
+                  <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 14px; background:var(--color-fog-white); border:1px solid var(--color-border); border-radius:10px;">
+                    <div style="display:flex; align-items:center; gap:10px;">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#15803d" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                      <div>
+                        <div style="font-size:13px; font-weight:600; color:var(--color-ink-black);">Mutual Investor Non-Disclosure Agreement (NDA)</div>
+                        <div style="font-size:11px; color:var(--color-slate-gray);">Active · Automatically applies to shared deal rooms</div>
+                      </div>
+                    </div>
+                    <span class="verified-pill" style="font-size:10px;">Active</span>
+                  </div>
+
+                  <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 14px; background:var(--color-fog-white); border:1px solid var(--color-border); border-radius:10px;">
+                    <div style="display:flex; align-items:center; gap:10px;">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#15803d" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                      <div>
+                        <div style="font-size:13px; font-weight:600; color:var(--color-ink-black);">Institutional Investor Accreditation Certificate</div>
+                        <div style="font-size:11px; color:var(--color-slate-gray);">Verified by Global Capital Audit · Valid thru Dec 2027</div>
+                      </div>
+                    </div>
+                    <span class="verified-pill" style="font-size:10px;">Verified</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div><!-- end profile-layout -->
+        </div><!-- end view-profile -->
+
+      </main>
+    </div><!-- end dash-main-wrapper -->
+  </div><!-- end dash-layout -->
+
+
+  <!-- ========================================================
+       OPPORTUNITY DETAIL MODAL / DRAWER
+       ======================================================== -->
+  <div class="dash-modal-overlay" id="dash-opp-modal" onclick="closeOppModal(event)">
+    <div class="dash-modal" onclick="event.stopPropagation()">
+      <div class="dash-modal-header">
+        <div>
+          <span class="dash-badge" id="modal-opp-badge" style="margin-bottom:6px; display:inline-block;">Seed Stage</span>
+          <h2 style="font-family:var(--font-display); font-size:26px; margin:0; color:var(--color-ink-black);" id="modal-opp-title">Opportunity Name</h2>
+          <p style="font-size:13px; color:var(--color-slate-gray); margin:4px 0 0 0;" id="modal-opp-meta">Sector · Location · Ask</p>
+        </div>
+        <button class="dash-nav-icon-btn" onclick="closeOppModal()" aria-label="Close modal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div class="dash-modal-body">
+        <!-- AI Match Synthesis & Diligence Memo -->
+        <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 12px; padding: 16px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="ai-pulse-dot"></span>
+              <strong style="font-size:13px; color:#166534;">✦ AI Match Optimization Memo</strong>
+            </div>
+            <span class="ai-match-badge" id="modal-opp-ai-badge">96% Neural Alignment</span>
+          </div>
+          <p style="font-size:13px; line-height:1.55; color:#14532d; margin:0;" id="modal-opp-ai-memo">
+            Synthesized by Finance Connect AI: Addis Cold Chain directly solves post-harvest loss in your target East African footprint. At $150k, the round aligns perfectly with your $50k-$250k ticket size. Unit economics show positive gross margin per solar container with zero debt encumbrance and 14% MoM MRR growth.
+          </p>
+          <div class="ai-vector-strip" style="margin-top:12px; margin-bottom:0;">
+            <div class="ai-vector-item" style="background:#ffffff;">
+              <div class="ai-vector-label">Thesis Match</div>
+              <div class="ai-vector-value" id="modal-vec-thesis">98%</div>
+            </div>
+            <div class="ai-vector-item" style="background:#ffffff;">
+              <div class="ai-vector-label">Check Fit</div>
+              <div class="ai-vector-value" id="modal-vec-check">100%</div>
+            </div>
+            <div class="ai-vector-item" style="background:#ffffff;">
+              <div class="ai-vector-label">Traction Score</div>
+              <div class="ai-vector-value" id="modal-vec-traction">94%</div>
+            </div>
+            <div class="ai-vector-item" style="background:#ffffff;">
+              <div class="ai-vector-label">Risk Profile</div>
+              <div class="ai-vector-value" id="modal-vec-risk" style="color:#15803d;">Low Risk</div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4 style="font-size:12px; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-slate-gray); margin:0 0 6px 0;">Executive Summary</h4>
+          <p style="font-size:14px; line-height:1.6; color:var(--color-ink-black); margin:0;" id="modal-opp-desc">Detailed company description...</p>
+        </div>
+
+        <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; background:var(--color-fog-white); border:1px solid var(--color-border); border-radius:12px; padding:16px;">
+          <div>
+            <div style="font-size:11px; color:var(--color-slate-gray);">Target Capital</div>
+            <div style="font-family:var(--font-display); font-size:20px; font-weight:500; color:var(--color-ink-black);" id="modal-opp-ask">$150,000</div>
+          </div>
+          <div>
+            <div style="font-size:11px; color:var(--color-slate-gray);">Current Traction</div>
+            <div style="font-family:var(--font-display); font-size:20px; font-weight:500; color:var(--color-ink-black);" id="modal-opp-traction">$18.4k MRR</div>
+          </div>
+          <div>
+            <div style="font-size:11px; color:var(--color-slate-gray);">AI Match Score</div>
+            <div style="font-family:var(--font-display); font-size:20px; font-weight:500; color:#15803d;" id="modal-opp-match">96% Fit</div>
+          </div>
+        </div>
+
+        <div>
+          <h4 style="font-size:12px; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-slate-gray); margin:0 0 8px 0;">Use of Proceeds</h4>
+          <ul style="font-size:13px; line-height:1.6; color:#374151; padding-left:20px; margin:0;" id="modal-opp-use">
+            <li>Expansion into 3 new regional agricultural aggregation centers</li>
+            <li>Cold chain IoT monitoring deployment and battery storage units</li>
+            <li>Regulatory export certification and hiring of operational leads</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dash-modal-footer">
+        <button class="btn dash-btn-outline-sm" id="modal-save-btn" onclick="saveFromModal()">Save to Pipeline</button>
+        <div style="display:flex; gap:10px;">
+          <button class="btn dash-btn-outline-sm" onclick="closeOppModal()">Close</button>
+          <button class="btn btn-filled" id="modal-chat-btn" onclick="openChatFromModal()">Message Founder</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================================
+       UNIVERSAL TOAST NOTIFICATION
+       ======================================================== -->
+  <div class="dash-toast" id="dash-toast">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+    <span id="toast-text">Action completed successfully</span>
+  </div>
+
+
+  <!-- ========================================================
+       CORE JAVASCRIPT: TAB SWITCHER & INTERACTIONS
+       ======================================================== -->
+  <script>
+    (function() {
+      // Data dictionary for opportunities
+      const oppData = {
+        'addis': {
+          title: 'Addis Cold Chain',
+          sector: 'Agri-logistics & Storage',
+          meta: 'Logistics · Seed · Addis Ababa, Ethiopia · USD 150k',
+          desc: 'Addis Cold Chain operates solar-powered decentralized cold storage lockers for commercial horticulture farmers and exporters. Preventing up to 35% in post-harvest losses and guaranteeing cold transport to Bole International Airport for Europe-bound fresh produce.',
+          ask: '$150,000',
+          traction: '$18.4k MRR (+14% MoM)',
+          match: '96% Fit',
+          aiMemo: 'Synthesized by Finance Connect AI: Addis Cold Chain directly solves post-harvest loss in your target East African footprint. At $150k, the round aligns perfectly with your $50k-$250k ticket size. Unit economics show positive gross margin per solar container with zero debt encumbrance and 14% MoM MRR growth.',
+          vecThesis: '98%',
+          vecCheck: '100%',
+          vecTraction: '94%',
+          vecRisk: 'Low Risk',
+          use: [
+            'Installing 10 additional 40ft refrigerated solar storage containers in Oromia region',
+            'Fleet expansion of 3 refrigerated delivery vans with real-time GPS temperature logging',
+            'Working capital to scale export partner contracts'
+          ]
+        },
+        'meskel': {
+          title: 'Meskel Learning',
+          sector: 'Edtech & Software',
+          meta: 'Edtech · Pre-seed · Nairobi, Kenya · USD 80k',
+          desc: 'Meskel Learning provides localized STEM curriculum and interactive tablet modules for primary and secondary private schools across East Africa. Generating recurring subscription revenue with 120 school partners.',
+          ask: '$80,000',
+          traction: '$9.2k ARR / school',
+          match: '88% Fit',
+          aiMemo: 'Synthesized by Finance Connect AI: High retention B2B software with 120 school contracts across Kenya. While check size is on the lower end ($80k), the ARR predictability and capital efficiency score in the 88th percentile for early education infrastructure.',
+          vecThesis: '92%',
+          vecCheck: '100%',
+          vecTraction: '86%',
+          vecRisk: 'Moderate Risk',
+          use: [
+            'Teacher training certification portal development',
+            'Onboarding 200 additional private school partners across Kenya & Uganda',
+            'Localizing physics and mathematics syllabus'
+          ]
+        },
+        'tana': {
+          title: 'Tana Payments',
+          sector: 'B2B Fintech & Treasury',
+          meta: 'Fintech · Seed · Lagos, Nigeria · USD 200k',
+          desc: 'Tana Payments provides automated supplier payment workflows, digital invoices, and working capital credit lines for FMCG distributors in West Africa.',
+          ask: '$200,000',
+          traction: '$3.2M Q3 GMV',
+          match: '94% Fit',
+          aiMemo: 'Synthesized by Finance Connect AI: Strong $3.2M Q3 GMV run-rate with 0.8% default rate on trade credit. Aligns with your B2B fintech diversification thesis and target West Africa geographic allocation.',
+          vecThesis: '96%',
+          vecCheck: '95%',
+          vecTraction: '98%',
+          vecRisk: 'Low Risk',
+          use: [
+            'Capital reserves for trade credit underwriting facility',
+            'Integration with regional payment rails in Ghana and Nigeria',
+            'Enterprise sales team expansion'
+          ]
+        },
+        'harar': {
+          title: 'Harar Coffee Co-op',
+          sector: 'Agri-processing & Export',
+          meta: 'Agri-tech · Seed · Dire Dawa, Ethiopia · USD 120k',
+          desc: 'Harar Coffee connects certified smallholder specialty coffee growers directly with boutique European and Middle Eastern roasters using lot-level blockchain QR traceability.',
+          ask: '$120,000',
+          traction: '$140k Export Rev',
+          match: '91% Fit',
+          aiMemo: 'Synthesized by Finance Connect AI: $140k realized export revenue backed by binding European roaster contracts. Direct ESG and farmer income multiplier aligns with impact criteria in your active mandate.',
+          vecThesis: '94%',
+          vecCheck: '100%',
+          vecTraction: '89%',
+          vecRisk: 'Low Risk',
+          use: [
+            'Washing station ecological wastewater treatment upgrades',
+            'Specialty cupping laboratory and organic export certification',
+            'Pre-harvest farmer advance payment facility'
+          ]
+        },
+        'solar': {
+          title: 'SolarLink Clean Energy',
+          sector: 'Renewable Mini-grids',
+          meta: 'CleanTech · Seed+ · Kigali, Rwanda · USD 220k',
+          desc: 'SolarLink deploys modular solar micro-grids with IoT smart meters for agro-processing clusters and rural health centers in Rwanda, replacing expensive diesel generators.',
+          ask: '$220,000',
+          traction: '14 Active Grids',
+          match: '95% Fit',
+          aiMemo: 'Synthesized by Finance Connect AI: Proven unit economics with 14 operating commercial micro-grids. 95% neural match driven by high asset utilization and long-term utility-grade off-taker contracts.',
+          vecThesis: '97%',
+          vecCheck: '95%',
+          vecTraction: '95%',
+          vecRisk: 'Low Risk',
+          use: [
+            'Procurement of 120kWh LFP battery storage banks',
+            'Installation of 8 new mini-grids in Eastern Rwanda',
+            'Scaling remote smart metering telemetry software'
+          ]
+        },
+        'kebede': {
+          title: 'Kebede Organic Foods',
+          sector: 'Agri-processing',
+          meta: 'Agri-processing · Seed · Addis Ababa · USD 150k',
+          desc: 'Kebede Organic Foods produces export-grade organic dried fruits, spices, and pulses sourced from over 600 smallholder farmer networks across Ethiopia.',
+          ask: '$150,000',
+          traction: '$24.6k MRR',
+          match: '92% Fit',
+          aiMemo: 'Synthesized by Finance Connect AI: Established regional food processing brand with $24.6k MRR (+18% QoQ). Excellent synergistic fit with cold storage investments and existing retail distribution partners.',
+          vecThesis: '95%',
+          vecCheck: '100%',
+          vecTraction: '91%',
+          vecRisk: 'Low Risk',
+          use: [
+            'HACCP & ISO 22000 processing facility expansion',
+            'Automated packaging and dehydration machinery',
+            'Export fulfillment to UAE and EU retail chains'
+          ]
+        }
+      };
+
+      // Toast Notification function
+      window.showToast = function(msg) {
+        const toast = document.getElementById('dash-toast');
+        const text = document.getElementById('toast-text');
+        if (!toast || !text) return;
+        text.textContent = msg;
+        toast.classList.add('show');
+        clearTimeout(window._toastTimeout);
+        window._toastTimeout = setTimeout(() => {
+          toast.classList.remove('show');
+        }, 2800);
+      };
+
+      // TAB SWITCHING LOGIC (NO PAGE SCROLL)
+      window.switchTab = function(tabName) {
+        if (!tabName) return;
+
+        // Hide all views
+        const views = document.querySelectorAll('.dash-view');
+        views.forEach(v => v.classList.remove('dash-view-active'));
+
+        // Show target view
+        const targetView = document.getElementById('view-' + tabName);
+        if (targetView) {
+          targetView.classList.add('dash-view-active');
+        } else {
+          // Fallback to for-you
+          const defaultView = document.getElementById('view-for-you');
+          if (defaultView) defaultView.classList.add('dash-view-active');
+          tabName = 'for-you';
+        }
+
+        // Update sidebar nav items
+        const navItems = document.querySelectorAll('.dash-nav-item');
+        navItems.forEach(item => {
+          if (item.getAttribute('data-tab') === tabName) {
+            item.classList.add('dash-nav-item-active');
+          } else {
+            item.classList.remove('dash-nav-item-active');
+          }
+        });
+
+        // Update browser URL hash without scrolling
+        if (history.replaceState) {
+          history.replaceState(null, null, '#' + tabName);
+        }
+
+        // Close mobile sidebar if open
+        const sidebar = document.getElementById('dash-sidebar');
+        const backdrop = document.getElementById('sidebar-backdrop');
+        if (sidebar && backdrop && window.innerWidth <= 900) {
+          sidebar.classList.remove('open');
+          backdrop.classList.remove('open');
+        }
+
+        // Close all open popovers
+        closeAllPopovers();
+
+        // Scroll main container to top cleanly
+        const main = document.getElementById('dash-main');
+        if (main) main.scrollTop = 0;
+        window.scrollTo(0, 0);
+      };
+
+      // Listen for all elements with data-tab attribute
+      document.addEventListener('click', function(e) {
+        const tabTrigger = e.target.closest('[data-tab]');
+        if (tabTrigger) {
+          e.preventDefault();
+          const tab = tabTrigger.getAttribute('data-tab');
+          window.switchTab(tab);
+        }
+      });
+
+      // Mobile sidebar drawer
+      const sidebarToggle = document.getElementById('dash-sidebar-toggle');
+      const sidebar = document.getElementById('dash-sidebar');
+      const backdrop = document.getElementById('sidebar-backdrop');
+
+      function toggleSidebar() {
+        if (!sidebar) return;
+        sidebar.classList.toggle('open');
+        if (backdrop) backdrop.classList.toggle('open');
+      }
+
+      if (sidebarToggle) sidebarToggle.addEventListener('click', toggleSidebar);
+      if (backdrop) backdrop.addEventListener('click', toggleSidebar);
+
+      // Popovers (User Menu, Basket, Notifications)
+      const userBtn = document.getElementById('dash-user-capsule-btn');
+      const userMenu = document.getElementById('dash-user-menu');
+      const basketBtn = document.getElementById('dash-basket-btn');
+      const basketPopover = document.getElementById('dash-basket-popover');
+      const bellBtn = document.getElementById('dash-bell-btn');
+      const notifPopover = document.getElementById('dash-notif-popover');
+
+      const allPopovers = [
+        { btn: userBtn, menu: userMenu, isUser: true },
+        { btn: basketBtn, menu: basketPopover, isUser: false },
+        { btn: bellBtn, menu: notifPopover, isUser: false }
+      ];
+
+      function closeAllPopovers() {
+        allPopovers.forEach(({ btn, menu, isUser }) => {
+          if (menu) menu.classList.remove('open');
+          if (isUser && btn) btn.classList.remove('active');
+        });
+      }
+
+      allPopovers.forEach(({ btn, menu, isUser }) => {
+        if (!btn || !menu) return;
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const isOpen = menu.classList.contains('open');
+          closeAllPopovers();
+          if (!isOpen) {
+            menu.classList.add('open');
+            if (isUser) btn.classList.add('active');
+          }
+        });
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.dash-popover') && !e.target.closest('.dash-user-capsule') && !e.target.closest('.dash-nav-icon-btn')) {
+          closeAllPopovers();
+        }
+      });
+
+      // Keyboard shortcuts
+      const searchInput = document.getElementById('dash-search-input');
+      document.addEventListener('keydown', (e) => {
+        if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+          e.preventDefault();
+          if (searchInput) {
+            searchInput.focus();
+            searchInput.select();
+          }
+        } else if (e.key === 'Escape') {
+          closeAllPopovers();
+          window.closeOppModal();
+        }
+      });
+
+      // Search input live filtering
+      if (searchInput) {
+        searchInput.addEventListener('input', function() {
+          const query = this.value.toLowerCase().trim();
+          const oppCards = document.querySelectorAll('.opp-card');
+          oppCards.forEach(card => {
+            const text = card.textContent.toLowerCase();
+            card.style.display = (!query || text.includes(query)) ? '' : 'none';
+          });
+        });
+      }
+
+      // Opportunity Detail Modal
+      let currentModalDealId = 'addis';
+      window.openOppModal = function(dealId) {
+        const data = oppData[dealId] || oppData['addis'];
+        currentModalDealId = dealId;
+
+        document.getElementById('modal-opp-title').textContent = data.title;
+        document.getElementById('modal-opp-meta').textContent = data.meta;
+        document.getElementById('modal-opp-desc').textContent = data.desc;
+        document.getElementById('modal-opp-ask').textContent = data.ask;
+        document.getElementById('modal-opp-traction').textContent = data.traction;
+        document.getElementById('modal-opp-match').textContent = data.match;
+
+        const aiMemoEl = document.getElementById('modal-opp-ai-memo');
+        if (aiMemoEl) aiMemoEl.textContent = data.aiMemo || data.desc;
+        const aiBadgeEl = document.getElementById('modal-opp-ai-badge');
+        if (aiBadgeEl) aiBadgeEl.textContent = `${data.match} Neural Alignment`;
+        const vecThesis = document.getElementById('modal-vec-thesis');
+        if (vecThesis) vecThesis.textContent = data.vecThesis || '95%';
+        const vecCheck = document.getElementById('modal-vec-check');
+        if (vecCheck) vecCheck.textContent = data.vecCheck || '100%';
+        const vecTraction = document.getElementById('modal-vec-traction');
+        if (vecTraction) vecTraction.textContent = data.vecTraction || '90%';
+        const vecRisk = document.getElementById('modal-vec-risk');
+        if (vecRisk) vecRisk.textContent = data.vecRisk || 'Low Risk';
+
+        const useList = document.getElementById('modal-opp-use');
+        if (useList) {
+          useList.innerHTML = data.use.map(item => `<li>${item}</li>`).join('');
+        }
+
+        const modal = document.getElementById('dash-opp-modal');
+        if (modal) modal.classList.add('open');
+      };
+
+      window.closeOppModal = function(e) {
+        if (e && e.target !== e.currentTarget && !e.target.closest('.dash-nav-icon-btn') && !e.target.classList.contains('dash-btn-outline-sm')) return;
+        const modal = document.getElementById('dash-opp-modal');
+        if (modal) modal.classList.remove('open');
+      };
+
+      window.saveFromModal = function() {
+        showToast(`Saved ${oppData[currentModalDealId].title} to pipeline!`);
+        window.closeOppModal();
+      };
+
+      window.openChatFromModal = function() {
+        window.closeOppModal();
+        window.switchTab('conversations');
+        // select thread if available
+        if (currentModalDealId === 'addis' || currentModalDealId === 'kebede') {
+          const threadItems = document.querySelectorAll('.dealroom-thread-item');
+          threadItems.forEach(t => t.classList.remove('active'));
+          const target = document.querySelector(`.dealroom-thread-item[onclick*="${currentModalDealId}"]`);
+          if (target) target.classList.add('active');
+        }
+      };
+
+      // Save deal toggle buttons
+      let savedDealsCount = 4;
+      document.querySelectorAll('.save-toggle-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const dealName = this.getAttribute('data-deal');
+          if (this.classList.contains('saved-active')) {
+            this.classList.remove('saved-active');
+            this.textContent = 'Save';
+            savedDealsCount = Math.max(0, savedDealsCount - 1);
+            showToast(`Removed ${dealName} from saved list`);
+          } else {
+            this.classList.add('saved-active');
+            this.textContent = 'Saved ✓';
+            savedDealsCount++;
+            showToast(`Added ${dealName} to your Saved Pipeline!`);
+          }
+          const badge1 = document.getElementById('basket-badge-count');
+          const badge2 = document.getElementById('nav-saved-badge');
+          const popCount = document.getElementById('popover-saved-count');
+          if (badge1) badge1.textContent = savedDealsCount;
+          if (badge2) badge2.textContent = savedDealsCount;
+          if (popCount) popCount.textContent = savedDealsCount + ' items';
+        });
+      });
+
+      // "Train AI (Pass)" dismiss buttons
+      document.querySelectorAll('.not-for-me-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const card = this.closest('.opp-card');
+          if (card) {
+            card.style.opacity = '0.35';
+            card.style.filter = 'grayscale(1)';
+            this.textContent = 'Feedback Saved';
+            this.disabled = true;
+            showToast('✦ AI Model Feedback: Negative signal recorded to fine-tune future vector weights.');
+          }
+        });
+      });
+
+      // Interactive AI Match Re-Optimization Simulation
+      window.runAiOptimization = function() {
+        const btn = document.getElementById('hero-reoptimize-btn');
+        const icon = document.getElementById('opt-btn-icon');
+        const text = document.getElementById('opt-btn-text');
+
+        if (btn) {
+          btn.disabled = true;
+          if (icon) icon.className = 'ai-scanning-state';
+          if (text) text.textContent = 'Optimizing Deal Flow...';
+        }
+
+        showToast('✦ AI Neural Matching Engine: Analyzing 142 deal decks against your thesis vectors...');
+
+        setTimeout(() => {
+          if (btn) {
+            btn.disabled = false;
+            if (icon) icon.className = '';
+            if (text) text.textContent = 'Re-Optimize Matches';
+          }
+          // Flash cards with subtle glow animation to indicate re-ranking
+          const cards = document.querySelectorAll('.opp-card');
+          cards.forEach(card => {
+            card.style.transition = 'box-shadow 0.4s, transform 0.3s';
+            card.style.boxShadow = '0 0 0 2px #10b981, 0 10px 25px -5px rgba(16, 185, 129, 0.2)';
+            setTimeout(() => {
+              card.style.boxShadow = '';
+            }, 1200);
+          });
+          showToast('✦ AI Optimization Complete: 5 high-conviction matches refreshed with 94.2% average fit!');
+        }, 1100);
+      };
+
+      // Filter matches by category pill
+      window.filterDeals = function(pill, sector) {
+        document.querySelectorAll('.trending-pill').forEach(p => p.classList.remove('active-pill-tag'));
+        pill.classList.add('active-pill-tag');
+        const cards = document.querySelectorAll('.opp-grid .opp-card');
+        cards.forEach(card => {
+          const cardSector = card.getAttribute('data-sector') || '';
+          if (sector === 'all' || cardSector.toLowerCase().includes(sector.toLowerCase())) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      };
+
+      // Pipeline Stage Mover
+      window.moveDealStage = function(selectEl, cardId) {
+        const targetColId = 'col-' + selectEl.value;
+        const card = document.getElementById(cardId);
+        const targetCol = document.getElementById(targetColId);
+        if (card && targetCol) {
+          const list = targetCol.querySelector('.pipeline-cards-list');
+          if (list) {
+            list.appendChild(card);
+            showToast(`Moved deal to ${selectEl.options[selectEl.selectedIndex].text}!`);
+            updatePipelineCounts();
+          }
+        }
+      };
+
+      function updatePipelineCounts() {
+        ['eval', 'diligence', 'termsheet'].forEach(stage => {
+          const col = document.getElementById('col-' + stage);
+          const countEl = document.getElementById('count-col-' + stage);
+          if (col && countEl) {
+            const count = col.querySelectorAll('.pipeline-card').length;
+            countEl.textContent = count;
+          }
+        });
+      }
+
+      window.filterPipelineStage = function(stage, btn) {
+        document.querySelectorAll('.pipeline-filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const cols = document.querySelectorAll('.pipeline-col');
+        if (stage === 'all') {
+          cols.forEach(c => c.style.display = '');
+        } else {
+          cols.forEach(c => {
+            c.style.display = c.id === ('col-' + stage) ? '' : 'none';
+          });
+        }
+      };
+
+      window.exportPipeline = function() {
+        showToast('Exporting Pipeline CSV & Due Diligence Summary...');
+      };
+
+      window.scheduleCallModal = function() {
+        showToast('Opening Calendar: Direct intro call scheduler');
+      };
+
+      // Deal Room Chat Interactions
+      window.selectThread = function(threadId, itemEl) {
+        document.querySelectorAll('.dealroom-thread-item').forEach(i => i.classList.remove('active'));
+        itemEl.classList.add('active');
+
+        const titleEl = document.getElementById('active-chat-title');
+        const metaEl = document.getElementById('active-chat-meta');
+        const avatarEl = document.getElementById('active-chat-avatar');
+
+        if (threadId === 'kebede') {
+          titleEl.textContent = 'Dawit Kebede · Kebede Organic Foods';
+          metaEl.textContent = 'CEO & Founder · Seed Stage · Seeking USD 150k · Online now';
+          avatarEl.textContent = 'KF';
+          avatarEl.style.background = 'var(--color-blush-peach)';
+          avatarEl.style.color = 'var(--color-sienna-brown)';
+        } else if (threadId === 'selam') {
+          titleEl.textContent = 'Dr. Bethlehem T. · Selam Health';
+          metaEl.textContent = 'Chief Medical Officer · Seed Stage · Seeking USD 180k · Call Friday 2pm';
+          avatarEl.textContent = 'SH';
+          avatarEl.style.background = '#dbeafe';
+          avatarEl.style.color = '#1e40af';
+        } else if (threadId === 'abay') {
+          titleEl.textContent = 'Yared Assefa · Abay Pay';
+          metaEl.textContent = 'Fintech Co-founder · Seed Stage · Seeking USD 200k · Away';
+          avatarEl.textContent = 'AP';
+          avatarEl.style.background = '#fef3c7';
+          avatarEl.style.color = '#92400e';
+        } else if (threadId === 'addis') {
+          titleEl.textContent = 'Hanan Mohammed · Addis Cold Chain';
+          metaEl.textContent = 'Managing Director · Seed Stage · Seeking USD 150k · Online now';
+          avatarEl.textContent = 'AC';
+          avatarEl.style.background = '#e0e7ff';
+          avatarEl.style.color = '#3730a3';
+        }
+        showToast(`Opened Deal Room with ${titleEl.textContent.split('·')[0].trim()}`);
+      };
+
+      window.sendMessage = function() {
+        const input = document.getElementById('chat-composer-input');
+        if (!input) return;
+        const text = input.value.trim();
+        if (!text) return;
+
+        const container = document.getElementById('chat-messages-container');
+        if (!container) return;
+
+        const msgDiv = document.createElement('div');
+        msgDiv.className = 'chat-msg sent';
+        msgDiv.innerHTML = `
+          <div class="chat-msg-bubble">${escapeHtml(text)}</div>
+          <span class="chat-msg-time">Just now · Sent</span>
+        `;
+        container.appendChild(msgDiv);
+        input.value = '';
+        container.scrollTop = container.scrollHeight;
+
+        // Update thread preview snippet
+        const activeSnippet = document.getElementById('snippet-kebede');
+        if (activeSnippet) activeSnippet.textContent = 'You: ' + text;
+
+        showToast('Message sent to founder');
+      };
+
+      window.handleChatKey = function(e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          window.sendMessage();
+        }
+      };
+
+      window.quickReply = function(text) {
+        const input = document.getElementById('chat-composer-input');
+        if (input) {
+          input.value = text;
+          input.focus();
+        }
+      };
+
+      window.filterThreads = function(val) {
+        const q = val.toLowerCase();
+        document.querySelectorAll('.dealroom-thread-item').forEach(item => {
+          item.style.display = item.textContent.toLowerCase().includes(q) ? 'flex' : 'none';
+        });
+      };
+
+      function escapeHtml(str) {
+        return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      }
+
+      // Mandate Tuning Logic
+      window.toggleMandatePill = function(pill) {
+        pill.classList.toggle('selected');
+        updateMandatePreview();
+      };
+
+      window.updateRangePreview = function(val) {
+        const maxLabel = document.getElementById('range-val-max');
+        if (maxLabel) {
+          maxLabel.textContent = `Maximum: USD $${Number(val).toLocaleString()}`;
+        }
+        updateMandatePreview();
+      };
+
+      window.setRangePreset = function(min, max) {
+        const slider = document.querySelector('input[type="range"]');
+        if (slider) slider.value = max;
+        const minLabel = document.getElementById('range-val-min');
+        const maxLabel = document.getElementById('range-val-max');
+        if (minLabel) minLabel.textContent = `Minimum: USD $${Number(min).toLocaleString()}`;
+        if (maxLabel) maxLabel.textContent = `Maximum: USD $${Number(max).toLocaleString()}`;
+        showToast(`Mandate preset updated: $${min/1000}k – $${max/1000}k`);
+        updateMandatePreview();
+      };
+
+      function updateMandatePreview() {
+        const selectedSectors = document.querySelectorAll('#focus-sectors-group .focus-toggle-pill.selected').length;
+        const matchCountEl = document.getElementById('engine-match-count');
+        if (matchCountEl) {
+          const estimated = Math.max(4, selectedSectors * 4 + 2);
+          matchCountEl.textContent = `${estimated} deals`;
+        }
+      }
+
+      window.saveMandate = function() {
+        const topBtn = document.querySelector('#view-focus .view-header-actions button');
+        const sideBtn = document.getElementById('save-mandate-btn');
+        if (sideBtn) sideBtn.innerHTML = '<span class="ai-scanning-state">✦</span> Optimizing with Back End Model...';
+        if (topBtn) topBtn.innerHTML = '<span class="ai-scanning-state">✦</span> Optimizing...';
+
+        showToast('✦ AI Model: Embedding updated thesis parameters into 1,536-dim vector space...');
+
+        setTimeout(() => {
+          if (sideBtn) sideBtn.innerHTML = '<span id="save-mandate-icon">✦</span> Save &amp; Run AI Optimization';
+          if (topBtn) topBtn.innerHTML = '<span id="save-mandate-top-icon">✦</span> Save &amp; Run AI Optimization';
+          showToast('✦ AI Mandate Saved: Neural weights synced & 18 candidate ventures re-scored!');
+          window.switchTab('for-you');
+        }, 1100);
+      };
+
+      // Check URL hash on initial page load
+      const initialHash = window.location.hash.replace('#', '');
+      if (initialHash && ['for-you', 'saved', 'conversations', 'focus', 'profile'].includes(initialHash)) {
+        window.switchTab(initialHash);
+      } else {
+        window.switchTab('for-you');
+      }
+
+    })();
+  </script>
+
+</body>
+</html>
