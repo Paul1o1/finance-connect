@@ -1866,41 +1866,199 @@
         showToast('Opening Calendar: Direct intro call scheduler');
       };
 
-      // Deal Room Chat Interactions
+      // ============================================================
+      //  DEAL ROOM — FULLY INTERACTIVE CHAT ENGINE
+      // ============================================================
+
+      // Per-thread message histories
+      const threadData = {
+        kebede: {
+          title: 'Dawit Kebede · Kebede Organic Foods',
+          meta: 'CEO & Founder · Seed Stage · Seeking USD 150k · 🟢 Online now',
+          avatar: 'KF',
+          avatarBg: 'var(--color-blush-peach)',
+          avatarColor: 'var(--color-sienna-brown)',
+          oppKey: 'kebede',
+          quickReplies: [
+            { label: '📅 Schedule 30-min diligence call', text: "Let's schedule a 30-min diligence call this Thursday — any availability before noon EAT?" },
+            { label: '📂 Request Data Room access', text: 'Thank you for the files. Could you also grant Data Room access to our two analysts so they can review the cap table independently?' },
+            { label: '📝 Send term sheet draft', text: 'We are drafting preliminary terms and will share a non-binding term sheet by Friday COB.' }
+          ],
+          messages: [
+            { type: 'received', text: 'Hello Amara, thank you for reaching out through Finance Connect. We\'re very excited by Nile Horizon\'s thesis in East African food processing.', time: 'Yesterday 11:20 AM' },
+            { type: 'sent', text: 'Hi Dawit, pleasure connecting. We\'ve reviewed your overview and love the export margins. Could you share the latest breakdown of your Q3 audited revenue and customer concentration?', time: 'Yesterday 2:45 PM · Delivered' },
+            { type: 'received', text: 'Absolutely! Here are the updated financial model and investor deck including our new supermarket distribution partnership in Addis and regional export contracts.', time: '12m ago', attachments: [
+              { name: 'Kebede_Foods_PitchDeck_v3.pdf', size: '12.4 MB · Updated today', btnLabel: 'Download', btnAction: "showToast('Downloading pitch deck...')" },
+              { name: 'Financial_Model_2026_Projections.xlsx', size: '4.8 MB · Audited figures', btnLabel: 'Preview', btnAction: "showToast('Opening financial spreadsheet...')" }
+            ]}
+          ]
+        },
+        selam: {
+          title: 'Dr. Bethlehem T. · Selam Health',
+          meta: 'Chief Medical Officer · Seed Stage · Seeking USD 180k · 📅 Call Friday 2pm',
+          avatar: 'SH',
+          avatarBg: '#dbeafe',
+          avatarColor: '#1e40af',
+          oppKey: 'selam',
+          quickReplies: [
+            { label: '📅 Confirm Friday call', text: 'Confirmed for Friday at 2:00 PM EAT. I\'ve sent a calendar invite to your email. Looking forward to it.' },
+            { label: '📋 Request regulatory docs', text: 'Could you share the Class II medical device registration certificate and any EFDA correspondence so our legal team can review?' },
+            { label: '💡 Ask about go-to-market', text: 'We\'d love to understand your hospital onboarding playbook — how many facilities are in active pilot and what\'s the typical procurement cycle?' }
+          ],
+          messages: [
+            { type: 'received', text: 'Hi Amara, great to connect. Selam Health is building diagnostic decision-support tools for primary care facilities across Ethiopia and Kenya.', time: '4h ago' },
+            { type: 'sent', text: 'Exciting work — diagnostics infrastructure is a huge gap. We\'d love to learn more about your regulatory pathway and current clinical pilots.', time: '3h 30m ago · Delivered' },
+            { type: 'received', text: 'We have three active pilots across Addis: Bethzatha Hospital, Hayat, and a government PHC. EFDA Class II registration is in final review. Call confirmed for Friday at 2:00 PM EAT.', time: '3h ago' }
+          ]
+        },
+        abay: {
+          title: 'Yared Assefa · Abay Pay',
+          meta: 'Fintech Co-founder · Seed Stage · Seeking USD 200k · ⏸ Away',
+          avatar: 'AP',
+          avatarBg: '#fef3c7',
+          avatarColor: '#92400e',
+          oppKey: null,
+          quickReplies: [
+            { label: '📜 Follow up on licenses', text: 'Following up on the merchant processing license question we sent — do you have an expected timeline for the NBE approval?' },
+            { label: '📊 Request updated MRR', text: 'Could you share the latest MRR breakdown by merchant segment and region? We want to model the unit economics before our next IC meeting.' },
+            { label: '⏱ Check availability', text: 'We\'ve been waiting on a few items. Could you let us know your availability this week for a quick 20-minute catch-up call?' }
+          ],
+          messages: [
+            { type: 'sent', text: 'Yared, we reviewed Abay Pay and are impressed by the B2B merchant processing angle. A few questions on the regulatory side before we move to diligence.', time: '3d ago · Delivered' },
+            { type: 'received', text: 'Thank you Amara! We\'re fully licensed by NBE for mobile money but the merchant acquiring licence is still pending — expecting approval within 45 days.', time: '2d ago' },
+            { type: 'sent', text: 'We sent over questions regarding merchant processing licenses. Waiting to hear back before scheduling an IC presentation.', time: '2d ago · Delivered' }
+          ]
+        },
+        addis: {
+          title: 'Hanan Mohammed · Addis Cold Chain',
+          meta: 'Managing Director · Seed Stage · Seeking USD 150k · 🟢 Online now',
+          avatar: 'AC',
+          avatarBg: '#e0e7ff',
+          avatarColor: '#3730a3',
+          oppKey: 'addis',
+          quickReplies: [
+            { label: '📞 Book intro call', text: 'We\'d love to connect this week. Are you free Thursday or Friday for a 45-minute intro call? I\'ll send a calendar invite.' },
+            { label: '📄 Request deck & model', text: 'Could you share your latest investor deck and any financial model with co-op revenue breakdown?' },
+            { label: '✦ Share AI Match Report', text: 'Our AI engine scored Addis Cold Chain at 96% mandate fit. I\'ve attached the AI Match Report — happy to walk you through the analysis.' }
+          ],
+          messages: [
+            { type: 'received', text: 'Hello Amara, thank you for reviewing Addis Cold Chain. We\'re solving critical cold-chain infrastructure for smallholder farmers. When would be a good time for an intro call?', time: 'Yesterday 3:10 PM' }
+          ]
+        }
+      };
+
+      let activeThreadId = 'kebede';
+
+      function renderMessages(threadId) {
+        const thread = threadData[threadId];
+        const container = document.getElementById('chat-messages-container');
+        if (!container || !thread) return;
+
+        container.innerHTML = `
+          <div style="text-align:center; margin:10px 0 18px;">
+            <span style="font-size:11px; background:#f2f2f3; color:#777b86; padding:4px 12px; border-radius:9999px;">Confidential Deal Room · NDA in effect</span>
+          </div>
+        `;
+
+        thread.messages.forEach(msg => {
+          const div = document.createElement('div');
+          div.className = `chat-msg ${msg.type}`;
+          let attHtml = '';
+          if (msg.attachments) {
+            msg.attachments.forEach(att => {
+              const iconColor = att.name.endsWith('.xlsx') ? 'var(--color-sienna-brown)' : 'var(--color-ink-black)';
+              attHtml += `
+                <div class="chat-attachment">
+                  <div class="chat-att-icon" style="color:${iconColor};">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                  </div>
+                  <div class="chat-att-info">
+                    <div class="chat-att-name">${att.name}</div>
+                    <div class="chat-att-size">${att.size}</div>
+                  </div>
+                  <button class="btn dash-btn-outline-sm" style="font-size:11px; padding:4px 10px;" onclick="${att.btnAction}">${att.btnLabel}</button>
+                </div>`;
+            });
+          }
+          div.innerHTML = `
+            <div class="chat-msg-bubble">${escapeHtml(msg.text)}${attHtml}</div>
+            <span class="chat-msg-time">${msg.time}</span>
+          `;
+          container.appendChild(div);
+        });
+
+        container.scrollTop = container.scrollHeight;
+      }
+
+      function renderQuickReplies(threadId) {
+        const thread = threadData[threadId];
+        const qrRow = document.querySelector('.chat-quick-replies');
+        if (!qrRow || !thread) return;
+        qrRow.innerHTML = thread.quickReplies.map(qr =>
+          `<span class="chat-quick-chip" onclick="quickReply('${qr.text.replace(/'/g, "\\'")}')">${qr.label}</span>`
+        ).join('');
+      }
+
+      function showTypingIndicator() {
+        const container = document.getElementById('chat-messages-container');
+        if (!container) return;
+        const div = document.createElement('div');
+        div.className = 'chat-msg received';
+        div.id = 'typing-indicator';
+        div.innerHTML = `<div class="chat-msg-bubble chat-typing-bubble">
+          <span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span>
+        </div>`;
+        container.appendChild(div);
+        container.scrollTop = container.scrollHeight;
+      }
+
+      function removeTypingIndicator() {
+        const el = document.getElementById('typing-indicator');
+        if (el) el.remove();
+      }
+
       window.selectThread = function(threadId, itemEl) {
+        if (threadId === activeThreadId) return;
+        activeThreadId = threadId;
+
         document.querySelectorAll('.dealroom-thread-item').forEach(i => i.classList.remove('active'));
         itemEl.classList.add('active');
 
-        const titleEl = document.getElementById('active-chat-title');
-        const metaEl = document.getElementById('active-chat-meta');
-        const avatarEl = document.getElementById('active-chat-avatar');
+        const thread = threadData[threadId];
+        if (!thread) return;
 
-        if (threadId === 'kebede') {
-          titleEl.textContent = 'Dawit Kebede · Kebede Organic Foods';
-          metaEl.textContent = 'CEO & Founder · Seed Stage · Seeking USD 150k · Online now';
-          avatarEl.textContent = 'KF';
-          avatarEl.style.background = 'var(--color-blush-peach)';
-          avatarEl.style.color = 'var(--color-sienna-brown)';
-        } else if (threadId === 'selam') {
-          titleEl.textContent = 'Dr. Bethlehem T. · Selam Health';
-          metaEl.textContent = 'Chief Medical Officer · Seed Stage · Seeking USD 180k · Call Friday 2pm';
-          avatarEl.textContent = 'SH';
-          avatarEl.style.background = '#dbeafe';
-          avatarEl.style.color = '#1e40af';
-        } else if (threadId === 'abay') {
-          titleEl.textContent = 'Yared Assefa · Abay Pay';
-          metaEl.textContent = 'Fintech Co-founder · Seed Stage · Seeking USD 200k · Away';
-          avatarEl.textContent = 'AP';
-          avatarEl.style.background = '#fef3c7';
-          avatarEl.style.color = '#92400e';
-        } else if (threadId === 'addis') {
-          titleEl.textContent = 'Hanan Mohammed · Addis Cold Chain';
-          metaEl.textContent = 'Managing Director · Seed Stage · Seeking USD 150k · Online now';
-          avatarEl.textContent = 'AC';
-          avatarEl.style.background = '#e0e7ff';
-          avatarEl.style.color = '#3730a3';
+        // Update header
+        document.getElementById('active-chat-title').textContent = thread.title;
+        document.getElementById('active-chat-meta').textContent = thread.meta;
+        const avatarEl = document.getElementById('active-chat-avatar');
+        avatarEl.textContent = thread.avatar;
+        avatarEl.style.background = thread.avatarBg;
+        avatarEl.style.color = thread.avatarColor;
+
+        // Update Opportunity Brief button
+        const oppBtn = document.querySelector('.dealroom-chat-header button:first-child');
+        if (oppBtn) {
+          if (thread.oppKey) {
+            oppBtn.style.display = '';
+            oppBtn.onclick = () => openOppModal(thread.oppKey);
+          } else {
+            oppBtn.style.display = 'none';
+          }
         }
-        showToast(`Opened Deal Room with ${titleEl.textContent.split('·')[0].trim()}`);
+
+        // Show typing then load messages
+        const container = document.getElementById('chat-messages-container');
+        if (container) container.innerHTML = '';
+        showTypingIndicator();
+
+        setTimeout(() => {
+          removeTypingIndicator();
+          renderMessages(threadId);
+          renderQuickReplies(threadId);
+        }, 650);
+
+        document.getElementById('chat-composer-input').placeholder = `Message ${thread.title.split('·')[0].trim()}...`;
+        document.getElementById('chat-composer-input').focus();
       };
 
       window.sendMessage = function() {
@@ -1909,28 +2067,59 @@
         const text = input.value.trim();
         if (!text) return;
 
-        const container = document.getElementById('chat-messages-container');
-        if (!container) return;
+        const now = new Date();
+        const timeStr = `${now.getHours()}:${String(now.getMinutes()).padStart(2,'0')} · Sent`;
 
-        const msgDiv = document.createElement('div');
-        msgDiv.className = 'chat-msg sent';
-        msgDiv.innerHTML = `
+        // Save to thread history
+        threadData[activeThreadId].messages.push({ type: 'sent', text, time: timeStr });
+
+        // Render in chat
+        const container = document.getElementById('chat-messages-container');
+        const div = document.createElement('div');
+        div.className = 'chat-msg sent';
+        div.innerHTML = `
           <div class="chat-msg-bubble">${escapeHtml(text)}</div>
-          <span class="chat-msg-time">Just now · Sent</span>
+          <span class="chat-msg-time">${timeStr}</span>
         `;
-        container.appendChild(msgDiv);
+        container.appendChild(div);
         input.value = '';
         container.scrollTop = container.scrollHeight;
 
-        // Update thread preview snippet
-        const activeSnippet = document.getElementById('snippet-kebede');
-        if (activeSnippet) activeSnippet.textContent = 'You: ' + text;
+        // Update sidebar snippet for active thread
+        const snippetEl = document.querySelector(`.dealroom-thread-item.active .thread-snippet`);
+        if (snippetEl) snippetEl.textContent = 'You: ' + text;
 
-        showToast('Message sent to founder');
+        // Simulate a reply after delay (only for threads that are "online")
+        const thread = threadData[activeThreadId];
+        if (['kebede', 'addis'].includes(activeThreadId)) {
+          setTimeout(() => {
+            showTypingIndicator();
+            setTimeout(() => {
+              removeTypingIndicator();
+              const autoReplies = {
+                kebede: "Thanks for that! I'll get back to you shortly — let me check with our finance lead.",
+                addis: "Great to hear from you! I'm available Thursday morning from 9–11 AM EAT. Shall I send over our latest deck too?"
+              };
+              const replyText = autoReplies[activeThreadId] || 'Thank you, will follow up shortly.';
+              const replyTime = 'Just now';
+              threadData[activeThreadId].messages.push({ type: 'received', text: replyText, time: replyTime });
+              const replyDiv = document.createElement('div');
+              replyDiv.className = 'chat-msg received';
+              replyDiv.innerHTML = `
+                <div class="chat-msg-bubble">${escapeHtml(replyText)}</div>
+                <span class="chat-msg-time">${replyTime}</span>
+              `;
+              container.appendChild(replyDiv);
+              container.scrollTop = container.scrollHeight;
+              const snip = document.querySelector(`.dealroom-thread-item.active .thread-snippet`);
+              if (snip) snip.textContent = replyText.slice(0, 55) + '…';
+            }, 1200);
+          }, 900);
+        }
       };
 
       window.handleChatKey = function(e) {
-        if (e.key === 'Enter') {
+        if (e.key === 'Enter' && !e.shiftKey) {
           e.preventDefault();
           window.sendMessage();
         }
@@ -1950,6 +2139,10 @@
           item.style.display = item.textContent.toLowerCase().includes(q) ? 'flex' : 'none';
         });
       };
+
+      // Initialize the default thread
+      renderMessages('kebede');
+      renderQuickReplies('kebede');
 
       function escapeHtml(str) {
         return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
