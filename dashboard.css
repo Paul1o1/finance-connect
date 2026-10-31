@@ -3026,3 +3026,197 @@
   background: #fef3c7;
   color: #b45309;
 }
+
+/* ========================================================
+   DEMO EXPLAINER INFO SYSTEM (CLEAN & PROFESSIONAL)
+   ======================================================== */
+
+.demo-info-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1;
+  cursor: pointer;
+  border: 1px solid rgba(100, 116, 139, 0.35);
+  background: rgba(241, 245, 249, 0.9);
+  color: #475569;
+  vertical-align: middle;
+  margin-left: 6px;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 0;
+  flex-shrink: 0;
+  position: relative;
+  outline: none;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.demo-info-btn:hover,
+.demo-info-btn:focus-visible,
+.demo-info-btn.active {
+  border-color: #0284c7;
+  background: #e0f2fe;
+  color: #0369a1;
+  transform: scale(1.12);
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
+}
+
+/* Inside Dark Contexts (like .dash-hero) */
+.dash-hero .demo-info-btn,
+.dash-focus-label .demo-info-btn {
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.dash-hero .demo-info-btn:hover,
+.dash-hero .demo-info-btn:focus-visible,
+.dash-hero .demo-info-btn.active,
+.dash-focus-label .demo-info-btn:hover,
+.dash-focus-label .demo-info-btn:focus-visible,
+.dash-focus-label .demo-info-btn.active {
+  border-color: #38bdf8;
+  background: rgba(56, 189, 248, 0.3);
+  color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.35);
+}
+
+/* Floating Demo Explainer Popover */
+.demo-explainer-popover {
+  position: fixed;
+  z-index: 99999;
+  width: 340px;
+  max-width: calc(100vw - 32px);
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 16px;
+  box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.22), 0 8px 16px -6px rgba(15, 23, 42, 0.08);
+  padding: 18px 20px 16px 20px;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  animation: demoPopoverIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #0f172a;
+  text-align: left;
+}
+
+.demo-explainer-popover.open {
+  display: flex;
+}
+
+@keyframes demoPopoverIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.demo-popover-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 8px;
+}
+
+.demo-popover-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #0369a1;
+  background: #e0f2fe;
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+
+.demo-popover-close {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 18px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 2px 6px;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+}
+
+.demo-popover-close:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.demo-popover-title {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 0;
+  line-height: 1.35;
+}
+
+.demo-popover-body {
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  color: #475569;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.demo-popover-tip {
+  background: #fffbeb;
+  border-left: 3px solid #f59e0b;
+  border-radius: 0 8px 8px 0;
+  padding: 8px 12px;
+  font-size: 11.5px;
+  color: #78350f;
+  line-height: 1.45;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.demo-popover-tip strong {
+  color: #92400e;
+}
+
+.demo-popover-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 4px;
+}
+
+.demo-popover-dismiss {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  color: #0284c7;
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-radius: 8px;
+  padding: 5px 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.demo-popover-dismiss:hover {
+  background: #0284c7;
+  color: #ffffff;
+  border-color: #0284c7;
+}

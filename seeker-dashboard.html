@@ -44,10 +44,13 @@
     <!-- Right Controls: Portal Switcher, Search, Notifications, User Profile Capsule -->
     <div class="dash-nav-right">
       <!-- Portal Switcher to Provider Portal -->
-      <a href="dashboard.html" class="portal-switch-pill" title="Switch to view as an Investor / Capital Provider">
-        <span>Provider Portal</span>
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-      </a>
+      <div style="display:flex; align-items:center;">
+        <a href="dashboard.html" class="portal-switch-pill" title="Switch to view as an Investor / Capital Provider">
+          <span>Provider Portal</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </a>
+        <button type="button" class="demo-info-btn" data-demo-cat="Dual Persona" data-demo-title="Persona Switcher: Founder vs. Investor" data-demo-desc="Toggle between the Seeker (Founder) and Provider (Investor) views in one click. Perfect for demonstrating how both sides interact without logging out." data-demo-tip="Click 'Provider Portal' anytime to switch to Amara Okonkwo's VC view." aria-label="Feature explanation">i</button>
+      </div>
 
       <!-- AI Pitch Readiness Engine Indicator -->
       <div class="dash-ai-engine-pill" title="AI Readiness & Institutional Fit Engine Active">
@@ -294,7 +297,9 @@
               <div>
                 <div class="founder-hero-meta">
                   <span class="ai-tag-pill" style="background:#fbe1d1; color:#5d2a1a;"><span class="ai-pulse-dot" style="background:#5d2a1a;"></span> Double Opt-In Privacy Active</span>
+                  <button type="button" class="demo-info-btn" data-demo-cat="Founder Protection" data-demo-title="Double Opt-In Privacy Protocol" data-demo-desc="To prevent founders from being spammed and investors from being cold-badgered, private VC profiles are shielded and only appear if the investor explicitly initiates contact first." data-demo-tip="Explain that this privacy protocol gives founders confidence to upload sensitive financial metrics." aria-label="Feature explanation">i</button>
                   <span style="font-size:12px; color:var(--color-slate-gray);">Target Round: USD 150k Seed</span>
+                  <button type="button" class="demo-info-btn" data-demo-cat="Capital Ask" data-demo-title="Target Financing Parameters" data-demo-desc="Specifies the current round size and stage. The AI neural matching engine checks this against verified investor check sweet-spots (e.g. $50k–$250k)." aria-label="Feature explanation">i</button>
                 </div>
                 <h1 class="founder-hero-title" id="founder-hero-heading">
                   Good morning, Dawit · Kebede Organic Foods
@@ -308,9 +313,12 @@
                 <button class="btn btn-filled" data-tab="messages" style="background:var(--color-sienna-brown); border-color:var(--color-sienna-brown); color:#fff; font-size:13px; padding:8px 18px;">
                   ⚡ View Amara's Request
                 </button>
-                <button class="btn btn-ai-optimize" id="hero-pitch-audit-btn" onclick="runPitchAudit()" style="font-size:13px; padding:8px 18px;">
-                  <span id="audit-btn-icon">✦</span> <span id="audit-btn-text">AI Pitch Audit</span>
-                </button>
+                <div style="display:flex; align-items:center;">
+                  <button class="btn btn-ai-optimize" id="hero-pitch-audit-btn" onclick="runPitchAudit()" style="font-size:13px; padding:8px 18px;">
+                    <span id="audit-btn-icon">✦</span> <span id="audit-btn-text">AI Pitch Audit</span>
+                  </button>
+                  <button type="button" class="demo-info-btn" data-demo-cat="AI Diligence" data-demo-title="AI Pitch & Diligence Audit" data-demo-desc="Simulates an institutional Investment Committee review of the founder's pitch deck, unit economics, and data room to rate institutional readiness." data-demo-tip="Click '✦ AI Pitch Audit' to run a live simulated audit on stage!" aria-label="Feature explanation">i</button>
+                </div>
               </div>
             </div>
 
@@ -320,6 +328,7 @@
                 <div class="round-main-stat">
                   <span class="round-stat-raised">$45,000</span>
                   <span class="round-stat-target">committed of $150,000 target</span>
+                  <button type="button" class="demo-info-btn" data-demo-cat="Blended Capital" data-demo-title="Multi-Source Capital Progression" data-demo-desc="Visualizes a modern blended finance stack: $45k venture equity (soft-circled), $50k non-dilutive grant, and $55k open syndicate gap." data-demo-tip="Point out how grants reduce founder dilution while accelerating round closure." aria-label="Feature explanation">i</button>
                 </div>
                 <div style="display:flex; align-items:center; gap:12px;">
                   <span class="round-stat-pill">30% Soft-Circled</span>
@@ -365,7 +374,10 @@
                 <div style="display:flex; align-items:flex-start; gap:12px; flex:1; min-width:0;">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0369a1" stroke-width="2" style="flex-shrink:0; margin-top:2px;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                   <div>
-                    <p style="font-size:13px; font-weight:600; color:#0c4a6e; margin:0 0 4px 0;">Investor Privacy &amp; Anti-Solicitation Shield</p>
+                    <p style="font-size:13px; font-weight:600; color:#0c4a6e; margin:0 0 4px 0; display:flex; align-items:center;">
+                      Investor Privacy &amp; Anti-Solicitation Shield
+                      <button type="button" class="demo-info-btn" data-demo-cat="Marketplace Rule" data-demo-title="Anti-Badgering Shield" data-demo-desc="Solves the #1 complaint of tier-1 venture funds (inbox clutter) and founders (ghosting), ensuring every conversation starts with mutual verified interest." data-demo-tip="Tell your audience: 'Notice that private investors can never be cold-emailed here — they must discover you through thesis vectors.'" aria-label="Feature explanation">i</button>
+                    </p>
                     <p style="font-size:12px; color:#334155; line-height:1.55; margin:0;">
                       Individual VC and angel profiles are protected from unsolicited outreach. Investors browse deal flow privately and <strong>only appear here when they explicitly request an introduction</strong>. Open grants, funds, and credit facilities below are open for direct application.
                     </p>
@@ -378,7 +390,10 @@
               <section id="inbound-intros" aria-labelledby="inbound-intros-heading">
                 <div class="dash-section-header" style="margin-bottom:14px;">
                   <div>
-                    <h2 class="dash-section-title" id="inbound-intros-heading">⚡ Inbound Investor Introduction Requests</h2>
+                    <h2 class="dash-section-title" id="inbound-intros-heading" style="display:flex; align-items:center;">
+                      ⚡ Inbound Investor Introduction Requests
+                      <button type="button" class="demo-info-btn" data-demo-cat="Deal Room" data-demo-title="Investor-Initiated Introductions" data-demo-desc="These are not outbound cold pitches. Nile Horizon reviewed Kebede Foods privately on the Provider Portal and requested a direct diligence intro." data-demo-tip="Click '⚡ Accept & Open Deal Room' to show how the founder and VC message each other directly." aria-label="Feature explanation">i</button>
+                    </h2>
                     <p class="dash-section-sub">Private investors who reviewed your pitch and initiated a request — only visible to you.</p>
                   </div>
                   <span class="ai-match-badge highlight" style="padding:5px 12px; font-size:11px; background:#fbe1d1; color:#5d2a1a; flex-shrink:0;">
@@ -441,7 +456,10 @@
               <section id="all-funders" aria-labelledby="all-funders-heading">
                 <div class="dash-section-header" style="margin-bottom:14px;">
                   <div>
-                    <h2 class="dash-section-title" id="all-funders-heading">Open Funds, Grants &amp; Credit Facilities</h2>
+                    <h2 class="dash-section-title" id="all-funders-heading" style="display:flex; align-items:center;">
+                      Open Funds, Grants &amp; Credit Facilities
+                      <button type="button" class="demo-info-btn" data-demo-cat="Verified Programs" data-demo-title="Direct-Application Capital" data-demo-desc="Unlike private VC funds, these verified institutional facilities (AECF REACT 2.0 Sida grant, Root Capital credit) accept direct applications without warm intros." data-demo-tip="Emphasize that these are real, live programs operating in East Africa with zero equity dilution." aria-label="Feature explanation">i</button>
+                    </h2>
                     <p class="dash-section-sub">Public capital programs open for direct application — no cold outreach required.</p>
                   </div>
                   <div class="trending-pills-wrap" style="margin:0;">
@@ -552,7 +570,10 @@
               <!-- Widget 1: Data Room Live Pulse -->
               <div class="founder-widget-card">
                 <div class="founder-widget-title">
-                  <span>📂 Data Room Pulse</span>
+                  <span style="display:flex; align-items:center;">
+                    📂 Data Room Pulse
+                    <button type="button" class="demo-info-btn" data-demo-cat="Telemetry" data-demo-title="Data Room Engagement Pulse" data-demo-desc="Tracks real-time investor engagement telemetry. Tells founders which funds are inspecting their pitch deck, audited model, and cap table." data-demo-tip="Click 'View Full Vault →' to show the 6 institutional diligence files." aria-label="Feature explanation">i</button>
+                  </span>
                   <span style="font-size:10px; font-weight:400; color:var(--color-slate-gray); text-transform:none; letter-spacing:0;">Live Activity</span>
                 </div>
                 <div class="dataroom-pulse-stat">
@@ -586,7 +607,10 @@
               <!-- Widget 2: Diligence Readiness Checklist -->
               <div class="founder-widget-card">
                 <div class="founder-widget-title">
-                  <span>✓ Diligence Readiness</span>
+                  <span style="display:flex; align-items:center;">
+                    ✓ Diligence Readiness
+                    <button type="button" class="demo-info-btn" data-demo-cat="Compliance" data-demo-title="Diligence Readiness Checklist" data-demo-desc="Evaluates whether the venture has the 6 institutional pillars needed for closing: audited model, cap table, tax clearance, and off-take contracts." data-demo-tip="Demonstrates how Finance Connect speeds up diligence from months to days." aria-label="Feature explanation">i</button>
+                  </span>
                   <span style="font-size:16px; font-weight:700; color:#15803d; text-transform:none; letter-spacing:0; font-family:var(--font-display);">92%</span>
                 </div>
                 <div style="height:6px; background:#e5e7eb; border-radius:999px; overflow:hidden; margin:-8px 0 4px 0;">
@@ -623,7 +647,10 @@
               <!-- Widget 3: Round Terms Snapshot -->
               <div class="founder-widget-card">
                 <div class="founder-widget-title">
-                  <span>📊 Round Terms</span>
+                  <span style="display:flex; align-items:center;">
+                    📊 Round Terms
+                    <button type="button" class="demo-info-btn" data-demo-cat="Cap Table" data-demo-title="Round Terms & Dilution Snapshot" data-demo-desc="Calculates post-money valuation ($1.35M) and equity dilution (11.1%) in real time so founders never lose track of equity ownership." data-demo-tip="Point out how receiving non-dilutive grants preserves founder equity." aria-label="Feature explanation">i</button>
+                  </span>
                   <span style="font-size:10px; font-weight:400; color:var(--color-slate-gray); text-transform:none; letter-spacing:0;">Seed Equity</span>
                 </div>
                 <div style="display:flex; flex-direction:column; gap:10px;">
@@ -1351,6 +1378,23 @@
   <!-- ── TOAST NOTIFICATION ── -->
   <div class="dash-toast" id="dash-toast"></div>
 
+  <!-- ── DEMO EXPLAINER FLOATING POPOVER ── -->
+  <div class="demo-explainer-popover" id="demo-explainer-popover" role="dialog" aria-modal="true" aria-labelledby="demo-popover-title">
+    <div class="demo-popover-header">
+      <span class="demo-popover-badge" id="demo-popover-badge">💡 Demo Walkthrough</span>
+      <button class="demo-popover-close" id="demo-popover-close-btn" aria-label="Close explainer">×</button>
+    </div>
+    <h3 class="demo-popover-title" id="demo-popover-title">Feature Overview</h3>
+    <p class="demo-popover-body" id="demo-popover-body">Description</p>
+    <div class="demo-popover-tip" id="demo-popover-tip-wrap" style="display:none;">
+      <span>👉</span>
+      <div id="demo-popover-tip-text">Demo tip</div>
+    </div>
+    <div class="demo-popover-footer">
+      <button class="demo-popover-dismiss" id="demo-popover-dismiss-btn">Got it</button>
+    </div>
+  </div>
+
   <!-- ── JAVASCRIPT LOGIC ── -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -1586,6 +1630,95 @@
           showToast('✦ AI Pitch Audit Complete: Readiness increased to 94% (CAC-to-LTV verified)');
         }, 1200);
       };
+
+      // ── DEMO EXPLAINER LOGIC ──
+      function initDemoExplainer() {
+        const popover = document.getElementById('demo-explainer-popover');
+        if (!popover) return;
+
+        const closeBtn = document.getElementById('demo-popover-close-btn');
+        const dismissBtn = document.getElementById('demo-popover-dismiss-btn');
+
+        function closePopover() {
+          popover.classList.remove('open');
+          document.querySelectorAll('.demo-info-btn').forEach(b => b.classList.remove('active'));
+        }
+
+        if (closeBtn) closeBtn.addEventListener('click', closePopover);
+        if (dismissBtn) dismissBtn.addEventListener('click', closePopover);
+
+        document.querySelectorAll('.demo-info-btn').forEach(btn => {
+          btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (this.classList.contains('active') && popover.classList.contains('open')) {
+              closePopover();
+              return;
+            }
+
+            const title = this.getAttribute('data-demo-title') || 'Feature Overview';
+            const cat = this.getAttribute('data-demo-cat') || 'Demo Guide';
+            const desc = this.getAttribute('data-demo-desc') || '';
+            const tip = this.getAttribute('data-demo-tip') || '';
+
+            document.getElementById('demo-popover-badge').textContent = '💡 ' + cat;
+            document.getElementById('demo-popover-title').textContent = title;
+            document.getElementById('demo-popover-body').textContent = desc;
+
+            const tipWrap = document.getElementById('demo-popover-tip-wrap');
+            if (tip) {
+              tipWrap.style.display = 'flex';
+              document.getElementById('demo-popover-tip-text').textContent = tip;
+            } else {
+              tipWrap.style.display = 'none';
+            }
+
+            document.querySelectorAll('.demo-info-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            popover.classList.add('open');
+
+            // Positioning logic
+            const rect = this.getBoundingClientRect();
+            const popoverWidth = 340;
+            const padding = 16;
+
+            let left = rect.left + rect.width / 2 - popoverWidth / 2;
+            if (left < padding) left = padding;
+            if (left + popoverWidth > window.innerWidth - padding) {
+              left = window.innerWidth - popoverWidth - padding;
+            }
+
+            const popoverHeight = popover.offsetHeight || 230;
+            let top = rect.bottom + 10;
+            if (top + popoverHeight > window.innerHeight - padding && rect.top - popoverHeight - 10 > padding) {
+              top = rect.top - popoverHeight - 10;
+            }
+
+            popover.style.left = `${left}px`;
+            popover.style.top = `${top}px`;
+          });
+        });
+
+        document.addEventListener('click', (e) => {
+          if (!popover.contains(e.target) && !e.target.closest('.demo-info-btn')) {
+            closePopover();
+          }
+        });
+
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') closePopover();
+        });
+      }
+
+      initDemoExplainer();
+
+      // If demo_open is present in URL, auto-highlight the first hero info trigger
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.has('demo_open')) {
+        setTimeout(() => {
+          const btn = document.querySelector('.founder-hero-meta .demo-info-btn') || document.querySelector('.demo-info-btn');
+          if (btn) btn.click();
+        }, 350);
+      }
     });
   </script>
 </body>
