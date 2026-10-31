@@ -2667,11 +2667,12 @@
   background: var(--color-paper-white);
   border: 1px solid var(--color-border);
   border-radius: 16px;
-  padding: 20px 24px;
+  padding: 16px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 18px;
+  gap: 14px;
+  flex-wrap: wrap;
   transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
@@ -2718,7 +2719,6 @@
   font-size: 12px;
   color: var(--color-slate-gray);
   line-height: 1.45;
-  max-width: 50ch;
 }
 
 .facility-amount-col {
