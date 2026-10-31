@@ -1,0 +1,1594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Finance Connect — Founder Portal &amp; Capital Hub</title>
+  <meta name="description" content="Your Finance Connect founder portal — matched capital providers, due diligence data room, application pipeline, and investor communications." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="variables.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body class="dash-body">
+
+  <!-- ── TOP NAVIGATION BAR ── -->
+  <header class="dash-top-navbar" id="dash-top-navbar">
+    <div class="dash-nav-left">
+      <!-- Mobile sidebar hamburger toggle -->
+      <button class="dash-nav-toggle" id="dash-sidebar-toggle" aria-label="Toggle navigation menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+
+      <!-- Brand Logo -->
+      <a href="index.html" class="dash-nav-logo" aria-label="Finance Connect home">
+        <div class="dash-logo-icon">
+          <svg width="18" height="18" viewBox="0 0 32 32" fill="none">
+            <circle cx="16" cy="16" r="14" stroke="#fff" stroke-width="2.5"/>
+            <path d="M10 16h12M16 10v12" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="dash-logo-text-group">
+          <span class="dash-logo-title" style="white-space:nowrap;">Finance Connect</span>
+          <span class="dash-logo-subtitle" style="white-space:nowrap;">Founder Portal</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Right Controls: Portal Switcher, Search, Notifications, User Profile Capsule -->
+    <div class="dash-nav-right">
+      <!-- Portal Switcher to Provider Portal -->
+      <a href="dashboard.html" class="portal-switch-pill" title="Switch to view as an Investor / Capital Provider">
+        <span>Provider Portal</span>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </a>
+
+      <!-- AI Pitch Readiness Engine Indicator -->
+      <div class="dash-ai-engine-pill" title="AI Readiness & Institutional Fit Engine Active">
+        <span class="ai-pulse-dot"></span>
+        <span>Pitch Readiness: 92% · Institutional Grade</span>
+      </div>
+
+      <!-- Search Input Box -->
+      <div class="dash-nav-search" id="dash-nav-search">
+        <svg class="dash-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input type="text" placeholder="Search investors, grants, credit lines" class="dash-search-input" id="dash-search-input" aria-label="Search investors, lenders, grants" />
+        <span class="dash-search-shortcut">⌘K</span>
+      </div>
+
+      <!-- Action: Inbound Interest / Bookmarked (Badge 4) -->
+      <div class="dash-nav-action-wrap">
+        <button class="dash-nav-icon-btn" id="dash-basket-btn" aria-label="Target Investors List" title="Target Capital Providers">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+          </svg>
+          <span class="dash-basket-badge" id="basket-badge-count">4</span>
+        </button>
+
+        <!-- Target providers popover -->
+        <div class="dash-popover dash-basket-popover" id="dash-basket-popover">
+          <div class="dash-popover-title-row">
+            <span class="dash-popover-title">Capital Programs &amp; Intros</span>
+            <span class="dash-badge" id="popover-saved-count">4 items</span>
+          </div>
+          <div class="dash-popover-list">
+            <a href="javascript:void(0)" class="dash-mini-card" data-tab="matches">
+              <div class="dash-mini-card-text">
+                <span class="dash-mini-card-title">Nile Horizon Capital</span>
+                <span class="dash-mini-card-sub">⚡ Inbound Intro Requested · Seed Lead</span>
+              </div>
+            </a>
+            <a href="javascript:void(0)" class="dash-mini-card" data-tab="matches">
+              <div class="dash-mini-card-text">
+                <span class="dash-mini-card-title">East Africa Green Growth</span>
+                <span class="dash-mini-card-sub">Non-dilutive Grant · $50k Award</span>
+              </div>
+            </a>
+            <a href="javascript:void(0)" class="dash-mini-card" data-tab="matches">
+              <div class="dash-mini-card-text">
+                <span class="dash-mini-card-title">Kifiya Growth Debt</span>
+                <span class="dash-mini-card-sub">Receivables Credit · $75k facility</span>
+              </div>
+            </a>
+            <a href="javascript:void(0)" class="dash-mini-card" data-tab="matches">
+              <div class="dash-mini-card-text">
+                <span class="dash-mini-card-title">AECF Catalytic Fund</span>
+                <span class="dash-mini-card-sub">Matching Challenge · $100k</span>
+              </div>
+            </a>
+          </div>
+          <div style="padding-top: 8px; border-top: 1px solid var(--color-border); margin-top: 6px; text-align: center;">
+            <button class="btn btn-filled" style="width: 100%; font-size: 12px; padding: 6px 12px;" data-tab="pipeline">Manage Pipeline Funnel</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Notification Bell Button -->
+      <div class="dash-nav-action-wrap">
+        <button class="dash-nav-icon-btn dash-bell-btn" id="dash-bell-btn" aria-label="Notifications (3 unread)" title="Notifications">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+          </svg>
+          <span class="dash-bell-dot"></span>
+        </button>
+
+        <!-- Notifications popover -->
+        <div class="dash-popover dash-notif-popover" id="dash-notif-popover">
+          <div class="dash-popover-title-row">
+            <span class="dash-popover-title">Investor Notifications</span>
+            <span class="dash-badge">3 unread</span>
+          </div>
+          <div class="dash-popover-list">
+            <a href="javascript:void(0)" class="dash-mini-card" data-tab="messages">
+              <div class="dash-mini-card-text">
+                <span class="dash-mini-card-title">Amara Okonkwo (Nile Horizon)</span>
+                <span class="dash-mini-card-sub">Reviewed updated financial model · 12m ago</span>
+              </div>
+            </a>
+            <a href="javascript:void(0)" class="dash-mini-card" data-tab="dataroom">
+              <div class="dash-mini-card-text">
+                <span class="dash-mini-card-title">Data Room Access Request</span>
+                <span class="dash-mini-card-sub">AfriVentures requested Cap Table access</span>
+              </div>
+            </a>
+            <a href="javascript:void(0)" class="dash-mini-card" data-tab="pipeline">
+              <div class="dash-mini-card-text">
+                <span class="dash-mini-card-title">Green Growth Grant Approved</span>
+                <span class="dash-mini-card-sub">Stage 1 screening cleared · $50k award</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- User Profile Capsule: Dawit Kebede (Founder) -->
+      <div class="dash-user-capsule-wrap">
+        <button class="dash-user-capsule" id="dash-user-capsule-btn" aria-haspopup="true" aria-expanded="false" aria-label="Founder account menu">
+          <div class="dash-capsule-avatar-fallback" style="display:flex; background:var(--color-sienna-brown); color:#fff;">D</div>
+          <div class="dash-capsule-text">
+            <span class="dash-capsule-name">Dawit Kebede</span>
+            <span class="dash-capsule-role">CEO · Founder</span>
+          </div>
+          <svg class="dash-capsule-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+
+        <!-- Dropdown Menu -->
+        <div class="dash-popover dash-user-menu" id="dash-user-menu">
+          <div class="dash-popover-header">
+            <div class="dash-popover-user-name">Dawit Kebede</div>
+            <div class="dash-popover-user-email">dawit.kebede@kebedefoods.com</div>
+          </div>
+          <div class="dash-popover-divider"></div>
+          <a href="javascript:void(0)" class="dash-popover-link" data-tab="profile">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Company &amp; Pitch Profile
+          </a>
+          <a href="javascript:void(0)" class="dash-popover-link" data-tab="dataroom">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Due Diligence Data Room
+          </a>
+          <a href="javascript:void(0)" class="dash-popover-link" data-tab="pipeline">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+            Application Funnel
+          </a>
+          <a href="dashboard.html" class="dash-popover-link">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg>
+            Switch to Provider Portal
+          </a>
+          <div class="dash-popover-divider"></div>
+          <a href="index.html" class="dash-popover-link logout-link">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            Sign out
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── APP LAYOUT WRAPPER ── -->
+  <div class="dash-layout">
+
+    <!-- SIDEBAR NAVIGATION -->
+    <aside class="dash-sidebar" id="dash-sidebar">
+      <div class="dash-sidebar-top">
+        <nav class="dash-nav-group" aria-label="Main menu">
+          <div class="dash-nav-section-title">Fundraising</div>
+
+          <a href="#matches" class="dash-nav-item dash-nav-item-active" data-tab="matches" id="nav-matches">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3z"/>
+            </svg>
+            <span>Matches For You</span>
+            <span class="dash-badge">4</span>
+          </a>
+
+          <a href="#pipeline" class="dash-nav-item" data-tab="pipeline" id="nav-pipeline">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="3" x2="9" y2="21"/>
+            </svg>
+            <span>Outreach Pipeline</span>
+            <span class="dash-badge" style="background:#e0f2fe; color:#0369a1;">5 Active</span>
+          </a>
+
+          <a href="#dataroom" class="dash-nav-item" data-tab="dataroom" id="nav-dataroom">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+            <span>Data Room &amp; Vault</span>
+            <span class="dash-badge" style="background:#dcfce7; color:#15803d;">6 Files</span>
+          </a>
+
+          <a href="#messages" class="dash-nav-item" data-tab="messages" id="nav-messages">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+            <span>Deal Rooms &amp; Chat</span>
+            <span class="dash-badge" aria-label="1 new message">1</span>
+          </a>
+
+          <a href="#profile" class="dash-nav-item" data-tab="profile" id="nav-profile">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+            </svg>
+            <span>Company &amp; Pitch</span>
+          </a>
+
+          <div class="dash-nav-section-title" style="margin-top: 20px;">Portals &amp; Market</div>
+          <a href="dashboard.html" class="dash-nav-item" id="nav-provider-switch">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+            </svg>
+            <span>Provider Portal</span>
+          </a>
+          <a href="index.html" class="dash-nav-item" id="nav-marketplace">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+            </svg>
+            <span>Public Marketplace</span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Sidebar Bottom / Account -->
+      <div class="dash-sidebar-bottom">
+        <div class="dash-user-card" id="user-card">
+          <div class="dash-avatar" style="background:var(--color-sienna-brown);" aria-label="Dawit's account">D</div>
+          <div class="dash-user-info">
+            <span class="dash-user-name">Kebede Organic Foods</span>
+            <span class="dash-user-role">USD 150k Seed · Agri-tech</span>
+          </div>
+          <a href="index.html" class="dash-user-logout" title="Back to homepage" aria-label="Back to homepage">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Mobile Backdrop -->
+    <div class="dash-sidebar-backdrop" id="sidebar-backdrop"></div>
+
+    <!-- MAIN CONTENT VIEW CONTAINER -->
+    <div class="dash-main-wrapper">
+      <main class="dash-main" id="dash-main">
+
+        <!-- ========================================================
+             INTERFACE 1: "MATCHES FOR YOU" (MATCHED CAPITAL HUB)
+             ======================================================== -->
+        <div class="dash-view dash-view-active" id="view-matches">
+
+          <!-- ── FOUNDER COMMAND HERO ── -->
+          <section class="founder-command-hero" id="founder-hero" aria-labelledby="founder-hero-heading">
+            <div class="founder-hero-top">
+              <div>
+                <div class="founder-hero-meta">
+                  <span class="ai-tag-pill" style="background:#fbe1d1; color:#5d2a1a;"><span class="ai-pulse-dot" style="background:#5d2a1a;"></span> Double Opt-In Privacy Active</span>
+                  <span style="font-size:12px; color:var(--color-slate-gray);">Target Round: USD 150k Seed</span>
+                </div>
+                <h1 class="founder-hero-title" id="founder-hero-heading">
+                  Good morning, Dawit · Kebede Organic Foods
+                </h1>
+                <p class="founder-hero-sub">
+                  Welcome to your fundraising cockpit. Private investors browse deal flow privately on the Provider Portal and only appear here when they request an introduction. Below is your live round progression and verified capital facilities.
+                </p>
+              </div>
+
+              <div style="display:flex; gap:10px; flex-wrap:wrap; align-self:center;">
+                <button class="btn btn-filled" data-tab="messages" style="background:var(--color-sienna-brown); border-color:var(--color-sienna-brown); color:#fff; font-size:13px; padding:8px 18px;">
+                  ⚡ View Amara's Request
+                </button>
+                <button class="btn btn-ai-optimize" id="hero-pitch-audit-btn" onclick="runPitchAudit()" style="font-size:13px; padding:8px 18px;">
+                  <span id="audit-btn-icon">✦</span> <span id="audit-btn-text">AI Pitch Audit</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Embedded Live Round Progression Tracker -->
+            <div class="round-progress-card">
+              <div class="round-progress-stats">
+                <div class="round-main-stat">
+                  <span class="round-stat-raised">$45,000</span>
+                  <span class="round-stat-target">committed of $150,000 target</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:12px;">
+                  <span class="round-stat-pill">30% Soft-Circled</span>
+                  <span style="font-size:12px; color:var(--color-slate-gray);">Institutional Ready: <strong style="color:var(--color-ink-black);">92%</strong></span>
+                </div>
+              </div>
+
+              <!-- Multi-Segment Visual Progress Track -->
+              <div class="round-multi-track">
+                <!-- 30% soft-circled by Nile Horizon -->
+                <div class="track-segment-soft" style="width: 30%;" title="$45k Soft-Circled by Nile Horizon diligence"></div>
+                <!-- 33% pending grant from East Africa Green Growth -->
+                <div class="track-segment-grant" style="width: 33.3%;" title="$50k Non-dilutive Grant Stage 2 Cleared"></div>
+              </div>
+
+              <div class="round-legend-row">
+                <div class="round-legend-item">
+                  <span class="legend-dot" style="background:#16a34a;"></span>
+                  <span><strong>$45,000</strong> Soft-Circled (Nile Horizon Lead Candidate)</span>
+                </div>
+                <div class="round-legend-item">
+                  <span class="legend-dot" style="background:#3b82f6;"></span>
+                  <span><strong>$50,000</strong> Non-Dilutive Grant (Green Growth Stage 2 Cleared)</span>
+                </div>
+                <div class="round-legend-item">
+                  <span class="legend-dot" style="background:#94a3b8;"></span>
+                  <span><strong>$55,000</strong> Open Syndicate Allocation</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ── ASYMMETRIC 2-COLUMN WORKSPACE GRID ── -->
+          <div class="founder-workspace-grid">
+
+            <!-- ══════════════════════════════
+                 LEFT COLUMN (70%): Main workspace
+                 ══════════════════════════════ -->
+            <div style="display:flex; flex-direction:column; gap:24px; min-width:0;">
+
+              <!-- ── INVESTOR PRIVACY SHIELD EXPLANATION BANNER ── -->
+              <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; background:#f8fafc; border:1px solid #cbd5e1; border-radius:16px; padding:18px 22px; flex-wrap:wrap;">
+                <div style="display:flex; align-items:flex-start; gap:12px; flex:1; min-width:0;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0369a1" stroke-width="2" style="flex-shrink:0; margin-top:2px;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                  <div>
+                    <p style="font-size:13px; font-weight:600; color:#0c4a6e; margin:0 0 4px 0;">Investor Privacy &amp; Anti-Solicitation Shield</p>
+                    <p style="font-size:12px; color:#334155; line-height:1.55; margin:0;">
+                      Individual VC and angel profiles are protected from unsolicited outreach. Investors browse deal flow privately and <strong>only appear here when they explicitly request an introduction</strong>. Open grants, funds, and credit facilities below are open for direct application.
+                    </p>
+                  </div>
+                </div>
+                <span style="font-size:11px; font-weight:700; color:#0369a1; background:#e0f2fe; padding:5px 12px; border-radius:9999px; white-space:nowrap; flex-shrink:0;">Double Opt-In Protected</span>
+              </div>
+
+              <!-- ── INBOUND INVESTOR INTRO REQUEST ── -->
+              <section id="inbound-intros" aria-labelledby="inbound-intros-heading">
+                <div class="dash-section-header" style="margin-bottom:14px;">
+                  <div>
+                    <h2 class="dash-section-title" id="inbound-intros-heading">⚡ Inbound Investor Introduction Requests</h2>
+                    <p class="dash-section-sub">Private investors who reviewed your pitch and initiated a request — only visible to you.</p>
+                  </div>
+                  <span class="ai-match-badge highlight" style="padding:5px 12px; font-size:11px; background:#fbe1d1; color:#5d2a1a; flex-shrink:0;">
+                    <span class="ai-sparkle-icon">✦</span> 1 Pending
+                  </span>
+                </div>
+
+                <!-- Inbound Lead Card: Nile Horizon / Amara Okonkwo -->
+                <div class="inbound-lead-card" id="funder-nile">
+                  <div class="inbound-lead-header">
+                    <div class="inbound-lead-profile">
+                      <div class="inbound-lead-avatar">AO</div>
+                      <div>
+                        <div class="inbound-lead-name">Amara Okonkwo</div>
+                        <div class="inbound-lead-firm">Principal · Nile Horizon Capital · Nairobi &amp; Addis Ababa</div>
+                      </div>
+                    </div>
+                    <div style="display:flex; flex-direction:column; align-items:flex-end; gap:6px; flex-shrink:0;">
+                      <span class="ai-tag-pill" style="background:#fbe1d1; color:#5d2a1a; font-size:11px;"><span class="ai-pulse-dot" style="background:#5d2a1a;"></span> Investor-Initiated Intro</span>
+                      <span style="font-size:11px; color:var(--color-slate-gray);">Mandate: USD 50k–250k Seed · 98% Thesis Fit</span>
+                    </div>
+                  </div>
+
+                  <div class="inbound-message-callout">
+                    "Hello Dawit, we reviewed your updated Q3 model and export agreements on Finance Connect and love your unit economics. We'd like to schedule a 30-min intro diligence call this Thursday before noon EAT."
+                  </div>
+
+                  <div class="ai-rationale-callout" style="font-size:12px;">
+                    <strong>✦ Why Amara Reached Out:</strong> Nile Horizon scored Kebede Organic Foods in the <strong>99th percentile</strong> for East African agri-logistics. Your round size ($150k) is a direct ticket sweet spot match — zero portfolio conflict detected.
+                  </div>
+
+                  <div class="ai-vector-strip">
+                    <div class="ai-vector-item">
+                      <div class="ai-vector-label">Thesis Match</div>
+                      <div class="ai-vector-value">98%</div>
+                    </div>
+                    <div class="ai-vector-item">
+                      <div class="ai-vector-label">Ticket Fit</div>
+                      <div class="ai-vector-value">100%</div>
+                    </div>
+                    <div class="ai-vector-item">
+                      <div class="ai-vector-label">MRR Velocity</div>
+                      <div class="ai-vector-value">95%</div>
+                    </div>
+                    <div class="ai-vector-item">
+                      <div class="ai-vector-label">Synergy Score</div>
+                      <div class="ai-vector-value">94%</div>
+                    </div>
+                  </div>
+
+                  <div class="inbound-lead-actions">
+                    <button class="btn btn-filled" data-tab="messages" style="background:var(--color-sienna-brown); border-color:var(--color-sienna-brown); color:#fff;">⚡ Accept &amp; Open Deal Room</button>
+                    <button class="btn dash-btn-outline-sm" onclick="grantDataRoomAccess('Nile Horizon Capital')">Grant Data Room Access</button>
+                    <button class="btn dash-btn-ghost-sm" onclick="showToast('Intro request archived discreetly')">Decline</button>
+                  </div>
+                </div>
+              </section>
+
+              <!-- ── OPEN FUNDS, GRANTS & CREDIT FACILITIES ── -->
+              <section id="all-funders" aria-labelledby="all-funders-heading">
+                <div class="dash-section-header" style="margin-bottom:14px;">
+                  <div>
+                    <h2 class="dash-section-title" id="all-funders-heading">Open Funds, Grants &amp; Credit Facilities</h2>
+                    <p class="dash-section-sub">Public capital programs open for direct application — no cold outreach required.</p>
+                  </div>
+                  <div class="trending-pills-wrap" style="margin:0;">
+                    <span class="trending-pill active-pill-tag" onclick="filterFunders(this,'all')">All (3)</span>
+                    <span class="trending-pill" onclick="filterFunders(this,'grant')">Grants</span>
+                    <span class="trending-pill" onclick="filterFunders(this,'debt')">Debt</span>
+                    <span class="trending-pill" onclick="filterFunders(this,'sme')">SME</span>
+                  </div>
+                </div>
+
+                <!-- Facility Row Stream -->
+                <div class="facility-list-wrap">
+
+                  <!-- Grant: East Africa Green Growth -->
+                  <div class="facility-row-item" id="funder-grant" data-type="grant">
+                    <div class="facility-left-meta">
+                      <div class="facility-badge-icon" style="color:#15803d; background:#dcfce7; border-color:#bbf7d0;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                      </div>
+                      <div class="facility-text-group">
+                        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                          <span class="facility-title">East Africa Green Growth</span>
+                          <span class="instrument-pill inst-grant" style="font-size:10px; padding:2px 8px;">Non-Dilutive Grant</span>
+                          <span class="ai-match-badge" style="background:#dcfce7; color:#15803d; font-size:10px; padding:2px 8px;">✦ 95% Fit</span>
+                        </div>
+                        <span class="facility-desc">Solar agro-processing &amp; cooperative refrigeration. Stage 1 cleared — your 42 co-ops qualify for priority disbursement.</span>
+                      </div>
+                    </div>
+                    <div class="facility-amount-col">
+                      <span class="facility-amount-val">$50,000</span>
+                      <span class="facility-amount-sub">0% dilution · Grant</span>
+                    </div>
+                    <div class="facility-action-col" style="display:flex; gap:8px;">
+                      <button class="btn dash-btn-outline-sm" onclick="openProviderModal('grant')" style="font-size:12px;">Details</button>
+                      <button class="btn btn-filled" onclick="showToast('Submitting Stage 2 Disbursement documentation...')" style="font-size:12px; background:var(--color-ink-black); border-color:var(--color-ink-black); color:#fff;">Apply Stage 2</button>
+                    </div>
+                  </div>
+
+                  <!-- Debt: Kifiya Working Capital -->
+                  <div class="facility-row-item" id="funder-kifiya" data-type="debt">
+                    <div class="facility-left-meta">
+                      <div class="facility-badge-icon" style="color:#92400e; background:#fef3c7; border-color:#fde68a;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                      </div>
+                      <div class="facility-text-group">
+                        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                          <span class="facility-title">Kifiya Working Capital Debt</span>
+                          <span class="instrument-pill inst-debt" style="font-size:10px; padding:2px 8px;">Receivables Credit</span>
+                          <span class="ai-match-badge" style="background:#fef3c7; color:#92400e; font-size:10px; padding:2px 8px;">✦ 89% Fit</span>
+                        </div>
+                        <span class="facility-desc">Short-term revolver against purchase orders &amp; confirmed export receipts. Zero dilution. Addis Ababa · 7.5% APR.</span>
+                      </div>
+                    </div>
+                    <div class="facility-amount-col">
+                      <span class="facility-amount-val">$75,000</span>
+                      <span class="facility-amount-sub">7.5% APR · Non-dilutive</span>
+                    </div>
+                    <div class="facility-action-col" style="display:flex; gap:8px;">
+                      <button class="btn dash-btn-outline-sm" onclick="openProviderModal('kifiya')" style="font-size:12px;">Terms</button>
+                      <button class="btn btn-filled" onclick="showToast('Credit line calculator: $75,000 facility pre-qualified')" style="font-size:12px; background:var(--color-ink-black); border-color:var(--color-ink-black); color:#fff;">Request Credit</button>
+                    </div>
+                  </div>
+
+                  <!-- SME: AECF Catalytic Fund -->
+                  <div class="facility-row-item" id="funder-aecf" data-type="sme">
+                    <div class="facility-left-meta">
+                      <div class="facility-badge-icon" style="color:#0369a1; background:#e0f2fe; border-color:#bae6fd;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+                      </div>
+                      <div class="facility-text-group">
+                        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                          <span class="facility-title">AECF Catalytic Growth Fund</span>
+                          <span class="instrument-pill" style="background:#e0f2fe; color:#0369a1; font-size:10px; padding:2px 8px;">SME Co-Investment</span>
+                          <span class="ai-match-badge" style="font-size:10px; padding:2px 8px;">✦ 91% Fit</span>
+                        </div>
+                        <span class="facility-desc">1:1 matching challenge grant for women &amp; youth agribusinesses. Auto-triggers when you close your institutional round.</span>
+                      </div>
+                    </div>
+                    <div class="facility-amount-col">
+                      <span class="facility-amount-val">$100,000</span>
+                      <span class="facility-amount-sub">Matching · Pan-African</span>
+                    </div>
+                    <div class="facility-action-col" style="display:flex; gap:8px;">
+                      <button class="btn dash-btn-outline-sm" onclick="showToast('Viewing AECF Matching Guidelines')" style="font-size:12px;">Guidelines</button>
+                      <button class="btn btn-filled" onclick="showToast('Linking AECF matching with Nile Horizon round...')" style="font-size:12px; background:var(--color-ink-black); border-color:var(--color-ink-black); color:#fff;">Link to Round</button>
+                    </div>
+                  </div>
+
+                </div>
+              </section>
+
+              <!-- ── DATA ROOM CTA BANNER ── -->
+              <div style="display:flex; align-items:center; justify-content:space-between; gap:16px; background:var(--color-fog-white); border:1px solid var(--color-border); border-radius:16px; padding:18px 22px; flex-wrap:wrap;">
+                <div>
+                  <p style="font-size:14px; font-weight:600; color:var(--color-ink-black); margin:0 0 3px 0;">Keep Your Data Room Investor-Ready</p>
+                  <p style="font-size:12px; color:var(--color-slate-gray); margin:0;">Amara Okonkwo is actively reviewing your documents. Ensure your cap table and audited models are up to date.</p>
+                </div>
+                <button class="btn btn-filled" data-tab="dataroom" style="flex-shrink:0; font-size:13px; padding:8px 18px;">Open Data Room (6 Documents)</button>
+              </div>
+
+            </div><!-- end left column -->
+
+            <!-- ══════════════════════════════
+                 RIGHT COLUMN (340px): Sidebar Widgets
+                 ══════════════════════════════ -->
+            <div class="founder-sidebar-panel">
+
+              <!-- Widget 1: Data Room Live Pulse -->
+              <div class="founder-widget-card">
+                <div class="founder-widget-title">
+                  <span>📂 Data Room Pulse</span>
+                  <span style="font-size:10px; font-weight:400; color:var(--color-slate-gray); text-transform:none; letter-spacing:0;">Live Activity</span>
+                </div>
+                <div class="dataroom-pulse-stat">
+                  <span class="pulse-count">42</span>
+                  <div>
+                    <div style="font-size:12px; font-weight:500; color:var(--color-ink-black);">investor reads this week</div>
+                    <div style="font-size:11px; color:#15803d;">↑ 18 more than last week</div>
+                  </div>
+                </div>
+                <div class="dataroom-mini-file-list">
+                  <div style="display:flex; justify-content:space-between; align-items:center; font-size:12px; padding:6px 0; border-bottom:1px solid var(--color-border);">
+                    <span style="color:var(--color-ink-black);">Pitch Deck v3.pdf</span>
+                    <span style="color:#15803d; font-weight:600;">42 views</span>
+                  </div>
+                  <div style="display:flex; justify-content:space-between; align-items:center; font-size:12px; padding:6px 0; border-bottom:1px solid var(--color-border);">
+                    <span style="color:var(--color-ink-black);">Financial Model 2026.xlsx</span>
+                    <span style="color:#0369a1; font-weight:600;">18 views</span>
+                  </div>
+                  <div style="display:flex; justify-content:space-between; align-items:center; font-size:12px; padding:6px 0; border-bottom:1px solid var(--color-border);">
+                    <span style="color:var(--color-ink-black);">Cap Table Diluted.pdf</span>
+                    <span style="color:var(--color-slate-gray); font-weight:600;">8 views</span>
+                  </div>
+                  <div style="display:flex; justify-content:space-between; align-items:center; font-size:12px; padding:6px 0;">
+                    <span style="color:var(--color-ink-black);">Export Contracts EU.pdf</span>
+                    <span style="color:var(--color-slate-gray); font-weight:600;">6 views</span>
+                  </div>
+                </div>
+                <button class="btn dash-btn-outline-sm" data-tab="dataroom" style="font-size:12px; width:100%; text-align:center;">View Full Vault →</button>
+              </div>
+
+              <!-- Widget 2: Diligence Readiness Checklist -->
+              <div class="founder-widget-card">
+                <div class="founder-widget-title">
+                  <span>✓ Diligence Readiness</span>
+                  <span style="font-size:16px; font-weight:700; color:#15803d; text-transform:none; letter-spacing:0; font-family:var(--font-display);">92%</span>
+                </div>
+                <div style="height:6px; background:#e5e7eb; border-radius:999px; overflow:hidden; margin:-8px 0 4px 0;">
+                  <div style="width:92%; height:100%; background:linear-gradient(90deg, #15803d 0%, #16a34a 100%); border-radius:999px;"></div>
+                </div>
+                <div style="display:flex; flex-direction:column; gap:8px;">
+                  <div style="display:flex; align-items:center; gap:8px; font-size:12px;">
+                    <span style="color:#15803d; font-size:14px;">✓</span>
+                    <span style="color:var(--color-ink-black);">Pitch Deck — Institutional Grade</span>
+                  </div>
+                  <div style="display:flex; align-items:center; gap:8px; font-size:12px;">
+                    <span style="color:#15803d; font-size:14px;">✓</span>
+                    <span style="color:var(--color-ink-black);">Financial Model — KPMG Audited</span>
+                  </div>
+                  <div style="display:flex; align-items:center; gap:8px; font-size:12px;">
+                    <span style="color:#15803d; font-size:14px;">✓</span>
+                    <span style="color:var(--color-ink-black);">Cap Table — Fully Diluted</span>
+                  </div>
+                  <div style="display:flex; align-items:center; gap:8px; font-size:12px;">
+                    <span style="color:#15803d; font-size:14px;">✓</span>
+                    <span style="color:var(--color-ink-black);">Company Registration — Verified</span>
+                  </div>
+                  <div style="display:flex; align-items:center; gap:8px; font-size:12px;">
+                    <span style="color:#15803d; font-size:14px;">✓</span>
+                    <span style="color:var(--color-ink-black);">Export Contracts — 3 Signed</span>
+                  </div>
+                  <div style="display:flex; align-items:center; gap:8px; font-size:12px;">
+                    <span style="color:#94a3b8; font-size:14px; font-weight:300;">○</span>
+                    <span style="color:var(--color-slate-gray);">Impact Report — Pending Upload</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Widget 3: Round Terms Snapshot -->
+              <div class="founder-widget-card">
+                <div class="founder-widget-title">
+                  <span>📊 Round Terms</span>
+                  <span style="font-size:10px; font-weight:400; color:var(--color-slate-gray); text-transform:none; letter-spacing:0;">Seed Equity</span>
+                </div>
+                <div style="display:flex; flex-direction:column; gap:10px;">
+                  <div style="display:flex; justify-content:space-between; font-size:13px; padding:8px 12px; background:var(--color-fog-white); border-radius:10px;">
+                    <span style="color:var(--color-slate-gray);">Pre-Money Valuation</span>
+                    <strong style="color:var(--color-ink-black);">$1,200,000</strong>
+                  </div>
+                  <div style="display:flex; justify-content:space-between; font-size:13px; padding:8px 12px; background:var(--color-fog-white); border-radius:10px;">
+                    <span style="color:var(--color-slate-gray);">Target Raise</span>
+                    <strong style="color:var(--color-ink-black);">$150,000</strong>
+                  </div>
+                  <div style="display:flex; justify-content:space-between; font-size:13px; padding:8px 12px; background:#fef3c7; border-radius:10px;">
+                    <span style="color:#92400e;">Equity Dilution</span>
+                    <strong style="color:#92400e;">11.1%</strong>
+                  </div>
+                  <div style="display:flex; justify-content:space-between; font-size:13px; padding:8px 12px; background:#dcfce7; border-radius:10px;">
+                    <span style="color:#15803d;">Post-Money Cap</span>
+                    <strong style="color:#15803d;">$1,350,000</strong>
+                  </div>
+                  <div style="display:flex; justify-content:space-between; font-size:13px; padding:8px 12px; background:var(--color-fog-white); border-radius:10px;">
+                    <span style="color:var(--color-slate-gray);">Instrument</span>
+                    <strong style="color:var(--color-ink-black);">Seed Equity + Grant</strong>
+                  </div>
+                </div>
+                <button class="btn dash-btn-outline-sm" data-tab="profile" style="font-size:12px; width:100%; text-align:center;">Edit Round Terms →</button>
+              </div>
+
+            </div><!-- end right column / founder-sidebar-panel -->
+
+          </div><!-- end founder-workspace-grid -->
+        </div><!-- end view-matches -->
+
+
+        <!-- ========================================================
+             INTERFACE 2: "OUTREACH PIPELINE" (APPLICATION FUNNEL)
+             ======================================================== -->
+        <div class="dash-view" id="view-pipeline">
+          <div class="view-header">
+            <div class="view-header-left">
+              <div class="view-pretitle">Investor Outreach Funnel</div>
+              <h1 class="view-title">Application &amp; Due Diligence Tracker</h1>
+              <p class="view-subtitle">Track discussions with prospective venture funds, grant committees, and co-syndicates across each closing stage.</p>
+            </div>
+            <div class="view-header-actions">
+              <button class="btn dash-btn-outline-sm" onclick="exportSeekerPipeline()">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Export Pipeline
+              </button>
+              <button class="btn btn-filled" data-tab="matches" style="font-size:13px; padding:8px 18px;">+ Browse More Capital</button>
+            </div>
+          </div>
+
+          <!-- Pipeline Metrics Strip -->
+          <div class="view-metrics-strip">
+            <div class="metric-box">
+              <span class="metric-label">Pipeline Depth</span>
+              <span class="metric-value">4 providers</span>
+              <span class="metric-trend">$375k total interest</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-label">In Active Diligence</span>
+              <span class="metric-value">1 fund</span>
+              <span class="metric-trend" style="color:#15803d;">Nile Horizon Capital</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-label">Term Sheet Progress</span>
+              <span class="metric-value">1 approved</span>
+              <span class="metric-trend" style="color:#15803d;">$50k non-dilutive grant</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-label">Next Scheduled Call</span>
+              <span class="metric-value">Thursday</span>
+              <span class="metric-trend">11:00 AM EAT · Diligence Q&amp;A</span>
+            </div>
+          </div>
+
+          <!-- Pipeline Toolbar -->
+          <div class="pipeline-toolbar">
+            <div class="pipeline-filter-tabs">
+              <button class="pipeline-filter-btn active" onclick="filterSeekerStage('all', this)">All Discussions (4)</button>
+              <button class="pipeline-filter-btn" onclick="filterSeekerStage('intro', this)">Intro Stage (1)</button>
+              <button class="pipeline-filter-btn" onclick="filterSeekerStage('diligence', this)">Data Room Review (2)</button>
+              <button class="pipeline-filter-btn" onclick="filterSeekerStage('termsheet', this)">Term Sheet (1)</button>
+            </div>
+            <div style="font-size: 13px; color: var(--color-slate-gray);">
+              💡 Change dropdown stage to update investor status
+            </div>
+          </div>
+
+          <!-- Pipeline Kanban Board -->
+          <div class="pipeline-board">
+
+            <!-- Column 1: Open Grants & Programs Applied -->
+            <div class="pipeline-col" id="col-intro">
+              <div class="pipeline-col-header">
+                <div class="pipeline-col-title-group">
+                  <span class="pipeline-col-title">1. Open Programs Applied</span>
+                  <span class="pipeline-col-count">2</span>
+                </div>
+              </div>
+
+              <div class="pipeline-cards-list">
+                <div class="pipeline-card" id="fcard-aecf">
+                  <div class="pipeline-card-top">
+                    <div>
+                      <h4 class="pipeline-card-name">AECF Catalytic Fund</h4>
+                      <div class="pipeline-card-meta">SME Matching Challenge · $100k</div>
+                    </div>
+                    <span class="pipeline-card-badge" style="background:#e0f2fe; color:#0369a1;">91% Fit</span>
+                  </div>
+                  <div class="pipeline-card-note">
+                    "Pre-qualification submitted. Automatic 1:1 matching grant triggered once institutional lead is finalized."
+                  </div>
+                  <div class="pipeline-card-footer">
+                    <select class="pipeline-stage-select" onchange="moveSeekerDeal(this, 'fcard-aecf')">
+                      <option value="intro" selected>Applied</option>
+                      <option value="diligence">Review</option>
+                      <option value="termsheet">Awarded</option>
+                    </select>
+                    <div class="pipeline-card-actions">
+                      <button class="btn dash-btn-outline-sm" onclick="showToast('Viewing AECF Application status')" style="font-size:11px; padding:3px 8px;">Status</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="pipeline-card" id="fcard-kifiya">
+                  <div class="pipeline-card-top">
+                    <div>
+                      <h4 class="pipeline-card-name">Kifiya Growth Debt</h4>
+                      <div class="pipeline-card-meta">Credit Facility · $75k facility</div>
+                    </div>
+                    <span class="pipeline-card-badge">89% Match</span>
+                  </div>
+                  <div class="pipeline-card-note">
+                    "Auditing monthly receivable receipts from Addis supermarket distribution contracts for pre-approval."
+                  </div>
+                  <div class="pipeline-card-footer">
+                    <select class="pipeline-stage-select" onchange="moveSeekerDeal(this, 'fcard-kifiya')">
+                      <option value="intro" selected>Applied</option>
+                      <option value="diligence">Review</option>
+                      <option value="termsheet">Approved</option>
+                    </select>
+                    <div class="pipeline-card-actions">
+                      <button class="btn dash-btn-outline-sm" onclick="showToast('Uploading invoices to Kifiya...')" style="font-size:11px; padding:3px 8px;">Upload Invoices</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Column 2: Inbound Investor Intros & Diligence -->
+            <div class="pipeline-col" id="col-diligence">
+              <div class="pipeline-col-header">
+                <div class="pipeline-col-title-group">
+                  <span class="pipeline-col-title">2. Inbound Investor Intros</span>
+                  <span class="pipeline-col-count" style="background:#fbe1d1; color:#5d2a1a;">1 Active</span>
+                </div>
+              </div>
+
+              <div class="pipeline-cards-list">
+                <div class="pipeline-card" id="fcard-nile" style="border:1.5px solid var(--color-sienna-brown);">
+                  <div class="pipeline-card-top">
+                    <div>
+                      <h4 class="pipeline-card-name">Nile Horizon Capital</h4>
+                      <div class="pipeline-card-meta">VC · Amara Okonkwo (Principal)</div>
+                    </div>
+                    <span class="pipeline-card-badge" style="background:#fbe1d1; color:#5d2a1a;">⚡ Inbound Request</span>
+                  </div>
+                  <div class="pipeline-card-note">
+                    "Amara Okonkwo requested an introduction to discuss your $150k Seed round. Scheduled 30-min diligence call for Thursday."
+                  </div>
+                  <div class="pipeline-card-footer">
+                    <select class="pipeline-stage-select" onchange="moveSeekerDeal(this, 'fcard-nile')">
+                      <option value="intro">Applied</option>
+                      <option value="diligence" selected>In Diligence</option>
+                      <option value="termsheet">Term Sheet</option>
+                    </select>
+                    <div class="pipeline-card-actions">
+                      <button class="btn dash-btn-outline-sm" onclick="openScheduleModal()" style="font-size:11px; padding:3px 8px;">Calendar</button>
+                      <button class="btn btn-filled" data-tab="messages" style="font-size:11px; padding:3px 8px; background:var(--color-sienna-brown); border-color:var(--color-sienna-brown); color:#fff;">Deal Room</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Column 3: Term Sheet & Award -->
+            <div class="pipeline-col" id="col-termsheet">
+              <div class="pipeline-col-header">
+                <div class="pipeline-col-title-group">
+                  <span class="pipeline-col-title">3. Term Sheet / Award</span>
+                  <span class="pipeline-col-count" style="background:#dcfce7; color:#15803d;">1</span>
+                </div>
+              </div>
+
+              <div class="pipeline-cards-list">
+                <div class="pipeline-card" id="fcard-grant">
+                  <div class="pipeline-card-top">
+                    <div>
+                      <h4 class="pipeline-card-name">East Africa Green Growth</h4>
+                      <div class="pipeline-card-meta">Non-dilutive Grant · $50k</div>
+                    </div>
+                    <span class="pipeline-card-badge" style="background:#dcfce7; color:#15803d;">Award Approved</span>
+                  </div>
+                  <div class="pipeline-card-note">
+                    "Stage 1 grant agreement approved. $50k non-dilutive award locked pending bank disbursement validation."
+                  </div>
+                  <div class="pipeline-card-footer">
+                    <select class="pipeline-stage-select" onchange="moveSeekerDeal(this, 'fcard-grant')">
+                      <option value="intro">Applied</option>
+                      <option value="diligence">Review</option>
+                      <option value="termsheet" selected>Awarded</option>
+                    </select>
+                    <div class="pipeline-card-actions">
+                      <button class="btn btn-filled" onclick="showToast('Opening Grant Agreement PDF...')" style="font-size:11px; padding:3px 8px;">Review Agreement</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div><!-- end view-pipeline -->
+
+
+        <!-- ========================================================
+             INTERFACE 3: "DATA ROOM & VAULT" (DUE DILIGENCE HUB)
+             ======================================================== -->
+        <div class="dash-view" id="view-dataroom">
+          <div class="view-header">
+            <div class="view-header-left">
+              <div class="view-pretitle">Institutional Compliance Vault</div>
+              <h1 class="view-title">Due Diligence Data Room</h1>
+              <p class="view-subtitle">Manage confidential files, audit investor access logs, and enforce NDA protection on proprietary models.</p>
+            </div>
+            <div class="view-header-actions">
+              <button class="btn btn-filled" onclick="openUploadModal()" style="font-size:13px; padding:8px 18px;">
+                + Upload Document
+              </button>
+            </div>
+          </div>
+
+          <!-- Data Room Metrics Bar -->
+          <div class="view-metrics-strip">
+            <div class="metric-box">
+              <span class="metric-label">Vault Status</span>
+              <span class="metric-value">6 documents</span>
+              <span class="metric-trend" style="color:#15803d;">All verified institutional grade</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-label">Active NDA Grants</span>
+              <span class="metric-value">3 funds</span>
+              <span class="metric-trend">Nile Horizon, AfriVentures, Green</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-label">Total Document Views</span>
+              <span class="metric-value">74 reads</span>
+              <span class="metric-trend">+18 views this week</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-label">Audit Certification</span>
+              <span class="metric-value">Clean</span>
+              <span class="metric-trend" style="color:#15803d;">KPMG verified 2026 projections</span>
+            </div>
+          </div>
+
+          <!-- Document List -->
+          <div class="dataroom-grid">
+
+            <!-- File 1: Pitch Deck -->
+            <div class="dataroom-card">
+              <div class="doc-info-wrap">
+                <div class="doc-type-icon">PDF</div>
+                <div class="doc-text">
+                  <div class="doc-title">Kebede_Foods_PitchDeck_v3.pdf</div>
+                  <div class="doc-meta">
+                    <span>12.4 MB</span>
+                    <span>·</span>
+                    <span>Updated today</span>
+                    <span>·</span>
+                    <span style="color:#15803d; font-weight:500;">42 investor views</span>
+                    <span>·</span>
+                    <span class="doc-perm-badge doc-perm-nda">Diligence NDA Required</span>
+                  </div>
+                </div>
+              </div>
+              <div class="dataroom-actions">
+                <button class="btn dash-btn-outline-sm" onclick="showToast('Opening Pitch Deck preview...')">Preview</button>
+                <button class="btn dash-btn-outline-sm" onclick="showToast('Downloading Pitch Deck...')">Download</button>
+                <button class="btn dash-btn-view" onclick="showToast('Access Permissions: Nile Horizon (Active), AfriVentures (Active)')">Permissions</button>
+              </div>
+            </div>
+
+            <!-- File 2: Financial Model -->
+            <div class="dataroom-card">
+              <div class="doc-info-wrap">
+                <div class="doc-type-icon" style="color:#047857; background:#ecfdf5;">XLSX</div>
+                <div class="doc-text">
+                  <div class="doc-title">Financial_Model_2026_Projections.xlsx</div>
+                  <div class="doc-meta">
+                    <span>4.8 MB</span>
+                    <span>·</span>
+                    <span>Audited figures · Updated yesterday</span>
+                    <span>·</span>
+                    <span style="color:#15803d; font-weight:500;">18 investor views</span>
+                    <span>·</span>
+                    <span class="doc-perm-badge doc-perm-nda">Diligence NDA Required</span>
+                  </div>
+                </div>
+              </div>
+              <div class="dataroom-actions">
+                <button class="btn dash-btn-outline-sm" onclick="showToast('Opening Excel spreadsheet model...')">Preview</button>
+                <button class="btn dash-btn-outline-sm" onclick="showToast('Downloading Financial Model...')">Download</button>
+                <button class="btn dash-btn-view" onclick="showToast('Permissions: Nile Horizon (Approved)')">Permissions</button>
+              </div>
+            </div>
+
+            <!-- File 3: Cap Table -->
+            <div class="dataroom-card">
+              <div class="doc-info-wrap">
+                <div class="doc-type-icon">PDF</div>
+                <div class="doc-text">
+                  <div class="doc-title">Cap_Table_Fully_Diluted_2026.pdf</div>
+                  <div class="doc-meta">
+                    <span>1.2 MB</span>
+                    <span>·</span>
+                    <span>Fully diluted shareholding</span>
+                    <span>·</span>
+                    <span style="color:#15803d; font-weight:500;">8 investor views</span>
+                    <span>·</span>
+                    <span class="doc-perm-badge doc-perm-verified">Lead Investor Only</span>
+                  </div>
+                </div>
+              </div>
+              <div class="dataroom-actions">
+                <button class="btn dash-btn-outline-sm" onclick="showToast('Opening Cap Table preview...')">Preview</button>
+                <button class="btn dash-btn-outline-sm" onclick="showToast('Downloading Cap Table...')">Download</button>
+                <button class="btn dash-btn-view" onclick="showToast('Permissions: Restricted to Nile Horizon Capital')">Permissions</button>
+              </div>
+            </div>
+
+            <!-- File 4: Commercial Export Off-Take Contracts -->
+            <div class="dataroom-card">
+              <div class="doc-info-wrap">
+                <div class="doc-type-icon">PDF</div>
+                <div class="doc-text">
+                  <div class="doc-title">Commercial_Export_Contracts_EU.pdf</div>
+                  <div class="doc-meta">
+                    <span>8.6 MB</span>
+                    <span>·</span>
+                    <span>3 signed purchase orders ($140k locked revenue)</span>
+                    <span>·</span>
+                    <span class="doc-perm-badge doc-perm-nda">Diligence NDA Required</span>
+                  </div>
+                </div>
+              </div>
+              <div class="dataroom-actions">
+                <button class="btn dash-btn-outline-sm" onclick="showToast('Opening export agreements preview...')">Preview</button>
+                <button class="btn dash-btn-outline-sm" onclick="showToast('Downloading contracts...')">Download</button>
+                <button class="btn dash-btn-view" onclick="showToast('Permissions: Nile Horizon (Approved)')">Permissions</button>
+              </div>
+            </div>
+
+            <!-- File 5: Company Registration -->
+            <div class="dataroom-card">
+              <div class="doc-info-wrap">
+                <div class="doc-type-icon" style="color:#0369a1; background:#f0f9ff;">PDF</div>
+                <div class="doc-text">
+                  <div class="doc-title">Company_Registration_Tax_Compliance.pdf</div>
+                  <div class="doc-meta">
+                    <span>2.1 MB</span>
+                    <span>·</span>
+                    <span>Ministry of Trade &amp; Customs certified</span>
+                    <span>·</span>
+                    <span class="doc-perm-badge doc-perm-public">Public / Verified</span>
+                  </div>
+                </div>
+              </div>
+              <div class="dataroom-actions">
+                <button class="btn dash-btn-outline-sm" onclick="showToast('Opening tax & registration certificate...')">Preview</button>
+                <button class="btn dash-btn-outline-sm" onclick="showToast('Downloading certificate...')">Download</button>
+              </div>
+            </div>
+
+          </div>
+        </div><!-- end view-dataroom -->
+
+
+        <!-- ========================================================
+             INTERFACE 4: "DEAL ROOMS & CHAT" (FOUNDER WORKSPACE)
+             ======================================================== -->
+        <div class="dash-view" id="view-messages">
+          <div class="view-header">
+            <div class="view-header-left">
+              <div class="view-pretitle">Confidential Diligence Discussions</div>
+              <h1 class="view-title">Investor Deal Rooms &amp; Messages</h1>
+              <p class="view-subtitle">Coordinate directly with prospective leads, answer technical diligence questions, and finalize term sheet covenants.</p>
+            </div>
+            <div class="view-header-actions">
+              <button class="btn dash-btn-outline-sm" onclick="openScheduleModal()">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                Calendar Availability
+              </button>
+            </div>
+          </div>
+
+          <!-- Split-pane Deal Room Container -->
+          <div class="dealroom-container">
+
+            <!-- Left Sidebar: Threads List -->
+            <div class="dealroom-sidebar">
+              <div class="dealroom-search-bar">
+                <input type="text" placeholder="Filter investor discussions..." class="dealroom-search-input" />
+              </div>
+
+              <div class="dealroom-threads-list">
+                <!-- Thread 1: Nile Horizon Capital (Active) -->
+                <div class="dealroom-thread-item active">
+                  <div class="thread-avatar" style="background:var(--color-blush-peach); color:var(--color-sienna-brown);">NH</div>
+                  <div class="thread-content">
+                    <div class="thread-header-row">
+                      <span class="thread-name">Amara Okonkwo · Nile Horizon</span>
+                      <span class="thread-time">12m ago</span>
+                    </div>
+                    <p class="thread-snippet">Could you share the latest breakdown of your Q3 audited revenue?</p>
+                    <div class="thread-tag-row">
+                      <span class="convo-badge badge-active" style="font-size:10px;">In Diligence</span>
+                      <span class="dash-mini-card-sub">Seed · $150k</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Thread 2: AfriVentures Seed -->
+                <div class="dealroom-thread-item">
+                  <div class="thread-avatar" style="background:#dbeafe; color:#1e40af;">AV</div>
+                  <div class="thread-content">
+                    <div class="thread-header-row">
+                      <span class="thread-name">Tunde Adebayo · AfriVentures</span>
+                      <span class="thread-time">Yesterday</span>
+                    </div>
+                    <p class="thread-snippet">Thanks for the deck. Would love to review the cap table.</p>
+                    <div class="thread-tag-row">
+                      <span class="convo-badge badge-waiting" style="font-size:10px;">Access Pending</span>
+                      <span class="dash-mini-card-sub">Seed Co-invest</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Thread 3: East Africa Green Grant -->
+                <div class="dealroom-thread-item">
+                  <div class="thread-avatar" style="background:#dcfce7; color:#15803d;">EG</div>
+                  <div class="thread-content">
+                    <div class="thread-header-row">
+                      <span class="thread-name">Grant Secretariat · Green Growth</span>
+                      <span class="thread-time">2d ago</span>
+                    </div>
+                    <p class="thread-snippet">Stage 1 application passed technical review.</p>
+                    <div class="thread-tag-row">
+                      <span class="convo-badge badge-new" style="font-size:10px;">Approved</span>
+                      <span class="dash-mini-card-sub">$50k Grant</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Chat Messages Body -->
+            <div class="dealroom-chat-main">
+              <div class="dealroom-chat-header">
+                <div class="chat-header-info">
+                  <div class="thread-avatar" style="width:36px; height:36px; background:var(--color-blush-peach); color:var(--color-sienna-brown);">NH</div>
+                  <div>
+                    <h3 class="chat-header-title">Amara Okonkwo · Nile Horizon Capital</h3>
+                    <div class="chat-header-meta">Principal · Lead Seed Investor · East &amp; West Africa Mandate · 🟢 Online</div>
+                  </div>
+                </div>
+                <div style="display:flex; gap:8px;">
+                  <button class="btn dash-btn-outline-sm" onclick="openScheduleModal()">📅 Book Call</button>
+                  <button class="btn btn-filled" onclick="grantDataRoomAccess('Nile Horizon Capital')" style="font-size:12px; padding:6px 14px;">Grant Full Data Room</button>
+                </div>
+              </div>
+
+              <div class="dealroom-chat-body" id="seeker-chat-msgs">
+                <div class="chat-msg received">
+                  <div class="chat-msg-bubble">
+                    Hello Dawit, thank you for connecting on Finance Connect. We're very impressed by your unit economics in East African agro-processing and your MoM revenue acceleration.
+                  </div>
+                  <span class="chat-msg-time">Yesterday 11:20 AM</span>
+                </div>
+
+                <div class="chat-msg received">
+                  <div class="chat-msg-bubble">
+                    We've reviewed your company overview. Could you share the latest breakdown of your Q3 audited revenue and customer concentration across the supermarket chains?
+                  </div>
+                  <span class="chat-msg-time">Yesterday 2:45 PM</span>
+                </div>
+
+                <div class="chat-msg sent">
+                  <div class="chat-msg-bubble">
+                    Hi Amara, pleasure connecting! Absolutely. We just uploaded our updated 2026 projections model and pitch deck v3 to the Data Room with complete supermarket distribution contract breakdowns.
+                  </div>
+                  <span class="chat-msg-time">Today 10:15 AM · Delivered</span>
+                </div>
+
+                <div class="chat-msg received">
+                  <div class="chat-msg-bubble">
+                    Excellent, reviewing the model now with our analytics associate. Let's schedule a 30-min diligence call this Thursday — any availability before noon EAT?
+                  </div>
+                  <span class="chat-msg-time">12m ago</span>
+                </div>
+              </div>
+
+              <!-- Chat Input Bar -->
+              <div class="dealroom-chat-input-bar">
+                <div style="display:flex; gap:8px; margin-bottom:8px; overflow-x:auto;">
+                  <button class="btn dash-btn-outline-sm" style="font-size:11px; padding:4px 10px;" onclick="sendSeekerQuickReply('Thursday 11:00 AM EAT works perfectly for our team. I will send over a calendar invite.')">
+                    📅 Confirm Thursday 11:00 AM EAT
+                  </button>
+                  <button class="btn dash-btn-outline-sm" style="font-size:11px; padding:4px 10px;" onclick="sendSeekerQuickReply('I have also granted full Data Room access to your two investment analysts.')">
+                    📂 Grant Analyst Access
+                  </button>
+                  <button class="btn dash-btn-outline-sm" style="font-size:11px; padding:4px 10px;" onclick="sendSeekerQuickReply('Could you confirm your fund\'s standard timeline for issuing a non-binding term sheet?')">
+                    📝 Ask Term Sheet Timeline
+                  </button>
+                </div>
+
+                <div style="display:flex; gap:10px; align-items:center;">
+                  <input type="text" id="seeker-chat-input" placeholder="Type your message to Amara Okonkwo..." class="chat-input" onkeydown="if(event.key==='Enter') sendSeekerChatMessage()" />
+                  <button class="btn btn-filled" onclick="sendSeekerChatMessage()" style="padding:10px 18px;">Send</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div><!-- end view-messages -->
+
+
+        <!-- ========================================================
+             INTERFACE 5: "COMPANY & PITCH" (FOUNDER PROFILE)
+             ======================================================== -->
+        <div class="dash-view" id="view-profile">
+          <div class="view-header">
+            <div class="view-header-left">
+              <div class="view-pretitle">Institutional Pitch Profile</div>
+              <h1 class="view-title">Kebede Organic Foods · Seed Stage</h1>
+              <p class="view-subtitle">This profile is indexed by institutional AI match engines to calibrate ticket size, sector moat, and traction velocity.</p>
+            </div>
+            <div class="view-header-actions">
+              <button class="btn btn-filled" onclick="showToast('Profile changes saved successfully')" style="font-size:13px; padding:8px 18px;">
+                Edit Profile
+              </button>
+            </div>
+          </div>
+
+          <div class="profile-layout">
+            <!-- Left Column: Company Identity -->
+            <div class="profile-identity-card">
+              <div class="thread-avatar" style="width:72px; height:72px; font-size:24px; background:var(--color-sienna-brown); color:#fff; margin:0 auto 12px;">KF</div>
+              <div>
+                <h3 style="font-family:var(--font-display); font-size:22px; margin:0; color:var(--color-ink-black);">Kebede Organic Foods</h3>
+                <p style="font-size:13px; color:var(--color-slate-gray); margin:4px 0 0 0;">Dawit Kebede · Founder &amp; CEO</p>
+                <p style="font-size:12px; color:var(--color-ash-gray); margin:2px 0 0 0;">Addis Ababa &amp; Oromia Region, Ethiopia</p>
+              </div>
+
+              <div class="profile-badge-row">
+                <span class="verified-pill">✓ Verified Business</span>
+                <span class="verified-pill">✓ KYC / AML Cleared</span>
+                <span class="verified-pill">✓ 42 Co-ops Onboarded</span>
+              </div>
+
+              <!-- Round Summary Box -->
+              <div style="width:100%; text-align:left; background:var(--color-fog-white); border:1px solid var(--color-border); border-radius:12px; padding:16px;">
+                <div style="font-size:11px; text-transform:uppercase; letter-spacing:0.04em; color:var(--color-slate-gray); margin-bottom:8px;">Current Financing Round</div>
+                <div style="display:flex; justify-content:space-between; margin-bottom:6px; font-size:13px;">
+                  <span style="color:var(--color-slate-gray);">Target Ask:</span>
+                  <strong style="color:var(--color-ink-black);">USD 150,000</strong>
+                </div>
+                <div style="display:flex; justify-content:space-between; margin-bottom:6px; font-size:13px;">
+                  <span style="color:var(--color-slate-gray);">Soft-Circled:</span>
+                  <strong style="color:#15803d;">$45,000 (30%)</strong>
+                </div>
+                <div style="display:flex; justify-content:space-between; margin-bottom:6px; font-size:13px;">
+                  <span style="color:var(--color-slate-gray);">Instrument:</span>
+                  <span style="color:var(--color-ink-black);">Seed Equity + Grant</span>
+                </div>
+                <div style="display:flex; justify-content:space-between; font-size:13px;">
+                  <span style="color:var(--color-slate-gray);">Pre-money Cap:</span>
+                  <span style="color:var(--color-ink-black);">$1.2M SAFE / Note</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: Business Overview & Traction -->
+            <div class="profile-sections-flow">
+              <div class="profile-box">
+                <h3 style="font-family:var(--font-display); font-size:18px; margin:0 0 8px 0; color:var(--color-ink-black);">Executive Summary &amp; Value Proposition</h3>
+                <p style="font-size:14px; color:var(--color-ink-black); line-height:1.6; margin:0;">
+                  Kebede Organic Foods operates a decentralized cold storage and direct-to-retail agro-processing platform. We eliminate the 38% post-harvest spoilage common in East African high-value horticulture, securing verified export contracts to European gourmet roasters and 12 premium supermarket chains in Addis Ababa.
+                </p>
+              </div>
+
+              <!-- Key Traction Matrix -->
+              <div class="profile-box">
+                <h3 style="font-family:var(--font-display); font-size:18px; margin:0 0 12px 0; color:var(--color-ink-black);">Verified Operational Traction</h3>
+                <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:12px;">
+                  <div style="background:var(--color-fog-white); border:1px solid var(--color-border); border-radius:10px; padding:12px; text-align:center;">
+                    <div style="font-size:11px; text-transform:uppercase; color:var(--color-slate-gray);">Monthly Revenue</div>
+                    <div style="font-size:18px; font-weight:700; color:var(--color-ink-black); margin-top:2px;">$18.4k MRR</div>
+                    <div style="font-size:10px; color:#15803d; margin-top:2px;">+14% MoM growth</div>
+                  </div>
+                  <div style="background:var(--color-fog-white); border:1px solid var(--color-border); border-radius:10px; padding:12px; text-align:center;">
+                    <div style="font-size:11px; text-transform:uppercase; color:var(--color-slate-gray);">Farmer Network</div>
+                    <div style="font-size:18px; font-weight:700; color:var(--color-ink-black); margin-top:2px;">42 Co-ops</div>
+                    <div style="font-size:10px; color:var(--color-slate-gray); margin-top:2px;">850+ smallholders</div>
+                  </div>
+                  <div style="background:var(--color-fog-white); border:1px solid var(--color-border); border-radius:10px; padding:12px; text-align:center;">
+                    <div style="font-size:11px; text-transform:uppercase; color:var(--color-slate-gray);">Export Off-Takes</div>
+                    <div style="font-size:18px; font-weight:700; color:var(--color-ink-black); margin-top:2px;">$140,000</div>
+                    <div style="font-size:10px; color:#15803d; margin-top:2px;">Signed EU contracts</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Use of Funds -->
+              <div class="profile-box">
+                <h3 style="font-family:var(--font-display); font-size:18px; margin:0 0 12px 0; color:var(--color-ink-black);">Use of Proceeds ($150k Seed)</h3>
+                <div style="display:flex; flex-direction:column; gap:8px;">
+                  <div>
+                    <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:4px;">
+                      <span>50% · Solar Cold-Storage Locker Expansion (3 new hubs)</span>
+                      <strong>$75,000</strong>
+                    </div>
+                    <div style="height:6px; background:#e5e7eb; border-radius:999px; overflow:hidden;">
+                      <div style="width:50%; height:100%; background:var(--color-ink-black);"></div>
+                    </div>
+                  </div>
+                  <div>
+                    <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:4px;">
+                      <span>30% · Working Capital &amp; Direct Farmer Crop Purchasing</span>
+                      <strong>$45,000</strong>
+                    </div>
+                    <div style="height:6px; background:#e5e7eb; border-radius:999px; overflow:hidden;">
+                      <div style="width:30%; height:100%; background:#2563eb;"></div>
+                    </div>
+                  </div>
+                  <div>
+                    <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:4px;">
+                      <span>20% · Organic Export Certification &amp; EU Logistics</span>
+                      <strong>$30,000</strong>
+                    </div>
+                    <div style="height:6px; background:#e5e7eb; border-radius:999px; overflow:hidden;">
+                      <div style="width:20%; height:100%; background:#16a34a;"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div><!-- end view-profile -->
+
+      </main>
+    </div>
+  </div>
+
+  <!-- ── MODAL: PROVIDER MANDATE MEMO ── -->
+  <div class="dash-modal-overlay" id="dash-provider-modal" onclick="closeProviderModal(event)">
+    <div class="dash-modal" onclick="event.stopPropagation()">
+      <div class="dash-modal-header">
+        <div>
+          <span class="dash-badge" id="modal-provider-badge" style="margin-bottom:6px; display:inline-block;">Venture Capital</span>
+          <h2 style="font-family:var(--font-display); font-size:22px; margin:0; color:var(--color-ink-black);" id="modal-provider-title">Nile Horizon Capital</h2>
+          <p style="font-size:13px; color:var(--color-slate-gray); margin-top:3px;" id="modal-provider-subtitle">Amara Okonkwo · East &amp; West Africa Mandate</p>
+        </div>
+        <button class="dash-nav-icon-btn" onclick="closeProviderModal()" aria-label="Close modal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div class="dash-modal-body">
+        <div style="display:flex; align-items:center; justify-content:space-between; background:var(--color-fog-white); border:1px solid var(--color-border); border-radius:12px; padding:14px 18px;">
+          <div>
+            <div style="font-size:11px; text-transform:uppercase; color:var(--color-slate-gray);">AI Compatibility Fit</div>
+            <div style="font-size:18px; font-weight:700; color:var(--color-sienna-brown);" id="modal-fit-score">96% Mandate Match</div>
+          </div>
+          <span class="ai-match-badge highlight" id="modal-funder-tag">Lead Investor Profile</span>
+        </div>
+
+        <div>
+          <h4 style="font-size:14px; margin-bottom:6px;">Investment Mandate Scope</h4>
+          <p style="font-size:13px; color:var(--color-slate-gray); line-height:1.55;" id="modal-provider-desc">
+            Nile Horizon backs scalable market infrastructure across agriculture, logistics, and fintech in East and West Africa. They lead rounds between $50k and $250k with strong follow-on co-investment syndicate access.
+          </p>
+        </div>
+
+        <div style="background:#fafafc; border:1px solid var(--color-border); border-radius:12px; padding:16px;">
+          <h4 style="font-size:13px; margin-bottom:8px;">Mandate Fit Dimensions</h4>
+          <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:10px; text-align:center;">
+            <div style="background:#fff; border:1px solid var(--color-border); border-radius:8px; padding:10px;">
+              <div style="font-size:10px; color:var(--color-slate-gray); text-transform:uppercase;">Check Size</div>
+              <div style="font-size:14px; font-weight:700; color:#15803d; margin-top:2px;">100% Fit</div>
+            </div>
+            <div style="background:#fff; border:1px solid var(--color-border); border-radius:8px; padding:10px;">
+              <div style="font-size:10px; color:var(--color-slate-gray); text-transform:uppercase;">Sector Moat</div>
+              <div style="font-size:14px; font-weight:700; color:var(--color-ink-black); margin-top:2px;">98% Vector</div>
+            </div>
+            <div style="background:#fff; border:1px solid var(--color-border); border-radius:8px; padding:10px;">
+              <div style="font-size:10px; color:var(--color-slate-gray); text-transform:uppercase;">Traction Velocity</div>
+              <div style="font-size:14px; font-weight:700; color:var(--color-sienna-brown); margin-top:2px;">95% Decile</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dash-modal-footer">
+        <button class="btn dash-btn-outline-sm" onclick="grantDataRoomAccess('Nile Horizon Capital')">Grant Data Room</button>
+        <div style="display:flex; gap:8px;">
+          <button class="btn dash-btn-outline-sm" onclick="openScheduleModal()">Schedule Call</button>
+          <button class="btn btn-filled" onclick="openChatFromModal()">Message Provider</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TOAST NOTIFICATION ── -->
+  <div class="dash-toast" id="dash-toast"></div>
+
+  <!-- ── JAVASCRIPT LOGIC ── -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Tab Navigation
+      const navItems = document.querySelectorAll('.dash-nav-item[data-tab]');
+      const views = document.querySelectorAll('.dash-view');
+
+      function switchTab(tabId) {
+        views.forEach(v => v.classList.remove('dash-view-active'));
+        navItems.forEach(n => n.classList.remove('dash-nav-item-active'));
+
+        const targetView = document.getElementById('view-' + tabId);
+        const targetNav = document.getElementById('nav-' + tabId);
+
+        if (targetView) targetView.classList.add('dash-view-active');
+        if (targetNav) targetNav.classList.add('dash-nav-item-active');
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      navItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+          e.preventDefault();
+          const tab = this.getAttribute('data-tab');
+          if (tab) switchTab(tab);
+        });
+      });
+
+      document.querySelectorAll('[data-tab]').forEach(btn => {
+        if (!btn.classList.contains('dash-nav-item')) {
+          btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const tab = this.getAttribute('data-tab');
+            if (tab) switchTab(tab);
+          });
+        }
+      });
+
+      // User capsule dropdown
+      const capsuleBtn = document.getElementById('dash-user-capsule-btn');
+      const userMenu = document.getElementById('dash-user-menu');
+      if (capsuleBtn && userMenu) {
+        capsuleBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          userMenu.classList.toggle('open');
+          capsuleBtn.classList.toggle('active');
+        });
+      }
+
+      // Popovers close on outside click
+      document.addEventListener('click', () => {
+        if (userMenu) userMenu.classList.remove('open');
+        if (capsuleBtn) capsuleBtn.classList.remove('active');
+        const basket = document.getElementById('dash-basket-popover');
+        const notif = document.getElementById('dash-notif-popover');
+        if (basket) basket.classList.remove('open');
+        if (notif) notif.classList.remove('open');
+      });
+
+      // Target basket popover
+      const basketBtn = document.getElementById('dash-basket-btn');
+      const basketPopover = document.getElementById('dash-basket-popover');
+      if (basketBtn && basketPopover) {
+        basketBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          basketPopover.classList.toggle('open');
+        });
+      }
+
+      // Notification popover
+      const bellBtn = document.getElementById('dash-bell-btn');
+      const notifPopover = document.getElementById('dash-notif-popover');
+      if (bellBtn && notifPopover) {
+        bellBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          notifPopover.classList.toggle('open');
+        });
+      }
+
+      // Mobile sidebar toggle
+      const sidebarToggle = document.getElementById('dash-sidebar-toggle');
+      const sidebar = document.getElementById('dash-sidebar');
+      const backdrop = document.getElementById('sidebar-backdrop');
+      if (sidebarToggle && sidebar && backdrop) {
+        sidebarToggle.addEventListener('click', () => {
+          sidebar.classList.toggle('open');
+          backdrop.classList.toggle('open');
+        });
+        backdrop.addEventListener('click', () => {
+          sidebar.classList.remove('open');
+          backdrop.classList.remove('open');
+        });
+      }
+
+      // Toast Notification function
+      window.showToast = function(msg) {
+        const toast = document.getElementById('dash-toast');
+        if (!toast) return;
+        toast.textContent = msg;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3200);
+      };
+
+      // Modal functions
+      window.openProviderModal = function(id) {
+        const modal = document.getElementById('dash-provider-modal');
+        if (!modal) return;
+        modal.classList.add('open');
+      };
+
+      window.closeProviderModal = function(e) {
+        if (e && e.target !== e.currentTarget && !e.target.closest('button')) return;
+        const modal = document.getElementById('dash-provider-modal');
+        if (modal) modal.classList.remove('open');
+      };
+
+      window.grantDataRoomAccess = function(providerName) {
+        showToast('✓ Granted Full Due Diligence Access to ' + providerName);
+        closeProviderModal();
+      };
+
+      window.sendIntroRequest = function(funder) {
+        showToast('Intro request dispatched to ' + funder);
+      };
+
+      window.addToOutreach = function(funder) {
+        showToast(funder + ' saved to target outreach pipeline');
+      };
+
+      window.openScheduleModal = function() {
+        showToast('Opening Calendar: 30-min diligence call scheduler');
+      };
+
+      window.openUploadModal = function() {
+        showToast('Opening secure document upload dialog');
+      };
+
+      window.exportSeekerPipeline = function() {
+        showToast('Exporting outreach funnel to CSV / Excel...');
+      };
+
+      window.openChatFromModal = function() {
+        closeProviderModal();
+        switchTab('messages');
+      };
+
+      // Seeker Chat Interaction
+      window.sendSeekerChatMessage = function() {
+        const input = document.getElementById('seeker-chat-input');
+        if (!input || !input.value.trim()) return;
+        const text = input.value.trim();
+        input.value = '';
+
+        const chatBody = document.getElementById('seeker-chat-msgs');
+        if (!chatBody) return;
+
+        const sentMsg = document.createElement('div');
+        sentMsg.className = 'chat-msg sent';
+        sentMsg.innerHTML = `
+          <div class="chat-msg-bubble">${text}</div>
+          <span class="chat-msg-time">Just now · Delivered</span>
+        `;
+        chatBody.appendChild(sentMsg);
+        chatBody.scrollTop = chatBody.scrollHeight;
+
+        // Auto simulated response from Amara Okonkwo
+        setTimeout(() => {
+          const reply = document.createElement('div');
+          reply.className = 'chat-msg received';
+          reply.innerHTML = `
+            <div class="chat-msg-bubble">
+              Thank you Dawit, received! Our investment committee will review these numbers and we will connect Thursday at 11:00 AM EAT.
+            </div>
+            <span class="chat-msg-time">Just now</span>
+          `;
+          chatBody.appendChild(reply);
+          chatBody.scrollTop = chatBody.scrollHeight;
+        }, 1100);
+      };
+
+      window.sendSeekerQuickReply = function(text) {
+        const input = document.getElementById('seeker-chat-input');
+        if (input) {
+          input.value = text;
+          sendSeekerChatMessage();
+        }
+      };
+
+      // Stage mover
+      window.moveSeekerDeal = function(selectEl, cardId) {
+        const stage = selectEl.value;
+        const card = document.getElementById(cardId);
+        const colIntro = document.querySelector('#col-intro .pipeline-cards-list');
+        const colDiligence = document.querySelector('#col-diligence .pipeline-cards-list');
+        const colTermsheet = document.querySelector('#col-termsheet .pipeline-cards-list');
+
+        if (!card) return;
+
+        if (stage === 'intro' && colIntro) colIntro.appendChild(card);
+        else if (stage === 'diligence' && colDiligence) colDiligence.appendChild(card);
+        else if (stage === 'termsheet' && colTermsheet) colTermsheet.appendChild(card);
+
+        showToast('Stage updated successfully');
+      };
+
+      // Filter Funders
+      window.filterFunders = function(el, type) {
+        document.querySelectorAll('.trending-pill').forEach(p => p.classList.remove('active-pill-tag'));
+        el.classList.add('active-pill-tag');
+
+        const cards = document.querySelectorAll('.opp-grid .opp-card');
+        cards.forEach(card => {
+          if (type === 'all' || card.getAttribute('data-type') === type) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      };
+
+      // AI Pitch Deck Audit simulation
+      window.runPitchAudit = function() {
+        const btn = document.getElementById('hero-pitch-audit-btn');
+        const icon = document.getElementById('audit-btn-icon');
+        const text = document.getElementById('audit-btn-text');
+
+        if (icon) icon.className = 'ai-scanning-state';
+        if (text) text.textContent = 'Auditing Deck Vectors...';
+
+        setTimeout(() => {
+          if (icon) icon.className = '';
+          if (text) text.textContent = 'AI Pitch Deck Audit';
+          showToast('✦ AI Pitch Audit Complete: Readiness increased to 94% (CAC-to-LTV verified)');
+        }, 1200);
+      };
+    });
+  </script>
+</body>
+</html>
